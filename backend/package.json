@@ -1,0 +1,28 @@
+{
+  "name": "explorer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/webpack/bin/webpack.js --config webpack.prod.js --progress --profile --colors --display-modules",
+    "start": "./node_modules/webpack/bin/webpack.js --config webpack.dev.js --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eska-common": "^1.0.4",
+    "ddk.registry": "git+https://github.com/AraiEzzra/DDK.REGISTRY.git"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10",
+    "nodemon-webpack-plugin": "^4.0.8",
+    "ts-loader": "^4.5.0",
+    "tslint": "^5.13.0",
+    "ts-node": "^8.2.0",
+    "typescript": "^3.5.1",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
