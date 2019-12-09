@@ -1,0 +1,143 @@
+import { makeStyles, Theme } from '@material-ui/core/styles';
+
+export const useStyles = makeStyles((theme: Theme) => ({
+    typography: {
+        alignSelf: 'stretch',
+        flexBasis: '9.62%!important',
+        flexGrow: 1,
+        flexShrink: 1,
+        marginLeft: '5.13%',
+        marginRight: '7.25%',
+        minWidth: '49.279998779296875px',
+        color: 'rgba(255, 255, 255, 0.5400000214576721)',
+        fontSize: '12px!important',
+        fontWeight: 400,
+        fontFamily: 'Roboto',
+        textAlign: 'center',
+        lineHeight: '16px',
+        letterSpacing: '0.4000000059604645px'
+    },
+    typography1: {
+        alignSelf: 'stretch',
+        flexBasis: '9.5%!important',
+        flexGrow: 1,
+        flexShrink: 1,
+        marginLeft: '7.25%',
+        marginRight: '7.19%',
+        minWidth: '48.63999938964844px',
+        color: 'rgba(255, 255, 255, 0.5400000214576721)',
+        fontSize: '12px!important',
+        fontWeight: 400,
+        fontFamily: 'Roboto',
+        textAlign: 'center',
+        lineHeight: '16px',
+        letterSpacing: '0.4000000059604645px'
+    },
+    typography2: {
+        alignSelf: 'stretch',
+        flexBasis: '9.75%!important',
+        flexGrow: 1,
+        flexShrink: 1,
+        marginLeft: '7.19%',
+        marginRight: '6.94%',
+        minWidth: '49.920013427734375px',
+        color: 'rgba(255, 255, 255, 0.5400000214576721)',
+        fontSize: '12px!important',
+        fontWeight: 400,
+        fontFamily: 'Roboto',
+        textAlign: 'center',
+        lineHeight: '16px',
+        letterSpacing: '0.4000000059604645px'
+    },
+    typography3: {
+        alignSelf: 'stretch',
+        flexBasis: '10.37%!important',
+        flexGrow: 1,
+        flexShrink: 1,
+        marginLeft: '6.94%',
+        marginRight: '12.88%',
+        minWidth: '53.1199951171875px',
+        color: 'rgba(255, 255, 255, 0.5400000214576721)',
+        fontSize: '12px!important',
+        fontWeight: 400,
+        fontFamily: 'Roboto',
+        textAlign: 'center',
+        lineHeight: '16px',
+        letterSpacing: '0.4000000059604645px'
+    },
+    root: {
+        flexBasis: '100%',
+        flexGrow: 0,
+        flexShrink: 1,
+        marginLeft: '0%',
+        marginRight: '0%',
+        marginTop: '0px',
+        marginBottom: '0px',
+        minHeight: '53px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        backgroundColor: 'rgba(0, 0, 0, 0)'
+    },
+    div: {
+        marginLeft: '0%',
+        marginRight: '0%',
+        marginTop: '0px',
+        marginBottom: '2px',
+        minHeight: '33px',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    vector249: {
+        alignSelf: 'flex-end',
+        marginBottom: '0px',
+        flexBasis: '0%!important',
+        flexGrow: 1,
+        flexShrink: 1,
+        marginLeft: '0%',
+        marginRight: '1%',
+        minHeight: '16px'
+    },
+    vector248: {
+        alignSelf: 'flex-end',
+        marginBottom: '0px',
+        flexBasis: '0%!important',
+        flexGrow: 1,
+        flexShrink: 1,
+        marginLeft: '1%',
+        marginRight: '1%',
+        minHeight: '16px'
+    },
+    vector244: {
+        alignSelf: 'stretch',
+        flexBasis: '0%!important',
+        flexGrow: 1,
+        flexShrink: 1,
+        marginLeft: '1%',
+        marginRight: '1%',
+        minHeight: '33px'
+    },
+    vector296: {
+        alignSelf: 'flex-end',
+        marginBottom: '0px',
+        flexBasis: '0%!important',
+        flexGrow: 1,
+        flexShrink: 1,
+        marginLeft: '1%',
+        marginRight: '0%',
+        minHeight: '16px'
+    },
+    div1: {
+        marginLeft: '0%',
+        marginRight: '0%',
+        marginTop: '2px',
+        marginBottom: '0px',
+        minHeight: '16px',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    }
+}));

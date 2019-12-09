@@ -1,3 +1,5 @@
 .idea
+.vagga
+.home
 dist
 node_modules

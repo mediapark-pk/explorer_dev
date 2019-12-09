@@ -1,0 +1,41 @@
+_vars:
+  app_env: &app_env
+    WORKSPACE: development
+    FRONTEND_PORT: 5000
+    FRONTEND_HOST: 0.0.0.0
+
+  app_env_dev: &app_env_dev
+    <<:
+    - *app_env
+
+_ignore-dirs:
+- .git
+
+containers:
+
+  frontend:
+    setup:
+    - !Alpine v3.7
+    - !Install [nodejs, git]
+    - !Depends frontend/package.json
+    - !Sh |
+        set -ex
+        cd /work/frontend
+        npm install
+    environ:
+      HOME: /work/frontend/.home
+
+commands:
+
+  frontend-dev: &frontend-dev !Command
+    description: Run dev frontend
+    container: frontend
+    work-dir: frontend
+    environ:
+      <<: *app_env_dev
+    run: npm run dev
+
+  run: !Supervise
+    description: Local development environment
+    children:
+      frontend-dev: *frontend-dev
