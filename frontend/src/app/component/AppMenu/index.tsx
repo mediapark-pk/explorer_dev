@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/app/component/AppMenu/style';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import { NavLink } from 'react-router-dom';
 
 interface IAppMenuProps {
 }
@@ -11,12 +10,12 @@ const AppMenu: React.FC<IAppMenuProps> = ({ }) => {
 
     return (
         <div className={classes.root} >
-            <Button className={classes.button}>Dashboard</Button>
-            <Button className={classes.button}>Delegates</Button>
-            <Button className={classes.button}>Transactions</Button>
-            <Button className={classes.button}>Blocks</Button>
-            <Button className={classes.button}>Addresses</Button>
-            <Button className={classes.button}>Statistic</Button>
+            <NavLink to="/dashboard"    className={classes.button} activeClassName={classes.active}>Dashboard</NavLink>
+            <NavLink to="/delegates"    className={classes.button} activeClassName={classes.active}>Delegates</NavLink>
+            <NavLink to="/transactions" className={classes.button} activeClassName={classes.active}>Transactions</NavLink>
+            <NavLink to="/blocks"       className={classes.button} activeClassName={classes.active}>Blocks</NavLink>
+            <NavLink to="/addresses"    className={classes.button} activeClassName={classes.active}>Addresses</NavLink>
+            <NavLink to="/statistics"   className={classes.button} activeClassName={classes.active}>Statistics</NavLink>
         </div>
     );
 };

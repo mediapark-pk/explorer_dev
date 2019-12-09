@@ -13,18 +13,13 @@ const Header: React.FC<IHeaderProps> = ({ }) => {
     const classes = useStyles({});
 
     return (
-        <div className={classes.root} >
-            <AppBar className={classes.appBar} >
-                <Toolbar
-                    className={classes.toolbar}
-                    classes={{ root: classes.root1 }}
-                >
-                    <DDKExplorerLogo />
-                    <AppMenu />
-                    <ProfileMenu />
-                </Toolbar>
-            </AppBar>
-        </div>
+        <AppBar className={classes.appBar} >
+            <Toolbar className={classes.toolbar} >
+                <DDKExplorerLogo />
+                <AppMenu />
+                <ProfileMenu />
+            </Toolbar>
+        </AppBar>
     );
 };
 

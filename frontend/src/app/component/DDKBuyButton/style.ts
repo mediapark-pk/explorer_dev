@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         letterSpacing: '0.75px',
         textTransform: 'capitalize'
     },
-    root: {
+    button: {
         minWidth: '154px',
         minHeight: '56px',
         display: 'flex',
@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         boxShadow: '0px -4px 8px rgba(0, 0, 0, 0.16)',
         borderRadius: '4px 4px 4px 4px'
     },
-    button: {
+    root: {
         
     }
 }));
