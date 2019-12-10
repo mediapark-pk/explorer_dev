@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         height: '56px',
         color: '#fff',
         fontSize: '12px!important',
-        padding: '25px 1%',
+        padding: '33px 1%',
         textTransform: 'uppercase',
         borderTop: '2px solid transparent',
         borderRadius: '0 0 2px 2px',
