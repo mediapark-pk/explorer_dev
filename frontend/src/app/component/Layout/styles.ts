@@ -27,15 +27,5 @@ export const useStyles = makeStyles((theme: Theme) => ({
         backgroundSize: '1872px 147px',
         backgroundPositionX: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0)'
-    },
-    div1: {
-        marginLeft: '0%',
-        marginRight: '0%',
-        marginTop: '28px',
-        marginBottom: '0px',
-        minHeight: '192px',
-        display: 'flex',
-        alignItems: 'stretch',
-        justifyContent: 'center'
     }
 }));

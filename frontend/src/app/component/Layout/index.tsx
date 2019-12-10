@@ -19,9 +19,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                     {children}
                 </main>
             </div>
-            <div className={classes.div1} >
-                <Footer />
-            </div>
+            <Footer />
         </div>
     );
 };

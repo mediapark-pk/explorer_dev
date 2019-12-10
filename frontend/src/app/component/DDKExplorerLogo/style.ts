@@ -10,5 +10,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
         marginRight: '10px',
     },
     text: {
+    },
+    img: {
+        width: '100%',
     }
 }));
