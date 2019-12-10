@@ -1,7 +1,7 @@
 {
-  "name": "Foo",
+  "name": "ddk-explorer-2",
   "version": "1.0.0",
-  "description": "",
+  "description": "DDK Explorer 2.0",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js --config webpack/prod.js --progress --profile --colors --display-modules",
@@ -29,7 +29,8 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.2",
     "socket.io-client": "^2.2.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "ui-kit": "file:../../ui-kit"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.8",
@@ -45,7 +46,7 @@
     "html-webpack-plugin": "3.2.0",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.21.0",
-    "stylelint": "8.0.0",
+    "stylelint": "^12.0.0",
     "stylelint-config-standard": "17.0.0",
     "ts-loader": "^4.5.0",
     "tslint": "^5.13.0",
