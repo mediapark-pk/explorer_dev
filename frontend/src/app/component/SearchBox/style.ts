@@ -23,6 +23,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     searchBoxIcon: {
         width: '24px',
         height: '24px',
+        opacity: 0.5,
    },
     searchInput: {
         flexGrow: 1,
