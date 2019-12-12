@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDI } from 'src/core/di';
 import { observer } from 'mobx-react-lite';
-import ModalManager, { ModalContext } from 'src/uikit/modal/ModalManager';
+import ModalManager, { ModalContext } from '../ModalManager';
 import Dialog from '@material-ui/core/Dialog';
 
 interface IModalContainerProps {

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
-import { useStyles } from 'src/uikit/AppTableTitle/styles';
+import { useStyles } from 'packages/ui-kit/AppTableTitle/styles';
 import { DataProviderContext } from 'src/core/data';
 
 interface IAppTableHeadProps {

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { useStyles } from 'src/uikit/AppTable/styles';
+import { useStyles } from 'packages/ui-kit/AppTable/styles';
 import { DataProvider, DataProviderContext } from 'src/core/data';
 import { useWebkitForceScroll } from 'src/app/component/Theme/theme';
 

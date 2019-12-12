@@ -4,11 +4,11 @@ import DelegatesBlock1 from 'src/pages/addresses/component/DelegatesBlock1';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Add from '@material-ui/icons/Add';
-import AppTable from 'src/uikit/AppTable';
+import AppTable from 'ui-kit/AppTable';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import AppTableBody from 'src/uikit/AppTableBody';
+import AppTableBody from 'ui-kit/AppTableBody';
 import TableRowDelegates4 from 'src/pages/addresses/component/TableRowDelegates4';
 
 interface IAddresses13Props {

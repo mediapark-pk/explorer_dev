@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'src/app/component/DDKBuyPopup/style';
 import Button from '@material-ui/core/Button';
-import { ModalContext } from 'src/uikit/modal/ModalManager';
+import { ModalContext } from 'ui-kit/modal/ModalManager';
 
 interface IDDKBuyPopupProps {
 }
@@ -9,8 +9,8 @@ interface IDDKBuyPopupProps {
 const DDKBuyPopup: React.FC<IDDKBuyPopupProps> = ({ }) => {
     const classes = useStyles({});
 
-    const modalContext = React.useContext(ModalContext);
-    const close = () => modalContext.close();
+    const context = React.useContext(ModalContext);
+    const close = () => context.close();
 
     const go = (url: string) => {
         alert("Open external link: " + url);

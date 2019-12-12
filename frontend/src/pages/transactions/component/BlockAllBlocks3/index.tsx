@@ -3,8 +3,8 @@ import { useStyles } from 'src/pages/transactions/component/BlockAllBlocks3/styl
 import { useDI } from 'src/core/di';
 import { observer } from 'mobx-react-lite';
 import BlockAllBlocks3Model from 'src/pages/transactions/component/BlockAllBlocks3/model';
-import AppTable from 'src/uikit/AppTable';
-import AppTableTitle from 'src/uikit/AppTableTitle';
+import AppTable from 'ui-kit/AppTable';
+import AppTableTitle from 'ui-kit/AppTableTitle';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import RowsPerPage14 from 'src/pages/transactions/component/RowsPerPage14';
@@ -14,7 +14,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
 import { Transactions } from 'src/core/model/Transactions';
-import AppTableBody from 'src/uikit/AppTableBody';
+import AppTableBody from 'ui-kit/AppTableBody';
 
 interface IBlockAllBlocks3Props {
 }

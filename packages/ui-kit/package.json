@@ -1,0 +1,32 @@
+{
+    "name": "ui-kit",
+    "version": "0.0.1",
+    "description": "",
+    "main": "",
+    "dependencies": {},
+    "peerDependencies": {
+        "@material-ui/core": "^4.7.2",
+        "mobx": "^4.9.4",
+        "mobx-react-lite": "^1.4.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "uuid": "^3.3.3",
+        "@material-ui/icons": "^4.5.1",
+        "classnames": "^2.2.6",
+        "inversify": "^5.0.1"
+    },
+    "devDependencies": {
+        "@material-ui/core": "^4.7.2",
+        "mobx": "^4.9.4",
+        "mobx-react-lite": "^1.4.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "uuid": "^3.3.3",
+        "@material-ui/icons": "^4.5.1",
+        "classnames": "^2.2.6",
+        "inversify": "^5.0.1"
+    },
+    "keywords": [],
+    "author": "ESKA",
+    "license": "ISC"
+}
