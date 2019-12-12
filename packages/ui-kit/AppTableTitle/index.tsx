@@ -10,14 +10,15 @@ interface IAppTableHeadProps {
 }
 
 const AppTableTitle: React.FC<IAppTableHeadProps> = ({ className, children }) => {
-    const classes = useStyles({});
-    const dataProvider = React.useContext(DataProviderContext);
+    return (null);
+    // const classes = useStyles({});
+    // const dataProvider = React.useContext(DataProviderContext);
 
-    return (
-        <div className={classNames(classes.root, className)}>
-            {children}
-        </div>
-    );
+    // return (
+    //     <div className={classNames(classes.root, className)}>
+    //         {children}
+    //     </div>
+    // );
 };
 
-export default observer(AppTableTitle);
+export default AppTableTitle;

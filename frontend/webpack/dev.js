@@ -24,6 +24,7 @@ const config = {
         extensions: ['.ts', '.tsx', '.js', '.json'],
         alias: {
             src: path.resolve(DIR, 'src'),
+            react: path.resolve(DIR, './node_modules/react')
         },
     },
     devServer: {
