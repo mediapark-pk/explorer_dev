@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { useStyles } from 'src/uikit/AppTableBody/styles';
+import { useStyles } from './styles';
 import TableBody from '@material-ui/core/TableBody';
 import { DataProviderContext } from 'src/core/data';
 
