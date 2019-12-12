@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { useStyles } from './styles';
+import { useStyles } from 'packages/ui-kit/AppTableSearch/styles';
 import { DataProviderContext } from 'src/core/data';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';

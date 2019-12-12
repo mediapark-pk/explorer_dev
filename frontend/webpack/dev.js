@@ -7,6 +7,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const DIR = path.resolve(__dirname, '..');
+const ROOT_DIR = path.resolve(__dirname, '../..');
 const OUTPUT_DIR = path.join(DIR, 'dist');
 
 const config = {
@@ -24,7 +25,8 @@ const config = {
         extensions: ['.ts', '.tsx', '.js', '.json'],
         alias: {
             src: path.resolve(DIR, 'src'),
-            react: path.resolve(DIR, './node_modules/react')
+            react: path.resolve(DIR, './node_modules/react'),
+            packages: path.resolve(ROOT_DIR, 'packages')
         },
     },
     devServer: {
