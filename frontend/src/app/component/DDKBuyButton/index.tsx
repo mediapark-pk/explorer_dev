@@ -12,7 +12,8 @@ interface IDDKBuyButtonProps {
 const DDKBuyButton: React.FC<IDDKBuyButtonProps> = ({ }) => {
     const classes = useStyles({});
 
-    const openDDKBuyPopup = () => useDI(ModalManager).show(<DDKBuyPopup/>);
+    const context = useDI(ModalManager);
+    const openDDKBuyPopup = () => context.show(<DDKBuyPopup/>);
 
     return (
         <div className={classes.root} >

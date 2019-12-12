@@ -1,15 +1,14 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Block } from 'src/core/model/Block';
 
 export const useStyles = makeStyles((theme: Theme) => ({
     button: {
         display: 'flex',
         margin: '0 2px',
-        minHeight: '51px',
-        height: '51px',
+        minHeight: '56px',
+        height: '56px',
         color: '#fff',
-        fontSize: '11px!important',
-        padding: '25px 1%',
+        fontSize: '12px!important',
+        padding: '33px 1%',
         textTransform: 'uppercase',
         borderTop: '2px solid transparent',
         borderRadius: '0 0 2px 2px',
