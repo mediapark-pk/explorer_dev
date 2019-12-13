@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'reflect-metadata';
 import App from 'src/app/component/App';
-import Provider from 'src/core/di/Provider';
-import container from 'src/container';
+import { Provider } from '@app/core';
+import { container } from 'src/container';
 
 ReactDOM.render((
     <Provider container={container}>

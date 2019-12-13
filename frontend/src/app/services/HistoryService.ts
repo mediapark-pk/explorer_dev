@@ -1,4 +1,4 @@
-import { singleton } from 'src/core/di';
+import { singleton } from 'src/container';
 import { RouterStore, syncHistoryWithStore, SynchronizedHistory } from 'mobx-react-router';
 import { createBrowserHistory } from 'history';
 

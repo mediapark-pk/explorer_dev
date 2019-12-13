@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/BlockAllInfo/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import BlockAllInfoModel from 'src/pages/delegates/component/BlockAllInfo/model';
 import AllDelegates from 'src/pages/delegates/component/AllDelegates';

@@ -1,4 +1,4 @@
 import React from 'react';
-import { DataProvider } from 'src/core/data';
+import { DataProvider } from '@app/core';
 
 export const DataProviderContext = React.createContext<DataProvider<any>>(null);

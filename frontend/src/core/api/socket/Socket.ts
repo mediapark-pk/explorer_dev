@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Message, MessageType } from 'src/core/api/socket/message';
 import { MESSAGE_CHANNEL, CONNECT_CHANNEL } from 'src/core/api/socket/channels';
 import { CONSTANTS } from 'src/configs';
-import { singleton } from 'src/core/di';
+import { singleton } from 'src/container';
 import SocketIOClient from 'socket.io-client';
 
 interface ISocketConfig {

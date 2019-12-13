@@ -1,9 +1,9 @@
 import React from 'react';
 import { useStyles } from 'src/app/component/DDKBuyButton/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import ModalManager from 'ui-kit/modal/ModalManager';
+import { ModalManager } from 'ui-kit';
 import DDKBuyPopup from 'src/app/component/DDKBuyPopup';
 
 interface IDDKBuyButtonProps {

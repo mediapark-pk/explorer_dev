@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/BlockCapitalization/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import BlockCapitalizationModel from 'src/pages/dashboard/component/BlockCapitalization/model';
 import BlockTitle from 'src/pages/dashboard/component/BlockTitle';

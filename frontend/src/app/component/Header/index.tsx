@@ -7,7 +7,7 @@ import AppMenu from 'src/app/component/AppMenu';
 import ProfileMenu from 'src/app/component/ProfileMenu';
 import SearchBox from 'src/app/component/SearchBox';
 import HeaderModel from 'src/app/component/Header/model';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 
 interface IHeaderProps {

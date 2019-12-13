@@ -1,5 +1,5 @@
-import { singleton } from 'src/core/di';
-import { DataProvider } from 'src/core/data';
+import { singleton } from 'src/container';
+import { DataProvider } from '@app/core';
 import { Transactionss } from 'src/core/model/Transactionss';
 import TransactionssRepository from 'src/pages/transaction/repository/TransactionssRepository';
 import { observable } from 'mobx';

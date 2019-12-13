@@ -1,5 +1,5 @@
-import { singleton } from 'src/core/di';
-import { DataProvider } from 'src/core/data';
+import { singleton } from 'src/container';
+import { DataProvider } from '@app/core';
 import { Blocks } from 'src/core/model/Blocks';
 import BlocksRepository from 'src/pages/blocks/repository/BlocksRepository';
 import { observable } from 'mobx';

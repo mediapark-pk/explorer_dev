@@ -1,5 +1,5 @@
-import { singleton } from 'src/core/di';
-import { DataProvider } from 'src/core/data';
+import { singleton } from 'src/container';
+import { DataProvider } from '@app/core';
 import { Convertor } from 'src/core/model/Convertor';
 import ConvertorRepository from 'src/pages/dashboard/repository/ConvertorRepository';
 import { observable } from 'mobx';

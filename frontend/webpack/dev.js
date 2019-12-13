@@ -26,6 +26,7 @@ const config = {
         alias: {
             src: path.resolve(DIR, 'src'),
             react: path.resolve(DIR, './node_modules/react'),
+            mobx: path.resolve(DIR, './node_modules/mobx'),
             packages: path.resolve(ROOT_DIR, 'packages')
         },
     },

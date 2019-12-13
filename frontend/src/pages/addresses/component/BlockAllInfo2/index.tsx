@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/addresses/component/BlockAllInfo2/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import BlockAllInfo2Model from 'src/pages/addresses/component/BlockAllInfo2/model';
 import List from '@material-ui/core/List';

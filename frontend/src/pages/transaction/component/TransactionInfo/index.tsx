@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/transaction/component/TransactionInfo/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import TransactionInfoModel from 'src/pages/transaction/component/TransactionInfo/model';
 import Sender3 from 'src/pages/transaction/component/Sender3';
