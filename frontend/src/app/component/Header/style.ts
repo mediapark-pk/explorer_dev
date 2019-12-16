@@ -6,8 +6,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         flexDirection: 'row',
         alignItems: 'stretch',
         justifyContent: 'center',
-        // !important should fix white background when pop up is displayed
-        backgroundColor: '#1B2033 !important'
+        backgroundColor: '#1B2033'
     },
     toolbar: {
         flexBasis: '100%',
