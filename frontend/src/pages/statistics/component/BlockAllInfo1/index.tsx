@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/statistics/component/BlockAllInfo1/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import BlockAllInfo1Model from 'src/pages/statistics/component/BlockAllInfo1/model';
 import StatisticBlock from 'src/pages/statistics/component/StatisticBlock';

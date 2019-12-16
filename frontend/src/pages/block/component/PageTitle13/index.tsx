@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/block/component/PageTitle13/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import PageTitle13Model from 'src/pages/block/component/PageTitle13/model';
 import Typography from '@material-ui/core/Typography';

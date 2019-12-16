@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from 'src/app/component/SearchBox/style';
 import { InputBase, ButtonBase, Button } from '@material-ui/core';
 import HeaderModel from 'src/app/component/Header/model';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 
 interface ISearchBoxProps {
 }

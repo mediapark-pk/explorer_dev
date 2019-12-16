@@ -3,8 +3,8 @@ import { useStyles } from 'src/pages/delegate/component/DelegateVotesPage/style'
 import BackButton1 from 'src/pages/delegate/component/BackButton1';
 import PageTitle2 from 'src/pages/delegate/component/PageTitle2';
 import Blockinfo1 from 'src/pages/delegate/component/Blockinfo1';
-import AppTable from 'ui-kit/AppTable';
-import AppTableTitle from 'ui-kit/AppTableTitle';
+import { AppTable } from 'ui-kit';
+import { AppTableTitle } from 'ui-kit';
 import Tab from '@material-ui/core/Tab';
 import RowsPerPage4 from 'src/pages/delegate/component/RowsPerPage4';
 import Table from '@material-ui/core/Table';
@@ -12,7 +12,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
-import AppTableBody from 'ui-kit/AppTableBody';
+import { AppTableBody } from 'ui-kit';
 import TableRowVotes from 'src/pages/delegate/component/TableRowVotes';
 import ComentsAndNotes1 from 'src/pages/delegate/component/ComentsAndNotes1';
 

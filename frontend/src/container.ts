@@ -1,7 +1,16 @@
-import { injectable } from 'inversify';
+import { injectable, Container } from 'inversify';
 import { RouterStore } from 'mobx-react-router';
-import { container } from 'src/core/di';
+import { ModalManager } from 'ui-kit';
+
+export const container = new Container({defaultScope: 'Singleton'});
+
+export const singleton = (target: any) => {
+    container.bind(injectable()(target)).toSelf().inSingletonScope();
+};
+
+export const transient = (target: any) => {
+    container.bind(injectable()(target)).toSelf().inTransientScope();
+};
 
 container.bind(injectable()(RouterStore)).toSelf();
-
-export default container;
+container.bind(injectable()(ModalManager)).toSelf();

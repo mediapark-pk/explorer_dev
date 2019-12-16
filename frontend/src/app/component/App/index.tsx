@@ -3,9 +3,9 @@ import { Router } from 'react-router';
 import Theme from 'src/app/component/Theme';
 import Layout from 'src/app/component/Layout';
 import Routes from 'src/app/component/Routes';
-import ModalContainer from 'ui-kit/modal/ModalContainer';
+import { ModalContainer } from 'ui-kit';
 import HistoryService from 'src/app/services/HistoryService';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 
 interface IAppProps {
 }

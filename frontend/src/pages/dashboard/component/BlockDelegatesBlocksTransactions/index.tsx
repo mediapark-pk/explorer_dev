@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/BlockDelegatesBlocksTransactions/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import BlockDelegatesBlocksTransactionsModel from 'src/pages/dashboard/component/BlockDelegatesBlocksTransactions/model';
 import BlockDelegates from 'src/pages/dashboard/component/BlockDelegates';

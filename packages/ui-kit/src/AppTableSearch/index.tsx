@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { useStyles } from 'packages/ui-kit/AppTableSearch/styles';
-import { DataProviderContext } from 'src/core/data';
+import { useStyles } from './styles';
+import { DataProviderContext } from '@app/core';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
@@ -13,7 +13,7 @@ interface IAppTableHeadProps {
     field: string;
 }
 
-const AppTableSearch: React.FC<IAppTableHeadProps> = ({ className, label, field }) => {
+const AppTableSearchComponent: React.FC<IAppTableHeadProps> = ({ className, label, field }) => {
     const classes = useStyles({});
     const dataProvider = React.useContext(DataProviderContext);
     const [ isSearch, setSearch ] = React.useState(false);
@@ -43,4 +43,4 @@ const AppTableSearch: React.FC<IAppTableHeadProps> = ({ className, label, field 
     );
 };
 
-export default observer(AppTableSearch);
+export const AppTableSearch = observer(AppTableSearchComponent);

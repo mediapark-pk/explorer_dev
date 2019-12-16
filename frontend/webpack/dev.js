@@ -24,8 +24,19 @@ const config = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json'],
         alias: {
+            // TODO: Consider using peerDependencies instead aliases for packages
             src: path.resolve(DIR, 'src'),
             react: path.resolve(DIR, './node_modules/react'),
+            // Wathch out for other components may also be duplicated and produce unwanted effects
+            // rxjs: path.resolve(DIR, './node_modules/rxjs'),
+            // 'react-dom': path.resolve(DIR, './node_modules/react-dom'),
+            // 'react-router': path.resolve(DIR, './node_modules/react-router'),
+            // 'react-router-dom': path.resolve(DIR, './node_modules/react-router-dom'),
+            mobx: path.resolve(DIR, './node_modules/mobx'),
+            // 'mobx-react-lite': path.resolve(DIR, './node_modules/mobx-react-lite'),
+            // 'mobx-react-router': path.resolve(DIR, './node_modules/mobx-react-router'),
+            // classnames: path.resolve(DIR, './node_modules/classnames'),
+            '@material-ui': path.resolve(DIR, './node_modules/@material-ui'),
             packages: path.resolve(ROOT_DIR, 'packages')
         },
     },

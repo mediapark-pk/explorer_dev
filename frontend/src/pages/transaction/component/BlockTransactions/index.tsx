@@ -1,19 +1,19 @@
 import React from 'react';
 import { useStyles } from 'src/pages/transaction/component/BlockTransactions/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import BlockTransactionsModel from 'src/pages/transaction/component/BlockTransactions/model';
-import AppTable from 'ui-kit/AppTable';
-import AppTableTitle from 'ui-kit/AppTableTitle';
+import { AppTable } from 'ui-kit';
+import { AppTableTitle } from 'ui-kit';
 import Typography from '@material-ui/core/Typography';
 import RowsPerPage12 from 'src/pages/transaction/component/RowsPerPage12';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import AppTableSearch from 'ui-kit/AppTableSearch';
+import { AppTableSearch } from 'ui-kit';
 import { Transactionss } from 'src/core/model/Transactionss';
-import AppTableBody from 'ui-kit/AppTableBody';
+import { AppTableBody } from 'ui-kit';
 
 interface IBlockTransactionsProps {
 }

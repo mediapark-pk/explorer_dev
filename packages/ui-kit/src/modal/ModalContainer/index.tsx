@@ -1,28 +1,27 @@
 import React from 'react';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
-import ModalManager, { ModalContext } from '../ModalManager';
+import { ModalManager, ModalContext } from '../ModalManager';
 import Dialog from '@material-ui/core/Dialog';
 
 interface IModalContainerProps {
 }
 
 const ModalContainer: React.FC<IModalContainerProps> = ({ }) => {
-    const modalManager = useDI(ModalManager);
+    const manager = useDI(ModalManager);
 
     return (
         <>
-            {[...modalManager.modals].map(id => {
-                
+            {[...manager.modals].map(id => {
                 const context = {
                     id,
-                    close: () => modalManager.hide(id)
+                    close: () => manager.hide(id)
                 };
                 
                 return (
                     <ModalContext.Provider value={context} key={id}>
                         <Dialog open={true} onClose={context.close} maxWidth={false} scroll={'body'}>
-                            {modalManager.getContentById(id)}
+                            {manager.getContentById(id)}
                         </Dialog>
                     </ModalContext.Provider>
                 );

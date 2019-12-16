@@ -1,8 +1,7 @@
 import React from 'react';
 import { action, observable } from 'mobx';
 import { ReactNode } from 'react';
-import { singleton } from 'src/core/di';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 
 export type ModalId = string;
 
@@ -13,8 +12,7 @@ export type ModalContextValue = {
 
 export const ModalContext = React.createContext<ModalContextValue>(null);
 
-@singleton
-class ModalManager {
+export class ModalManager {
 
     @observable readonly modals: Set<ModalId>;
 
@@ -30,7 +28,7 @@ class ModalManager {
     }
 
     @action show(content: ReactNode): ModalId {
-        const id = uuidv4();
+        const id = uuid();
         this.modals.add(id);
         this.contents.set(id, content);
 
@@ -42,5 +40,3 @@ class ModalManager {
         this.contents.delete(id);
     }
 }
-
-export default ModalManager;

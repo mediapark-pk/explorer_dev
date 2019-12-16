@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/addresses/component/PageTitle9/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import PageTitle9Model from 'src/pages/addresses/component/PageTitle9/model';
 import Typography from '@material-ui/core/Typography';

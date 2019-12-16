@@ -1,5 +1,5 @@
 import { action, observable } from 'mobx';
-import { transient } from 'src/core/di';
+import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from 'src/core/data';
 import { Transactionss } from 'src/core/model/Transactionss';
 

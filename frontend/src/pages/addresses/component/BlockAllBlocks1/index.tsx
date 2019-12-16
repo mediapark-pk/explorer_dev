@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStyles } from 'src/pages/addresses/component/BlockAllBlocks1/style';
-import { useDI } from 'src/core/di';
+import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import BlockAllBlocks1Model from 'src/pages/addresses/component/BlockAllBlocks1/model';
-import AppTable from 'ui-kit/AppTable';
-import AppTableTitle from 'ui-kit/AppTableTitle';
-import AppTableBody from 'ui-kit/AppTableBody';
+import { AppTable } from 'ui-kit';
+import { AppTableTitle } from 'ui-kit';
+import { AppTableBody } from 'ui-kit';
 import Typography from '@material-ui/core/Typography';
 import RowsPerPage6 from 'src/pages/addresses/component/RowsPerPage6';
 import Table from '@material-ui/core/Table';
