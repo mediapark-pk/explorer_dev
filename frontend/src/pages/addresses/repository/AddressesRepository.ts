@@ -1,12 +1,12 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
-import { IDataRepository, IDataUpdate } from 'src/core/data';
-import { Addresses } from 'src/core/model/Addresses';
+import { IDataRepository, IDataUpdate } from '@app/core';
+import { Account } from 'src/core/model/Account';
 
 @transient
-export default class AddressesRepository implements IDataRepository<Addresses> {
+export default class AddressesRepository implements IDataRepository<Account> {
 
-    @observable data: Array<Addresses> = 
+    @observable data: Array<Account> =
     [
         {
 
@@ -57,8 +57,8 @@ export default class AddressesRepository implements IDataRepository<Addresses> {
     @observable totalCount: number = 0;
 
 
-    
+
     @action async onUpdate(dataUpdate: IDataUpdate) {
     }
-                    
+
 }

@@ -6,7 +6,7 @@ import { DataProviderContext, DataProvider } from '@app/core';
 
 interface IAppTableBodyProps {
     className?: string;
-    children(item: any, index: number);
+    children: React.FC<any>;
 }
 
 const AppTableBodyComponent: React.FC<IAppTableBodyProps> = ({ className, children }) => {

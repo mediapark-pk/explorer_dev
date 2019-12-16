@@ -12,7 +12,7 @@ import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { Addresses } from 'src/core/model/Addresses';
+import { Account } from 'src/core/model/Account';
 import TableRowAddreses from 'src/pages/addresses/component/TableRowAddreses';
 
 interface IBlockAllBlocks1Props {
@@ -167,7 +167,7 @@ const BlockAllBlocks1: React.FC<IBlockAllBlocks1Props> = ({ }) => {
                         </TableRow>
                     </TableHead>
                     <AppTableBody className={classes.appTableBody} >
-                        {(item: Addresses, index: number) => (
+                        {(item: Account, index: number) => (
                             <TableRowAddreses key={index} />
                         )}
                     </AppTableBody>

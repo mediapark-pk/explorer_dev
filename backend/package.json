@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eska-common": "^1.0.4",
-    "ddk.registry": "git+https://github.com/AraiEzzra/DDK.REGISTRY.git"
+    "ddk.registry": "git+https://github.com/AraiEzzra/DDK.REGISTRY.git",
+    "eska-common": "^2.0.3"
   },
   "devDependencies": {
     "nodemon": "^1.18.10",
