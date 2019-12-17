@@ -1,12 +1,10 @@
 import React from 'react';
 import { useStyles } from 'src/pages/blocks/component/BlocksTable/style';
 import { observer } from 'mobx-react-lite';
-import { AppTable } from 'ui-kit';
 import { Block } from 'src/core/model/Block';
 import { DataProvider } from '@app/core';
 import { Table, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
-import { AppTableTitle } from 'ui-kit';
-import { AppTableBody } from 'ui-kit';
+import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator } from 'ui-kit';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -27,6 +25,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                     <Typography>
                         All blocks
                     </Typography>
+                    <AppTablePaginator />
                 </AppTableTitle>
                 <Table className={classes.table}>
                     <TableHead className={classes.tableHead}>
