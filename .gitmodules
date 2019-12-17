@@ -1,0 +1,13 @@
+[submodule "core"]
+	path = packages/core
+	url = git@192.168.50.46:shitbusters/core.git
+
+[submodule "web"]
+	path = packages/web
+	url = git@192.168.50.46:shitbusters/web.git
+
+[submodule "ui-kit"]
+	path = packages/ui-kit
+	url = git@192.168.50.46:shitbusters/ui-kit.git
+
+; git submodule update --init --recursive
