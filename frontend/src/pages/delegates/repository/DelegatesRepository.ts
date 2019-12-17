@@ -1,6 +1,6 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
-import { IDataRepository, IDataUpdate } from 'src/core/data';
+import { IDataRepository, IDataUpdate } from '@app/core';
 import { Delegates } from 'src/core/model/Delegates';
 
 @transient

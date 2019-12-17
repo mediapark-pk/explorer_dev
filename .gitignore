@@ -1,5 +1,6 @@
 .idea
 .vagga
 .home
+package-lock.json
 dist
 node_modules
