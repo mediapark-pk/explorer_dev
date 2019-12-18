@@ -3,25 +3,33 @@ import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 import { useStyles } from './styles';
 import { DataProviderContext, DataProvider } from '@app/core';
-import Button from '@material-ui/core/Button';
+import { TablePagination } from '@material-ui/core';
 
 interface IAppTablePaginatorProps {
     className?: string;
 }
 
-const AppTablePaginatorComponent: React.FC<IAppTablePaginatorProps> = ({ className }) => {
+export const AppTablePaginator: React.FC<IAppTablePaginatorProps> = observer(({ className }) => {
     const classes = useStyles({});
     const dataProvider = React.useContext<DataProvider>(DataProviderContext);
+    const paginator = dataProvider.paginator
 
     return (
-        <div className={classNames(classes.root, className)}>
-            <Button onClick={() => dataProvider.paginator.previous()}>{'<'}</Button>
-            <span className={classes.text}>
-                    {`${dataProvider.paginator.page + 1} of ${dataProvider.paginator.lastPage || 1}`}
-                </span>
-            <Button onClick={() => dataProvider.paginator.next()}>{'>'}</Button>
-        </div>
+        <TablePagination
+            className={classNames(classes.root)}
+            rowsPerPageOptions={paginator.rowsPerPageOptions}
+            component='div'
+            count={paginator.count}
+            rowsPerPage={paginator.rowsPerPage}
+            page={paginator.page}
+            backIconButtonProps={{
+                'aria-label': 'Previous Page',
+            }}
+            nextIconButtonProps={{
+                'aria-label': 'Next Page',
+            }}
+            onChangePage={(event, page) => paginator.onChangePage(page)}
+            onChangeRowsPerPage={event => paginator.onChangeRowsPerPage(Number(event.target.value))}
+        />
     );
-};
-
-export const AppTablePaginator = observer(AppTablePaginatorComponent);
+});

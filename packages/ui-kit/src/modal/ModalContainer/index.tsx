@@ -7,7 +7,7 @@ import Dialog from '@material-ui/core/Dialog';
 interface IModalContainerProps {
 }
 
-const ModalContainer: React.FC<IModalContainerProps> = ({ }) => {
+export const ModalContainer: React.FC<IModalContainerProps> = observer(({ }) => {
     const manager = useDI(ModalManager);
 
     return (
@@ -28,9 +28,4 @@ const ModalContainer: React.FC<IModalContainerProps> = ({ }) => {
             })}
         </>
     );
-};
-
-export default observer(ModalContainer);
-
-
-
+});

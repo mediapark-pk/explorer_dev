@@ -19,16 +19,24 @@ export class NotificationManager {
         this.notifications = new Map();
     }
 
-    @observable isOpen : boolean = false;
-
     @action show(message: string, options: OptionsObject = defaultOptionsObject) {
-        this.isOpen = true;
         const key = Math.random().toString();
         this.notifications.set(key, {
             key,
             message,
             options
         });
+    }
+
+    @action showError(error: Error | Array<string>) {
+        this.show(this.getErrorMessage(error), { variant: 'error' });
+    }
+
+    private getErrorMessage(error: Error | Array<string>): string {
+        if (Array.isArray(error)) {
+            return error.join(',');
+        }
+        return error.message;
     }
 
     @action remove(key: string) {

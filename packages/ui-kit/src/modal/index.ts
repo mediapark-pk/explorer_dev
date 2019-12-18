@@ -1,2 +1,2 @@
 export * from './ModalManager';
-export { default as ModalContainer } from './ModalContainer';
+export * from './ModalContainer';

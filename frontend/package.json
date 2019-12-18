@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@app/core": "file:../packages/core",
+    "@app/web": "file:../packages/web",
     "@date-io/moment": "^1.3.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
@@ -25,7 +26,7 @@
     "history": "^4.9.0",
     "inversify": "^5.0.1",
     "mobx": "^4.9.4",
-    "mobx-react-lite": "^1.4.0",
+    "mobx-react-lite": "^1.5.2",
     "mobx-react-router": "^4.1.0",
     "moment": "^2.24.0",
     "react": "^16.8.6",

@@ -4,8 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Block } from 'src/core/model/Block';
 import { DataProvider } from '@app/core';
 import { Table, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
-import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator } from 'ui-kit';
-import ImportExportIcon from '@material-ui/icons/ImportExport';
+import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel } from 'ui-kit';
 import SearchIcon from '@material-ui/icons/Search';
 
 interface IBlocksTableProps {
@@ -37,7 +36,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                                     <Typography>
                                         Height
                                     </Typography>
-                                    <ImportExportIcon/>
+                                    <AppTableSortLabel columnId="height"/>
                                 </div>
                             </TableCell>
                             <TableCell>
@@ -53,7 +52,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                                     <Typography>
                                         Time
                                     </Typography>
-                                    <ImportExportIcon/>
+                                    <AppTableSortLabel columnId="createdAt"/>
                                 </div>
                             </TableCell>
                             <TableCell>
@@ -61,7 +60,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                                     <Typography>
                                         Txn
                                     </Typography>
-                                    <ImportExportIcon/>
+                                    <AppTableSortLabel columnId="transactionCount"/>
                                 </div>
                             </TableCell>
                             <TableCell>
@@ -69,7 +68,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                                     <Typography>
                                         Volume
                                     </Typography>
-                                    <ImportExportIcon/>
+                                    <AppTableSortLabel columnId="amount"/>
                                 </div>
                             </TableCell>
                             <TableCell>
@@ -77,7 +76,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                                     <Typography>
                                         Fee
                                     </Typography>
-                                    <ImportExportIcon/>
+                                    <AppTableSortLabel columnId="fee"/>
                                 </div>
                             </TableCell>
                         </TableRow>

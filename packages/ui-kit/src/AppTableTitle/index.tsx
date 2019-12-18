@@ -9,7 +9,7 @@ interface IAppTableHeadProps {
     children: ReactNode;
 }
 
-const AppTableTitleComponent: React.FC<IAppTableHeadProps> = ({ className, children }) => {
+export const AppTableTitle: React.FC<IAppTableHeadProps> = observer(({ className, children }) => {
     const classes = useStyles({});
     const dataProvider = React.useContext(DataProviderContext);
 
@@ -18,6 +18,4 @@ const AppTableTitleComponent: React.FC<IAppTableHeadProps> = ({ className, child
             {children}
         </div>
     );
-};
-
-export const AppTableTitle = observer(AppTableTitleComponent);
+});

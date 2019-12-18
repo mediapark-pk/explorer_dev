@@ -5,7 +5,7 @@ interface IAppNavProps {
     className?: string;
 }
 
-const AppNav: React.FC<IAppNavProps> = ({ children, className }) => {
+export const AppNav: React.FC<IAppNavProps> = ({ children, className }) => {
 
     return (
         <div className={className}>
@@ -13,5 +13,3 @@ const AppNav: React.FC<IAppNavProps> = ({ children, className }) => {
         </div>
     )
 };
-
-export default AppNav;

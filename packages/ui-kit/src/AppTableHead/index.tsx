@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import classNames from 'classnames';
 import TableHead from '@material-ui/core/TableHead';
 import { observer } from 'mobx-react-lite';
 import { useStyles } from './styles';
@@ -9,7 +10,7 @@ interface IAppTableHeadProps {
     children: ReactNode;
 }
 
-const AppTableHeadComponent: React.FC<IAppTableHeadProps> = ({ className, children }) => {
+export const AppTableHead: React.FC<IAppTableHeadProps> = observer(({ className, children }) => {
     const classes = useStyles({});
     const dataProvider = React.useContext<DataProvider>(DataProviderContext);
 
@@ -18,6 +19,4 @@ const AppTableHeadComponent: React.FC<IAppTableHeadProps> = ({ className, childr
             {children}
         </TableHead>
     );
-};
-
-export const AppTableHead = observer(AppTableHeadComponent);
+});

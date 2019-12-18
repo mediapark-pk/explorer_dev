@@ -12,12 +12,10 @@ interface IHeaderProps {
     };
 }
 
-const AppNavButton: React.FC<IHeaderProps> = ({ children, to, className, classes = {} }) => {
+export const AppNavButton: React.FC<IHeaderProps> = ({ children, to, className, classes = {} }) => {
     return (
         <NavLink className={classNames(classes.root, className)} to={to} activeClassName={classes.activeClassName}>
             {children}
         </NavLink>
     );
 };
-
-export default AppNavButton;

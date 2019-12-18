@@ -13,7 +13,7 @@ interface IAppTableHeadProps {
     field: string;
 }
 
-const AppTableSearchComponent: React.FC<IAppTableHeadProps> = ({ className, label, field }) => {
+export const AppTableSearch: React.FC<IAppTableHeadProps> = observer(({ className, label, field }) => {
     const classes = useStyles({});
     const dataProvider = React.useContext(DataProviderContext);
     const [ isSearch, setSearch ] = React.useState(false);
@@ -41,6 +41,4 @@ const AppTableSearchComponent: React.FC<IAppTableHeadProps> = ({ className, labe
             </IconButton>
         </div>
     );
-};
-
-export const AppTableSearch = observer(AppTableSearchComponent);
+});

@@ -1,15 +1,14 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, { ReactNode } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStyles } from './styles';
 import { DataProviderContext, DataProvider } from '@app/core';
 
 interface IAppListBodyProps {
     className?: string;
-    children(item: any, index: number);
+    children(item: any, index: number): ReactNode;
 }
 
-const AppListBody: React.FC<IAppListBodyProps> = ({ className, children }) => {
+export const AppListBody: React.FC<IAppListBodyProps> = observer(({ className, children }) => {
     const classes = useStyles({});
     const dataProvider = React.useContext<DataProvider>(DataProviderContext);
 
@@ -18,6 +17,4 @@ const AppListBody: React.FC<IAppListBodyProps> = ({ className, children }) => {
             {dataProvider.repository.data.map((item, index) => children(item, index))}
         </div>
     );
-};
-
-export default observer(AppListBody);
+});

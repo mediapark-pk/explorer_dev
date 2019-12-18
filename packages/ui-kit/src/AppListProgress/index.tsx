@@ -9,7 +9,7 @@ interface IAppListProgressProps {
     className?: string;
 }
 
-const AppListProgress: React.FC<IAppListProgressProps> = ({ className }) => {
+export const AppListProgress: React.FC<IAppListProgressProps> = observer(({ className }) => {
     const classes = useStyles({});
     const dataProvider = React.useContext<DataProvider>(DataProviderContext);
 
@@ -18,6 +18,4 @@ const AppListProgress: React.FC<IAppListProgressProps> = ({ className }) => {
             {dataProvider.isLoading ? <LinearProgress /> : null}
         </div>
     );
-};
-
-export default observer(AppListProgress);
+});

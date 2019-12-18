@@ -6,16 +6,17 @@ import { NotificationManager } from '../NotificationManager';
 
 interface INotificationContainerProps {}
 
-const NotificationContainer: React.FC<INotificationContainerProps> = ({ }) => {
+export const NotificationContainer: React.FC<INotificationContainerProps> = observer(({ }) => {
     const manager = useDI(NotificationManager);
     const { enqueueSnackbar } = useSnackbar();
 
-    manager.notifications.forEach(item => {
-        enqueueSnackbar(item.message, item.options);
-        manager.remove(item.key);
-    });
+    React.useEffect(() => {
+        manager.notifications.forEach(item => {
+            enqueueSnackbar(item.message, item.options);
+            manager.remove(item.key);
+        });
+    }, [manager.notifications.size])
+
 
     return null;
-};
-
-export default observer(NotificationContainer);
+});

@@ -2,9 +2,6 @@ import { makeStyles, Theme as DefaultTheme, Theme } from '@material-ui/core/styl
 
 export const useStyles = makeStyles((theme: Theme) => ({
     root: {
-        color: '#fff',
+
     },
-    text: {
-        color: theme.typography.body1.color
-    }
 }));
