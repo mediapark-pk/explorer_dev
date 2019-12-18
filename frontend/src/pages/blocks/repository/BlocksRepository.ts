@@ -3,7 +3,6 @@ import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
 import { Block } from 'src/core/model/Block';
 import { delay } from 'src/util';
-import { array } from 'prop-types';
 
 const mock: Array<Block> = Array.from({length: 122}, () => ({
     height: Math.round(Math.random()*1000000),
