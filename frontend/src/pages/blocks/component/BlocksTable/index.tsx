@@ -33,10 +33,9 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                         >
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="height">
                                         Height
-                                    </Typography>
-                                    <AppTableSortLabel columnId="height"/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
@@ -49,34 +48,30 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="createdAt">
                                         Time
-                                    </Typography>
-                                    <AppTableSortLabel columnId="createdAt"/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="transactionCount">
                                         Txn
-                                    </Typography>
-                                    <AppTableSortLabel columnId="transactionCount"/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="amount">
                                         Volume
-                                    </Typography>
-                                    <AppTableSortLabel columnId="amount"/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="fee">
                                         Fee
-                                    </Typography>
-                                    <AppTableSortLabel columnId="fee"/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                         </TableRow>
