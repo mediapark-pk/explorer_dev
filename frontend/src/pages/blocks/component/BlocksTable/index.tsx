@@ -4,8 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Block } from 'src/core/model/Block';
 import { DataProvider } from '@app/core';
 import { Table, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
-import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel } from 'ui-kit';
-import SearchIcon from '@material-ui/icons/Search';
+import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel, AppTableSearchLabel } from 'ui-kit';
 
 interface IBlocksTableProps {
     dataProvider: DataProvider<Block>;
@@ -40,10 +39,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
-                                        Block ID
-                                    </Typography>
-                                    <SearchIcon/>
+                                    <AppTableSearchLabel label="Block Id" field="id" />
                                 </div>
                             </TableCell>
                             <TableCell>
