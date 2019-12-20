@@ -1,14 +1,10 @@
 import React from 'react';
 import { useStyles } from 'src/pages/blocks/component/BlocksTable/style';
 import { observer } from 'mobx-react-lite';
-import { AppTable } from '@app/ui-kit';
 import { Block } from 'src/core/model/Block';
 import { DataProvider } from '@app/core';
 import { Table, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
-import { AppTableTitle } from '@app/ui-kit';
-import { AppTableBody } from '@app/ui-kit';
-import ImportExportIcon from '@material-ui/icons/ImportExport';
-import SearchIcon from '@material-ui/icons/Search';
+import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel, AppTableSearchLabel } from '@app/ui-kit';
 
 interface IBlocksTableProps {
     dataProvider: DataProvider<Block>;
@@ -27,6 +23,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                     <Typography>
                         All blocks
                     </Typography>
+                    <AppTablePaginator />
                 </AppTableTitle>
                 <Table className={classes.table}>
                     <TableHead className={classes.tableHead}>
@@ -35,50 +32,42 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                         >
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="height">
                                         Height
-                                    </Typography>
-                                    <ImportExportIcon/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
-                                        Block ID
-                                    </Typography>
-                                    <SearchIcon/>
+                                    <AppTableSearchLabel label="Block Id" field="id" />
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="createdAt">
                                         Time
-                                    </Typography>
-                                    <ImportExportIcon/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="transactionCount">
                                         Txn
-                                    </Typography>
-                                    <ImportExportIcon/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="amount">
                                         Volume
-                                    </Typography>
-                                    <ImportExportIcon/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <Typography>
+                                    <AppTableSortLabel columnId="fee">
                                         Fee
-                                    </Typography>
-                                    <ImportExportIcon/>
+                                    </AppTableSortLabel>
                                 </div>
                             </TableCell>
                         </TableRow>
