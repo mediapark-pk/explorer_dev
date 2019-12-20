@@ -3,8 +3,8 @@ import { useStyles } from 'src/pages/delegate/component/SingleDelegatePage/style
 import BackButton from 'src/pages/delegate/component/BackButton';
 import PageTitle1 from 'src/pages/delegate/component/PageTitle1';
 import Blockinfo from 'src/pages/delegate/component/Blockinfo';
-import { AppTable } from 'ui-kit';
-import { AppTableTitle } from 'ui-kit';
+import { AppTable } from '@app/ui-kit';
+import { AppTableTitle } from '@app/ui-kit';
 import Tab from '@material-ui/core/Tab';
 import RowsPerPage2 from 'src/pages/delegate/component/RowsPerPage2';
 import Table from '@material-ui/core/Table';
@@ -12,7 +12,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
-import { AppTableBody } from 'ui-kit';
+import { AppTableBody } from '@app/ui-kit';
 import ComentsAndNotes from 'src/pages/delegate/component/ComentsAndNotes';
 
 interface ISingleDelegatePageProps {

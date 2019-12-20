@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'src/app/component/DDKBuyPopup/style';
 import Button from '@material-ui/core/Button';
-import { ModalContext } from 'ui-kit';
+import { ModalContext } from '@app/ui-kit';
 
 interface IDDKBuyPopupProps {
 }

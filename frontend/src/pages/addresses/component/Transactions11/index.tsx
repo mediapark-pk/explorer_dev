@@ -4,11 +4,11 @@ import DelegatesBlock2 from 'src/pages/addresses/component/DelegatesBlock2';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Add from '@material-ui/icons/Add';
-import { AppTable } from 'ui-kit';
+import { AppTable } from '@app/ui-kit';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { AppTableBody } from 'ui-kit';
+import { AppTableBody } from '@app/ui-kit';
 import TableRowDelegates12 from 'src/pages/addresses/component/TableRowDelegates12';
 
 interface ITransactions11Props {
