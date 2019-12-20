@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Block } from 'src/core/model/Block';
 import { DataProvider } from '@app/core';
 import { Table, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
-import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel, AppTableSearchLabel } from 'ui-kit';
+import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel, AppTableSearchLabel } from '@app/ui-kit';
 
 interface IBlocksTableProps {
     dataProvider: DataProvider<Block>;

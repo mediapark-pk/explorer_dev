@@ -1,6 +1,6 @@
 import { injectable, Container } from 'inversify';
 import { RouterStore } from 'mobx-react-router';
-import { ModalManager } from 'ui-kit';
+import { ModalManager } from '@app/ui-kit';
 
 export const container = new Container({defaultScope: 'Singleton'});
 

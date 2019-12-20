@@ -3,8 +3,8 @@ import { useStyles } from 'src/pages/addresses/component/SingleAddresesPage/styl
 import BackButton3 from 'src/pages/addresses/component/BackButton3';
 import PageTitle6 from 'src/pages/addresses/component/PageTitle6';
 import Blockinfo2 from 'src/pages/addresses/component/Blockinfo2';
-import { AppTable } from 'ui-kit';
-import { AppTableTitle } from 'ui-kit';
+import { AppTable } from '@app/ui-kit';
+import { AppTableTitle } from '@app/ui-kit';
 import Tab from '@material-ui/core/Tab';
 import RowsPerPage8 from 'src/pages/addresses/component/RowsPerPage8';
 import Table from '@material-ui/core/Table';
@@ -12,7 +12,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
-import { AppTableBody } from 'ui-kit';
+import { AppTableBody } from '@app/ui-kit';
 import ComentsAndNotes2 from 'src/pages/addresses/component/ComentsAndNotes2';
 
 interface ISingleAddresesPageProps {

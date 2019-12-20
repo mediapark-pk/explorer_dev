@@ -3,15 +3,15 @@ import { useStyles } from 'src/pages/block/component/BlockTransactions1/style';
 import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import BlockTransactions1Model from 'src/pages/block/component/BlockTransactions1/model';
-import { AppTable } from 'ui-kit';
-import { AppTableTitle } from 'ui-kit';
+import { AppTable } from '@app/ui-kit';
+import { AppTableTitle } from '@app/ui-kit';
 import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { BlockTransaction } from 'src/core/model/BlockTransaction';
-import { AppTableBody } from 'ui-kit';
+import { AppTableBody } from '@app/ui-kit';
 
 interface IBlockTransactions1Props {
 }
