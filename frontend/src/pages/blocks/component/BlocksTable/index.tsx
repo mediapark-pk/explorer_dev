@@ -39,7 +39,9 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <AppTableSearchLabel label="Block Id" field="id" />
+                                    <AppTableSearchLabel field="id" >
+                                        Block Id
+                                    </AppTableSearchLabel>
                                 </div>
                             </TableCell>
                             <TableCell>

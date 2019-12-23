@@ -1,34 +1,82 @@
 import { Theme, ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
-import { createMuiTheme, createStyles, makeStyles } from '@material-ui/core';
+import { createMuiTheme, makeStyles } from '@material-ui/core';
 
 export const COLORS = {
-    red: 'rgba(229, 92, 92, 1)',
-    blue: 'rgba(61, 144, 227, 1)',
-    green: 'rgba(75, 209, 131, 1)',
-    black: 'rgba(0, 0, 0, 1)',
-    yellow: 'rgba(234, 182, 0, 1)',
-    white: '#FFFFFF',
+    WHITE: '#FFFFFF',
+    BLACK: '#000000',
+    IRON: 'rgba(255, 255, 255, .8)',
+    GRAY: 'rgba(255, 255, 255, .5)',
+    SILVER: 'rgba(255, 255, 255, .2)',
+    APPLE_BLOSSOM: '#B24343',
+    JUNGLE_GREEN: '#1E9E8F',
+    ENDEAVOUR: '#0052A5',
+    CORN: '#EAB600',
+    MIRAGE: '#1B2033',
+    MIRAGE_L: '#202940',
+    MIRAGE_LA: 'rgba(32, 41, 64, 0.5)',
+    PICTON_BLUE: '#3D90E3',
+    PICTON_BLUE_A7: 'rgba(61, 144, 227, 0.7);',
+    PICTON_BLUE_A2: 'rgba(61, 144, 227, 0.2);'
 };
-export const PALETTE = {
-    primary: {
-        light: 'rgba(32, 41, 64, 1)',
-        text: {
-            primary: COLORS.white,
-            secondary: COLORS.blue,
 
-        },
-    }
+export const PALETTE = {
+    type: 'dark' as 'light' | 'dark',
+    primary: {
+        light: COLORS.IRON,
+        main: COLORS.GRAY,
+        dark: COLORS.SILVER,
+        contrastText: COLORS.WHITE
+    },
+    secondary: {
+        light: COLORS.ENDEAVOUR,
+        main: COLORS.PICTON_BLUE_A7,
+        dark: COLORS.PICTON_BLUE_A2,
+        contrastText: COLORS.PICTON_BLUE
+    },
+    error: {
+        main: COLORS.APPLE_BLOSSOM,
+        contrastText: COLORS.WHITE
+    },
+    text: {
+        primary: COLORS.WHITE,
+        secondary: COLORS.GRAY,
+        disabled: COLORS.SILVER,
+        hint: COLORS.SILVER
+    },
+    action: {
+        disabled: COLORS.GRAY,
+        active: COLORS.PICTON_BLUE,
+        hover: COLORS.WHITE,
+    },
+    backround: {
+        default: COLORS.MIRAGE,
+        level1: COLORS.MIRAGE_L,
+        level2: COLORS.MIRAGE_LA,
+    },
+    divider: COLORS.SILVER
 };
-export const SHADOWS = {};
-export const CUSTOM_TYPOGRAPHY = {};
-export const THEME_TYPOGRAPHY = {
-    blue: 'rgba(61, 144, 227, 0.800000011920929)',
-    gray: 'rgba(255, 255, 255, 0.5)',
-    white: 'rgba(255, 255, 255, 1)',
+
+export const SHADOWS = {
+    button: '0px -4px 8px rgba(0, 0, 0, 0.16)'
+};
+export const GRADIENTS = {
+    pink: 'linear-gradient(180deg, #F20F61 -8.33%, #271E98 180.21%)',
+};
+export const BORDERS = {
+    blue: `1px solid ${COLORS.PICTON_BLUE}`
 };
 
 export const THEME: ThemeOptions = createMuiTheme({
-
+    palette: PALETTE,
+    breakpoints: {
+        values: {
+            xl: 1920,
+            lg: 1120,
+            md: 928,
+            sm: 744,
+            xs: 0,
+        },
+    },
     overrides: {
         MuiTypography: {
             body1: {
