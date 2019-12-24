@@ -19,6 +19,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     main: {
         width: '100%',
         minHeight: '1392px',
+        marginTop: '80px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router';
-import DelegatesAllPage from 'src/pages/delegates/component/DelegatesAllPage';
+import DelegatesPage from 'src/pages/delegates/component/MainPage';
 import SingleDelegatePage from 'src/pages/delegate/component/SingleDelegatePage';
 import DelegateVotesPage from 'src/pages/delegate/component/DelegateVotesPage';
 import StatisticsPage from 'src/pages/statistics/component/StatisticsPage';
@@ -14,7 +14,6 @@ import AddresesFavoritesPage from 'src/pages/addresses/component/AddresesFavorit
 import AddresesProfilePage from 'src/pages/addresses/component/AddresesProfilePage';
 import AddresesSettingsPage from 'src/pages/addresses/component/AddresesSettingsPage';
 import SearchPage from 'src/pages/search/component/SearchPage';
-import DelegatesActivePage from 'src/pages/delegates/component/DelegatesActivePage';
 import SingleTransactionPage from 'src/pages/transaction/component/SingleTransactionPage';
 import TransactionsPage from 'src/pages/transactions/component/TransactionsPage';
 import SingleBlockPage from 'src/pages/block/component/SingleBlockPage';
@@ -25,8 +24,8 @@ import DashboardPage from 'src/pages/dashboard/component/DashboardPage';
 const Routes = () => {
     return (
         <Switch>
-            <Route path='/delegates/all' exact component={DelegatesAllPage} />
-            <Route path='/delegate/single' exact component={SingleDelegatePage} />
+            <Route path='/delegates' exact component={DelegatesPage} />
+            <Route path='/delegate/:id' exact component={SingleDelegatePage} />
             <Route path='/delegate/votes' exact component={DelegateVotesPage} />
             <Route path='/statistics' exact component={StatisticsPage} />
             <Route path='/statistics/single' exact component={SingleStatPage} />
@@ -39,7 +38,6 @@ const Routes = () => {
             <Route path='/addresses/privatnotes' exact component={AddresesProfilePage} />
             <Route path='/addresses/settings' exact component={AddresesSettingsPage} />
             <Route path='/search' exact component={SearchPage} />
-            <Route path='/delegates/active' exact component={DelegatesActivePage} />
             <Route path='/transaction/single' exact component={SingleTransactionPage} />
             <Route path='/transactions' exact component={TransactionsPage} />
             <Route path='/block/single' exact component={SingleBlockPage} />

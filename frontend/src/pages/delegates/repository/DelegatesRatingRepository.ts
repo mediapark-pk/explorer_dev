@@ -4,14 +4,8 @@ import { IDataRepository, IDataUpdate } from '@app/core';
 import { Delegate } from 'src/core/model/Delegate';
 import DelegatesService from 'src/pages/delegates/service/DelegatesService';
 
-export enum Type {
-    Active = 'active',
-    All = 'all'
-}
-
 @transient
-export default class DelegatesRepository implements IDataRepository<Delegate> {
-
+export default class DelegatesRatingRepository implements IDataRepository<Delegate> {
     @observable data: Delegate[] = [];
     @observable totalCount: number = 0;
     
@@ -20,22 +14,14 @@ export default class DelegatesRepository implements IDataRepository<Delegate> {
 
     @action async onUpdate(dataUpdate: IDataUpdate) {
         try {
-            const responce = await this.getDelegates(dataUpdate);
+            const responce = await this.service.getTopDelegates(dataUpdate);
             this.data = responce.data;
             this.totalCount = responce.count;
         } catch (e) {
             console.log(e);
         }
     }
-
-    async getDelegates(dataUpdate) {
-        switch (dataUpdate.params.type) {
-            case Type.Active:
-                return this.service.getActiveDelegates(dataUpdate);
-            case Type.All:
-                return this.service.getAllDelegates(dataUpdate);
-            default:
-                throw new Error(`[ArgumentException] getDelegates doesn't work with ${dataUpdate.params.type}`);
-        }
-    }
 }
+
+export type DelegatesRatingAllowedFilter = 'today' | 'week' | 'month';
+export type DelegatesRatingAllowedSort = 'votes' | 'forged' | 'missed' | 'uptime';

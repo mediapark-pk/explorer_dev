@@ -15,6 +15,7 @@ const config = {
     devtool: 'inline-source-map',
     entry: path.join(DIR, 'src', 'index.tsx'),
     context: path.resolve(DIR),
+    watch: true,
     output: {
         filename: 'app.js',
         path: path.join(OUTPUT_DIR),
@@ -42,12 +43,16 @@ const config = {
     },
     devServer: {
         host: process.env.FRONTEND_HOST,
-        hot: false,
+        hot: true,
         quiet: true,
         port: process.env.FRONTEND_PORT,
         historyApiFallback: true,
         contentBase: path.join(DIR, 'dist'),
         disableHostCheck: true,
+        watchContentBase: true,
+        watchOptions: {
+            poll: true
+        }
     },
     module: {
         rules: [

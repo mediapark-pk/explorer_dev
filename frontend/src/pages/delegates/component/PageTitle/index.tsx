@@ -1,16 +1,12 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
 import { useStyles } from 'src/pages/delegates/component/PageTitle/style';
-import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
-import PageTitleModel from 'src/pages/delegates/component/PageTitle/model';
-import Typography from '@material-ui/core/Typography';
 
-interface IPageTitleProps {
-}
+interface IPageTitleProps {}
 
 const PageTitle: React.FC<IPageTitleProps> = ({ }) => {
     const classes = useStyles({});
-    const model = useDI(PageTitleModel);
 
     return (
         <div className={classes.root} >
@@ -22,6 +18,3 @@ const PageTitle: React.FC<IPageTitleProps> = ({ }) => {
 };
 
 export default observer(PageTitle);
-
-
-
