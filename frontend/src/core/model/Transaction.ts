@@ -26,15 +26,15 @@ export type TransactionId = string;
 export class Transaction {
     id: TransactionId;
     blockId: BlockId;
-    confirmations: boolean;
+    confirmations?: boolean;
     createdAt: number;
     fee: number;
-    relay: number;
-    salt: string;
-    secondSignature: string;
+    relay?: number;
+    salt?: string;
+    secondSignature?: string;
     senderAddress: Address;
-    senderPublicKey: PublicKey;
-    signature: string;
+    senderPublicKey?: PublicKey;
+    signature?: string;
     type: TransactionType;
-    asset: any;
+    asset?: any;
 }

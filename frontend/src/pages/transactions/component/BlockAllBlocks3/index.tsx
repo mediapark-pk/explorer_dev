@@ -13,22 +13,24 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
+import { Transaction } from 'src/core/model/Transaction';
+import { DataProvider } from '@app/core';
 import { Transactions } from 'src/core/model/Transactions';
 import { AppTableBody } from '@app/ui-kit';
 
 interface IBlockAllBlocks3Props {
+    dataProvider: DataProvider<Transaction>;
 }
 
-const BlockAllBlocks3: React.FC<IBlockAllBlocks3Props> = ({ }) => {
+const BlockAllBlocks3: React.FC<IBlockAllBlocks3Props> = ({ dataProvider }) => {
     const classes = useStyles({});
-    const model = useDI(BlockAllBlocks3Model);
     const [value, setValue] = React.useState<number>(0);
 
     return (
         <div className={classes.root} >
             <AppTable
                 className={classes.appTable}
-                dataProvider={model.dataProvider}
+                dataProvider={dataProvider}
             >
                 <AppTableTitle className={classes.appTableTitle} >
                     <Tabs
@@ -179,7 +181,7 @@ const BlockAllBlocks3: React.FC<IBlockAllBlocks3Props> = ({ }) => {
                         </TableRow>
                     </TableHead>
                     <AppTableBody className={classes.appTableBody} >
-                        {(item: Transactions, index: number) => (
+                        {(item: Transaction, index: number) => (
                             <TableRow
                                 className={classes.tableRow1}
                                 classes={{ root: classes.root5 }}
@@ -191,7 +193,7 @@ const BlockAllBlocks3: React.FC<IBlockAllBlocks3Props> = ({ }) => {
                                 >
                                     <div className={classes.div1} >
                                         <Typography className={classes.typography7} >
-                                            { item.transaction }
+                                            { item.id }
                                         </Typography>
                                     </div>
                                 </TableCell>
@@ -201,7 +203,7 @@ const BlockAllBlocks3: React.FC<IBlockAllBlocks3Props> = ({ }) => {
                                 >
                                     <div className={classes.div1} >
                                         <Typography className={classes.typography8} >
-                                            { item.sender }
+                                            { item.senderAddress }
                                         </Typography>
                                     </div>
                                 </TableCell>
@@ -211,7 +213,7 @@ const BlockAllBlocks3: React.FC<IBlockAllBlocks3Props> = ({ }) => {
                                 >
                                     <div className={classes.div1} >
                                         <Typography className={classes.typography8} >
-                                            { item.reciep }
+                                            { item.asset.recipientAddress }
                                         </Typography>
                                     </div>
                                 </TableCell>
@@ -221,7 +223,7 @@ const BlockAllBlocks3: React.FC<IBlockAllBlocks3Props> = ({ }) => {
                                 >
                                     <div className={classes.div1} >
                                         <Typography className={classes.typography9} >
-                                            { item.time }
+                                            { item.createdAt}
                                         </Typography>
                                     </div>
                                 </TableCell>
@@ -241,7 +243,7 @@ const BlockAllBlocks3: React.FC<IBlockAllBlocks3Props> = ({ }) => {
                                 >
                                     <div className={classes.div1} >
                                         <Typography className={classes.typography11} >
-                                            { item.amount }
+                                            { item.asset.amount }
                                         </Typography>
                                     </div>
                                 </TableCell>
