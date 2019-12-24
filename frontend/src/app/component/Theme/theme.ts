@@ -12,6 +12,7 @@ export const COLORS = {
     ENDEAVOUR: '#0052A5',
     CORN: '#EAB600',
     MIRAGE: '#1B2033',
+    MIRAGE_D: '#1E243A',
     MIRAGE_L: '#202940',
     MIRAGE_LA: 'rgba(32, 41, 64, 0.5)',
     PICTON_BLUE: '#3D90E3',
@@ -118,6 +119,24 @@ export const THEME: ThemeOptions = createMuiTheme({
                 '&:focus': {
                     backgroundColor: 'none'
                 },
+            },
+            icon: {
+                color: 'rgba(255, 255, 255, 0.54)'
+            }
+        },
+        MuiOutlinedInput: {
+            root: {
+                height: '24px',
+                fontSize: '12px !important',
+                lineHeight: '16px',
+                letterSpacing: '0.4px',
+                color: 'rgba(255, 255, 255, 0.54)',
+            },
+            notchedOutline: {
+                borderColor: 'rgba(255, 255, 255, 0.54)',
+                '$root:hover &': {
+                    borderColor: 'rgba(255, 255, 255, 1)'
+                }
             }
         },
         MuiCheckbox: {
