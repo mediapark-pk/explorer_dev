@@ -1,21 +1,21 @@
 import React from 'react';
+import { observer } from 'mobx-react-lite';
 import { useStyles } from 'src/pages/blocks/component/Chart/style';
-import ChartInfo from 'src/pages/blocks/component/ChartInfo';
+import { AppChartTime } from '@app/ui-kit';
+import { DataProvider } from '@app/core';
 
 interface IChartProps {
+    dataProvider: DataProvider<any>;
 }
 
-const Chart: React.FC<IChartProps> = ({ }) => {
+export const Chart: React.FC<IChartProps> = observer(({ dataProvider }) => {
     const classes = useStyles({});
 
     return (
         <div className={classes.root} >
-                <ChartInfo />
+            <AppChartTime dataProvider={dataProvider} />
         </div>
     );
-};
-
-export default Chart;
-
+});
 
 

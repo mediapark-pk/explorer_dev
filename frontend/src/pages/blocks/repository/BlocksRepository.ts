@@ -4,17 +4,18 @@ import { IDataRepository, IDataUpdate } from '@app/core';
 import { Block } from 'src/core/model/Block';
 import { delay } from 'src/util';
 
+// tslint:disable:no-magic-numbers
 const randomString = () => Math.random().toString(36).substring(2, 15).toUpperCase();
 
 const mock: Array<Block> = Array.from({length: 122}, () => ({
-    height: Math.round(Math.random()*1000000),
+    height: Math.round(Math.random() * 1000000),
     id: 'mock' + randomString(),
     forgedBy: 'jiandan',
-    createdAt: Math.round(Math.random()*20),
-    transactionCount: Math.round(Math.random()*5),
-    amount: Math.round(Math.random()*1000)/100,
+    createdAt: Math.round(Math.random() * 20),
+    transactionCount: Math.round(Math.random() * 5),
+    amount: Math.round(Math.random() * 1000) / 100,
     fee: 0.0016
-}))
+}));
 
 @transient
 export default class BlocksRepository implements IDataRepository<Block> {
@@ -24,7 +25,7 @@ export default class BlocksRepository implements IDataRepository<Block> {
 
     @action async onUpdate(dataUpdate: IDataUpdate) {
         await delay(100);
-        var data = mock;
+        let data = mock;
         
         // Mock filter logic, assume single colums filter with '%*%'
         if (dataUpdate.filter) {
@@ -37,9 +38,13 @@ export default class BlocksRepository implements IDataRepository<Block> {
         if (dataUpdate.sort[0]) {
             let [_columnId, _order] = dataUpdate.sort[0];
             data.sort((a, b) => {
-                if (_order == 'asc') return a[_columnId] >= b[_columnId] ? 1 : -1;
-                if (_order == 'desc') return a[_columnId] < b[_columnId] ? 1 : -1;
-            })
+                if (_order === 'asc') {
+                    return a[_columnId] >= b[_columnId] ? 1 : -1;
+                }
+                if (_order === 'desc') {
+                    return a[_columnId] < b[_columnId] ? 1 : -1;
+                }
+            });
         }
 
         // Mock paging logic
@@ -47,6 +52,5 @@ export default class BlocksRepository implements IDataRepository<Block> {
 
         this.data = data;
         this.totalCount = mock.length;
-        // console.log("Update", dataUpdate)
     }
 }
