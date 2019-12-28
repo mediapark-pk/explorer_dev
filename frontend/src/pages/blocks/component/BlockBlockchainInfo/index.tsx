@@ -4,12 +4,16 @@ import { observer } from 'mobx-react-lite';
 import Grid from '@material-ui/core/Grid';
 import BlockchainInfo from 'src/app/component/Common/blockchainInfo';
 import { useDI } from '@app/core';
+import { Chart } from 'src/pages/blocks/component/Chart';
 import BlockBlockchainModel from 'src/pages/blocks/component/BlockBlockchainInfo/model';
+import { Block } from 'src/core/model/Block';
+import { DataProvider } from '@app/core';
 
 interface IBlocksInfoProps {
+    dataProvider: DataProvider<any>;
 }
 
-const BlockBlockchainInfo: React.FC<IBlocksInfoProps> = ({}) => {
+const BlockBlockchainInfo: React.FC<IBlocksInfoProps> = ({ dataProvider }) => {
     const classes = useStyles({});
     const model = useDI(BlockBlockchainModel);
     React.useEffect(() => {
@@ -55,6 +59,9 @@ const BlockBlockchainInfo: React.FC<IBlocksInfoProps> = ({}) => {
                             </Grid>
                         ))}
                     </Grid>
+                </Grid>
+                <Grid container item lg={8} xl={8} alignItems='flex-start'>
+                    <Chart dataProvider={dataProvider} />
                 </Grid>
             </Grid>
         </div>

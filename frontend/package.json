@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@app/core": "file:../packages/core",
-    "@app/web": "file:../packages/web",
     "@app/ui-kit": "file:../packages/ui-kit",
+    "@app/web": "file:../packages/web",
     "@date-io/moment": "^1.3.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
@@ -22,6 +22,7 @@
     "@material-ui/core": "^4.7.2",
     "@material-ui/icons": "^4.0.1",
     "@material-ui/pickers": "^3.2.4",
+    "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
     "ddk.registry": "git+https://github.com/AraiEzzra/DDK.REGISTRY.git",
     "history": "^4.9.0",
