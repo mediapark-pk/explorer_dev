@@ -32,42 +32,42 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                         >
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <AppTableSortLabel columnId="height">
+                                    <AppTableSortLabel columnId='height'>
                                         Height
                                     </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <AppTableSearchLabel field="id" >
+                                    <AppTableSearchLabel field='id' >
                                         Block Id
                                     </AppTableSearchLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <AppTableSortLabel columnId="createdAt">
+                                    <AppTableSortLabel columnId='createdAt'>
                                         Time
                                     </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <AppTableSortLabel columnId="transactionCount">
+                                    <AppTableSortLabel columnId='transactionCount'>
                                         Txn
                                     </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <AppTableSortLabel columnId="amount">
+                                    <AppTableSortLabel columnId='amount'>
                                         Volume
                                     </AppTableSortLabel>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
-                                    <AppTableSortLabel columnId="fee">
+                                    <AppTableSortLabel columnId='fee'>
                                         Fee
                                     </AppTableSortLabel>
                                 </div>

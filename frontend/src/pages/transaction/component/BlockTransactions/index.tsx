@@ -11,22 +11,24 @@ import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import { Transaction } from 'src/core/model/Transaction';
+import { DataProvider } from '@app/core';
 import { AppTableSearch } from '@app/ui-kit';
 import { Transactionss } from 'src/core/model/Transactionss';
 import { AppTableBody } from '@app/ui-kit';
 
 interface IBlockTransactionsProps {
+    dataProvider: DataProvider<Transaction>;
 }
 
-const BlockTransactions: React.FC<IBlockTransactionsProps> = ({ }) => {
+const BlockTransactions: React.FC<IBlockTransactionsProps> = ({ dataProvider }) => {
     const classes = useStyles({});
-    const model = useDI(BlockTransactionsModel);
 
     return (
         <div className={classes.root} >
             <AppTable
                 className={classes.appTable}
-                dataProvider={model.dataProvider}
+                dataProvider={dataProvider}
             >
                 <AppTableTitle className={classes.appTableTitle} >
                     <Typography className={classes.typography} >
@@ -123,7 +125,7 @@ const BlockTransactions: React.FC<IBlockTransactionsProps> = ({ }) => {
                         </TableRow>
                     </TableHead>
                     <AppTableBody className={classes.appTableBody} >
-                        {(item: Transactionss, index: number) => (
+                        {(item: Transaction, index: number) => (
                             <TableRow
                                 className={classes.tableRow1}
                                 classes={{ root: classes.root1 }}
@@ -155,7 +157,7 @@ const BlockTransactions: React.FC<IBlockTransactionsProps> = ({ }) => {
                                 >
                                     <div className={classes.div2} >
                                         <Typography className={classes.typography7} >
-                                            { item.recipientAddress }
+                                            {/*{ item.recipientAddress }*/}
                                         </Typography>
                                     </div>
                                 </TableCell>
@@ -175,7 +177,7 @@ const BlockTransactions: React.FC<IBlockTransactionsProps> = ({ }) => {
                                 >
                                     <div className={classes.div2} >
                                         <Typography className={classes.typography9} >
-                                            { item.amount }
+                                            {/*{ item.amount }*/}
                                         </Typography>
                                     </div>
                                 </TableCell>

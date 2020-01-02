@@ -168,6 +168,15 @@ export const THEME: ThemeOptions = createMuiTheme({
             gutters: {
                 padding: '0px!important',
             }
+        },
+        MuiLink: {
+            root: {
+                color: COLORS.PICTON_BLUE,
+                cursor: 'pointer',
+                '&:hover': {
+                    textDecoration: 'none!important'
+                }
+            }
         }
     }
 });

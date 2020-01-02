@@ -26,14 +26,14 @@ export default class BlocksRepository implements IDataRepository<Block> {
     @action async onUpdate(dataUpdate: IDataUpdate) {
         await delay(100);
         let data = mock;
-        
+
         // Mock filter logic, assume single colums filter with '%*%'
         if (dataUpdate.filter) {
             let _columnId = dataUpdate.filter.filterValues[0][0];
             let _value = dataUpdate.filter.filterValues[0][2];
             data = data.filter(item => item[_columnId].includes(_value));
         }
-        
+
         // Mock sort logic
         if (dataUpdate.sort[0]) {
             let [_columnId, _order] = dataUpdate.sort[0];

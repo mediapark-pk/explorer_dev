@@ -1,154 +1,25 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import { Transactions } from 'src/core/model/Transactions';
+import { Transaction } from 'src/core/model/Transaction';
+import TransactionsService from 'src/pages/transactions/service/TransationsService';
 
 @transient
-export default class TransactionsRepository implements IDataRepository<Transactions> {
+export default class TransactionsRepository implements IDataRepository<Transaction> {
 
-    @observable data: Array<Transactions> = 
-    [
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        },
-        {
-            transaction: '2B344A2B344A2B34',
-            sender: 4009519763706676700,
-            reciep: 4009519763706676700,
-            time: '06.07.2019 /  05:14 PM',
-            type: 'Vote',
-            amount: 0.03,
-            fee: 0.0016
-        }
-    ];
+    @observable data: Transaction [] = [];
     @observable totalCount: number = 0;
 
+    constructor(
+        private readonly transactionsService: TransactionsService
+    ) {
 
-    
-    @action async onUpdate(dataUpdate: IDataUpdate) {
     }
-                    
+
+    @action
+    async onUpdate(dataUpdate: IDataUpdate) {
+            const responce = await this.transactionsService.getTransactions(dataUpdate);
+            this.data = responce.data;
+            this.totalCount = responce.count;
+    }
 }

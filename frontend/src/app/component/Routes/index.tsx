@@ -5,14 +5,14 @@ import SingleDelegatePage from 'src/pages/delegate/component/SingleDelegatePage'
 import DelegateVotesPage from 'src/pages/delegate/component/DelegateVotesPage';
 import StatisticsPage from 'src/pages/statistics/component/StatisticsPage';
 import SingleStatPage from 'src/pages/statistics/component/SingleStatPage';
-import AdressPage from 'src/pages/addresses/component/AdressPage';
-import SingleAddresesPage from 'src/pages/addresses/component/SingleAddresesPage';
+import AddressesPage from 'src/pages/addresses/component/AddressesPage';
+import AddressPage from 'src/pages/address/component/AddressPage';
 import LoginPage from 'src/pages/Login/component/LoginPage';
 import RegistrationPage from 'src/pages/Registration/component/RegistrationPage';
 import ForgetPage from 'src/pages/Forget/component/ForgetPage';
-import AddresesFavoritesPage from 'src/pages/addresses/component/AddresesFavoritesPage';
-import AddresesProfilePage from 'src/pages/addresses/component/AddresesProfilePage';
-import AddresesSettingsPage from 'src/pages/addresses/component/AddresesSettingsPage';
+import AddresesFavoritesPage from 'src/pages/address/backlog/AddresesFavoritesPage';
+import AddresesProfilePage from 'src/pages/address/backlog/AddresesProfilePage';
+import AddresesSettingsPage from 'src/pages/address/backlog/AddresesSettingsPage';
 import SearchPage from 'src/pages/search/component/SearchPage';
 import SingleTransactionPage from 'src/pages/transaction/component/SingleTransactionPage';
 import TransactionsPage from 'src/pages/transactions/component/TransactionsPage';
@@ -29,8 +29,8 @@ const Routes = () => {
             <Route path='/delegate/votes' exact component={DelegateVotesPage} />
             <Route path='/statistics' exact component={StatisticsPage} />
             <Route path='/statistics/single' exact component={SingleStatPage} />
-            <Route path='/addresses' exact component={AdressPage} />
-            <Route path='/addresses/single' exact component={SingleAddresesPage} />
+            <Route path='/addresses' exact component={AddressesPage} />
+            <Route path='/account/:address' exact component={AddressPage} />
             <Route path='/Login' exact component={LoginPage} />
             <Route path='/Registration' exact component={RegistrationPage} />
             <Route path='/Forget' exact component={ForgetPage} />
