@@ -2,7 +2,7 @@ import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
 import { Transaction } from 'src/core/model/Transaction';
-import TransactionsService from 'src/pages/transactions/service/TransationsService';
+import TransactionsService from 'src/pages/transactions/service/TransactionsService';
 
 export enum Type {
     Sent = 'sent',

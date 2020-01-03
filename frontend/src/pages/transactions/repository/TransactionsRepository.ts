@@ -2,7 +2,18 @@ import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
 import { Transaction } from 'src/core/model/Transaction';
-import TransactionsService from 'src/pages/transactions/service/TransationsService';
+import TransactionsService from 'src/pages/transactions/service/TransactionsService';
+
+export enum TransactionsMode {
+    AllTransactions = 'allTransactions',
+    Send = 'send',
+    Stake = 'stake',
+    Vote = 'vote',
+    Downvote = 'downvote',
+    Signature = 'signature',
+    Registration = 'registration',
+    Delegate = 'delegate'
+}
 
 @transient
 export default class TransactionsRepository implements IDataRepository<Transaction> {
