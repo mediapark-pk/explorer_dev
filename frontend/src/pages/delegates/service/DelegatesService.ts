@@ -5,6 +5,8 @@ import { Request, Response } from '@app/web';
 import { Delegate } from 'src/core/model/Delegate';
 import { RawDelegatesInfo } from 'src/core/model/RawDelegatesInfo';
 import { request } from 'http';
+import { Observable, interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 type IListResponse<T> = {
     data: T[];
@@ -22,6 +24,15 @@ export enum AllowedSorts {
 export enum AllowedFilters {
     Name = 'name'
 }
+
+const createMock = (i: number = 0): RawDelegatesInfo => ({
+    allCount: 128 + i,
+    activeCount: 128,
+    standbyCount: 128,
+    voteThreshold: 178,
+    voteFreeztime: 604800000,
+    stakeFreeztime: 14515200000
+});
 
 @singleton
 export default class DelegatesService {
@@ -63,13 +74,19 @@ export default class DelegatesService {
     async getDelegatesInfo(): Promise<Response<RawDelegatesInfo>> {
         // return this.socket.emit('GET_DELEGATES_INFO', {});
         console.log('GET_DELEGATES_INFO');
-        return Promise.resolve().then(() => new RawDelegatesInfo({
-            allCount: 128,
-            activeCount: 128,
-            standbyCount: 128,
-            voteThreshold: 178,
-            voteFreeztime: 604800000,
-            stakeFreeztime: 14515200000
-        }));
+        return Promise.resolve().then(() => createMock());
+    }
+
+    onDelegatesInfoUpdate(): Observable<Response<RawDelegatesInfo>> {
+        let i = 0;
+
+        return interval(5000)
+            .pipe(
+                map(() => {
+                    const mock = createMock(i++);
+                    console.log('DELEGATES_INFO_UPDATED', mock);
+                    return mock;
+                })
+            );
     }
 }

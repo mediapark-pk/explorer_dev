@@ -3,7 +3,7 @@ import { useStyles } from 'src/pages/blocks/component/BlockBlockchainInfo/style'
 import { observer } from 'mobx-react-lite';
 import Grid from '@material-ui/core/Grid';
 import BlockchainInfo from 'src/app/component/Common/blockchainInfo';
-import { useDI } from '@app/core';
+import { useModel } from '@app/core';
 import { Chart } from 'src/pages/blocks/component/Chart';
 import BlockBlockchainModel from 'src/pages/blocks/component/BlockBlockchainInfo/model';
 import { DataProvider } from '@app/core';
@@ -14,11 +14,7 @@ interface IBlocksInfoProps {
 
 const BlockBlockchainInfo: React.FC<IBlocksInfoProps> = ({ dataProvider }) => {
     const classes = useStyles({});
-    const model = useDI(BlockBlockchainModel);
-    React.useEffect(() => {
-        model.onInit();
-        return () => model.onDestroy();
-    }, []);
+    const model = useModel(BlockBlockchainModel);
 
     const items = [
         {

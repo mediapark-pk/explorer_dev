@@ -8,6 +8,7 @@ export const COLORS = {
     GRAY: 'rgba(255, 255, 255, .5)',
     SILVER: 'rgba(255, 255, 255, .2)',
     APPLE_BLOSSOM: '#B24343',
+    MANDY: '#E65C5C',
     JUNGLE_GREEN: '#1E9E8F',
     ENDEAVOUR: '#0052A5',
     CORN: '#EAB600',
@@ -23,16 +24,16 @@ export const COLORS = {
 export const PALETTE = {
     type: 'dark' as 'light' | 'dark',
     primary: {
-        light: COLORS.IRON,
-        main: COLORS.GRAY,
-        dark: COLORS.SILVER,
-        contrastText: COLORS.WHITE
-    },
-    secondary: {
         light: COLORS.ENDEAVOUR,
         main: COLORS.PICTON_BLUE_A7,
         dark: COLORS.PICTON_BLUE_A2,
         contrastText: COLORS.PICTON_BLUE
+    },
+    secondary: {
+        light: COLORS.MIRAGE_LA,
+        main: COLORS.MIRAGE_L,
+        dark: COLORS.MIRAGE_D,
+        contrastText: COLORS.MIRAGE
     },
     error: {
         main: COLORS.APPLE_BLOSSOM,
@@ -42,7 +43,7 @@ export const PALETTE = {
         primary: COLORS.WHITE,
         secondary: COLORS.GRAY,
         disabled: COLORS.SILVER,
-        hint: COLORS.SILVER
+        hint: COLORS.IRON
     },
     action: {
         disabled: COLORS.GRAY,

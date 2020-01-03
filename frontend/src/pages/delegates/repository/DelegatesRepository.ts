@@ -4,7 +4,7 @@ import { IDataRepository, IDataUpdate } from '@app/core';
 import { Delegate } from 'src/core/model/Delegate';
 import DelegatesService from 'src/pages/delegates/service/DelegatesService';
 
-export enum Type {
+export enum DelegatesFetchMode {
     Active = 'active',
     All = 'all'
 }
@@ -29,13 +29,12 @@ export default class DelegatesRepository implements IDataRepository<Delegate> {
     }
 
     async getDelegates(dataUpdate) {
-        switch (dataUpdate.params.type) {
-            case Type.Active:
+        switch (dataUpdate.params.fetchMode) {
+            case DelegatesFetchMode.Active:
                 return this.service.getActiveDelegates(dataUpdate);
-            case Type.All:
-                return this.service.getAllDelegates(dataUpdate);
+            case DelegatesFetchMode.All:
             default:
-                throw new Error(`[ArgumentException] getDelegates doesn't work with ${dataUpdate.params.type}`);
+                return this.service.getAllDelegates(dataUpdate);
         }
     }
 }

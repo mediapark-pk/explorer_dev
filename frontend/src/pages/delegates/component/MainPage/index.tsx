@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/MainPage/style';
 import InfoWrapper from 'src/pages/delegates/component/InfoWrapper';
-import MainTable from 'src/pages/delegates/component/MainTable';
+import TablesWrapper from 'src/pages/delegates/component/TablesWrapper';
 import PageTitle from 'src/pages/delegates/component/PageTitle';
 
 interface IMainPageProps {}
@@ -13,7 +13,7 @@ const MainPage: React.FC<IMainPageProps> = ({ }) => {
         <div className={classes.root} >
             <PageTitle />
             <InfoWrapper />
-            <MainTable />
+            <TablesWrapper />
         </div>
     );
 };
