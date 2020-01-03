@@ -6,7 +6,6 @@ import BlockchainInfo from 'src/app/component/Common/blockchainInfo';
 import { useDI } from '@app/core';
 import { Chart } from 'src/pages/blocks/component/Chart';
 import BlockBlockchainModel from 'src/pages/blocks/component/BlockBlockchainInfo/model';
-import { Block } from 'src/core/model/Block';
 import { DataProvider } from '@app/core';
 
 interface IBlocksInfoProps {
