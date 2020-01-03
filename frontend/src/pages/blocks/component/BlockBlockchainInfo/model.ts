@@ -3,9 +3,10 @@ import { observable, action } from 'mobx';
 import { BlockBlockchainInfo } from 'src/core/model/BlockBlockchainInfo';
 import BlockBlockchainInfoService from 'src/pages/blocks/service/BlockchainInfoService';
 import { Subscription } from 'rxjs';
+import { OnInit, OnDestroy } from '@app/core';
 
 @singleton
-export default class BlockBlockchainModel {
+export default class BlockBlockchainModel implements OnInit, OnDestroy {
 
     @observable isLoading: boolean = false;
 

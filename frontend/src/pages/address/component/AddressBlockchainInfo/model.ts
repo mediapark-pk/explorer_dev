@@ -2,9 +2,10 @@ import { action, observable } from 'mobx';
 import { singleton } from 'src/container';
 import AddressBlockchainInfoService from 'src/pages/address/service/AddressBlockchainInfoService';
 import { AccountBlockchainInfo } from 'src/core/model/AccountBlockchainInfo';
+import { OnInit } from '@app/core';
 
 @singleton
-export default class AddressBlockchainInfoModel {
+export default class AddressBlockchainInfoModel implements OnInit {
 @observable isLoading: boolean = false;
 
     @observable data: AccountBlockchainInfo;

@@ -10,6 +10,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         marginLeft: '8%',
         fontSize: '34px!important',
         lineHeight: '39.84375px',
-        color: theme.palette.primary.contrastText
+        color: theme.palette.text.primary
     },
 }));

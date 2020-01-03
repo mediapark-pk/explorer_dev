@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router';
 import DelegatesPage from 'src/pages/delegates/component/MainPage';
-import SingleDelegatePage from 'src/pages/delegate/component/SingleDelegatePage';
-import DelegateVotesPage from 'src/pages/delegate/component/DelegateVotesPage';
+import DelegatePage from 'src/pages/delegate/component/MainPage';
 import StatisticsPage from 'src/pages/statistics/component/StatisticsPage';
 import SingleStatPage from 'src/pages/statistics/component/SingleStatPage';
 import AddressesPage from 'src/pages/addresses/component/AddressesPage';
@@ -25,8 +24,7 @@ const Routes = () => {
     return (
         <Switch>
             <Route path='/delegates' exact component={DelegatesPage} />
-            <Route path='/delegate/:id' exact component={SingleDelegatePage} />
-            <Route path='/delegate/votes' exact component={DelegateVotesPage} />
+            <Route path='/delegates/:id' exact component={DelegatePage} />
             <Route path='/statistics' exact component={StatisticsPage} />
             <Route path='/statistics/single' exact component={SingleStatPage} />
             <Route path='/addresses' exact component={AddressesPage} />
@@ -43,7 +41,7 @@ const Routes = () => {
             <Route path='/block/single' exact component={SingleBlockPage} />
             <Route path='/blocks' exact component={BlocksPage} />
             <Route path='/dashboard' exact component={DashboardPage} />
-            <Redirect from='/' to='/delegates/all' />
+            <Redirect from='/' to='/delegates' />
         </Switch>
     );
 };

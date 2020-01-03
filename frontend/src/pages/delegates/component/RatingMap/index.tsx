@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/RatingMap/style';
-import MapImage from 'src/pages/delegates/component/RatingMap/components/MapImage';
-import MapPointsWrapper from 'src/pages/delegates/component/RatingMap/components/MapPointsWrapper';
+import MapImage from 'src/pages/delegates/component/RatingMap/component/MapImage';
+import MapPointsWrapper from 'src/pages/delegates/component/RatingMap/component/MapPointsWrapper';
 
 interface IRatingMapProps {}
 

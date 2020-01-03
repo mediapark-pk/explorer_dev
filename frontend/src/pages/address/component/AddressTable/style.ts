@@ -1,5 +1,4 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { COLORS } from 'src/app/component/Theme/theme';
 
 export const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -11,7 +10,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        backgroundColor: 'rgba(0, 0, 0, 0)'
     },
     appTable: {
         display: 'flex',
@@ -22,7 +20,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         flexShrink: 1,
         marginLeft: '8%',
         marginRight: '8%',
-        backgroundColor: 'rgba(0, 0, 0, 0)'
     },
     appTableTitle: {
         marginLeft: '0%',
@@ -34,7 +31,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0)',
         overflow: 'hidden'
     },
     tabs: {
@@ -44,20 +40,20 @@ export const useStyles = makeStyles((theme: Theme) => ({
         marginRight: theme.spacing(4),
         fontSize: '20px',
         textTransform: 'none',
-        color: theme.palette.primary.main,
+        color: theme.palette.text.secondary,
         transition: 'color .1s linear',
         '&.Mui-selected': {
-            color: theme.palette.primary.contrastText
+            color: theme.palette.text.primary
         },
         '&:hover': {
-            color: theme.palette.primary.light
+            color: theme.palette.text.hint
         }
     },
     tabIndicator: {
-        background: theme.palette.primary.contrastText
+        background: theme.palette.text.primary
     },
     tableHeadTitle: {
-        color: 'rgba(255, 255, 255, 0.5)',
+        color: theme.palette.text.secondary,
         fontWeight: 400,
         fontFamily: 'Roboto',
 
@@ -67,20 +63,16 @@ export const useStyles = makeStyles((theme: Theme) => ({
         marginRight: '0%',
         marginTop: '9px',
         marginBottom: '0px',
-        backgroundColor: 'rgba(0, 0, 0, 0)'
     },
     tableHead: {
         minHeight: '44px',
-        background: COLORS.MIRAGE_L,
+        background: theme.palette.secondary.main,
     },
     tableRow: {
         minHeight: '44px',
-        backgroundColor: 'rgba(0, 0, 0, 0)'
     },
-    appTableBody: {
-        backgroundColor: 'rgba(0, 0, 0, 0)'
-    },
+    appTableBody: { },
     link: {
-        color: COLORS.PICTON_BLUE,
+        color: theme.palette.primary.contrastText,
     },
 }));
