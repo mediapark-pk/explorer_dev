@@ -62,11 +62,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
         '&:nth-child(2)': {
       marginRight: theme.spacing(2),
     },
-        display: 'flex',
         color: 'rgba(255, 255, 255, 0.5)',
         fontWeight: 400,
         fontFamily: 'Roboto',
-
     },
     tableRow: {
         minHeight: '25px',

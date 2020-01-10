@@ -13,7 +13,7 @@ export const Chart: React.FC<IChartProps> = observer(({ dataProvider }) => {
 
     return (
         <div className={classes.root} >
-            <AppChartTime dataProvider={dataProvider} />
+            {/*<AppChartTime dataProvider={dataProvider} />*/}
         </div>
     );
 });

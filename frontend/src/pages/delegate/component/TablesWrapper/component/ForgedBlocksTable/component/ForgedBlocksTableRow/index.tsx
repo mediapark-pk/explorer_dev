@@ -32,7 +32,7 @@ const ForgedBlocksTableRow: React.FC<IForgedBlocksTableRowProps> = ({ value }) =
                 classes.link
             )} >
                 <Typography>
-                    {value.createdAt.format('DD/YY/MM')}
+                    {value.createdAt}
                 </Typography>
             </TableCell>
             <TableCell className={clsx(classes.tableCell, classes.centered)} >
