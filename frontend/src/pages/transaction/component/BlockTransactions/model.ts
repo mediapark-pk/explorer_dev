@@ -1,7 +1,7 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
 import { Transaction } from 'src/core/model/Transaction';
-import TransactionRepository from 'src/pages/transaction/repository/TransactionRepository';
+import BlockTransactionsRepository from 'src/pages/transaction/repository/BlockTransactionsRepository';
 import { observable } from 'mobx';
 
 @singleton
@@ -10,14 +10,13 @@ export default class BlockTransactionsModel  {
     @observable dataProvider: DataProvider<Transaction>;
 
     constructor(
-        transactionRepository: TransactionRepository,
+        blockTransactionsRepository: BlockTransactionsRepository,
     ) {
 
     this.dataProvider = new DataProvider({
-        repository: transactionRepository
+        repository: blockTransactionsRepository
     });
-
+        this.dataProvider.loadData();
     }
-
 
 }

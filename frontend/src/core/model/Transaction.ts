@@ -1,5 +1,5 @@
 import { BlockId } from 'src/core/model/Block';
-import { Address, PublicKey } from 'src/core/model/Account';
+import { Account, Address, PublicKey } from 'src/core/model/Account';
 
 export enum TransactionType {
     REGISTER = 0,
@@ -38,3 +38,19 @@ export class Transaction {
     type: TransactionType;
     asset?: any;
 }
+
+export const createMockTransaction = (): Transaction => {
+    return {
+        blockId: '2B344A2B344A2B34',
+        id: '2B344A2B344A2B34',
+        senderAddress: '4009519763706676700',
+        asset: {
+            recipientAddress: '4009519763706676700',
+            amount: 0.03,
+            delegate: 'sd_ddk_brunei17'
+        },
+        createdAt: 10,
+        type: 10,
+        fee: 0.0016
+    };
+};

@@ -5,6 +5,8 @@ import AddressTransactionRepository, { Type } from 'src/pages/address/repository
 import { Transaction } from 'src/core/model/Transaction';
 import { Account, Address } from 'src/core/model/Account';
 import AccountService from 'src/pages/addresses/service/AccountService';
+import TransactionsService from 'src/pages/transactions/service/TransactionsService';
+import { RouterStore } from 'mobx-react-router';
 
 export enum Tab {
     Sent,
@@ -21,7 +23,8 @@ export default class AddressPageModel {
 
     constructor(
         addressTransactionRepository: AddressTransactionRepository,
-        private readonly accountService: AccountService
+        private readonly accountService: AccountService,
+        private readonly routerStore: RouterStore
     ) {
 
         this.dataProvider = new DataProvider({
@@ -34,11 +37,16 @@ export default class AddressPageModel {
 
         this.dataProvider.loadData();
     }
-    @action async loadAccount( address: Address) {
+
+    @action
+    async loadAccount(address: Address) {
         this.isLoading = true;
 
         try {
             this.account = await this.accountService.getOne(address);
+            if (!this.account) {
+                this.routerStore.push('/404');
+            }
         } catch (e) {
             // TODO add errors handler
         } finally {

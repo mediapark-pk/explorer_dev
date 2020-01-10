@@ -10,21 +10,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
         marginTop: '0px',
         marginBottom: '0px',
         minHeight: '28px',
-        backgroundColor: 'rgba(0, 0, 0, 0)'
-    },
-    root1: {
-        height: '28px',
-        minWidth: '70px'
-    },
-    typography: {
-        minWidth: '42px',
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        minWidth: '80px',
         color: 'rgba(255, 255, 255, 0.5)',
-        fontSize: '18px!important',
-        fontWeight: 400,
-        fontFamily: 'Roboto',
-        textAlign: 'left',
-        lineHeight: '28px',
-        letterSpacing: '0.5px'
+        textTransform: 'none'
     },
     root: {
         flexBasis: '100%',
@@ -41,7 +30,4 @@ export const useStyles = makeStyles((theme: Theme) => ({
         backgroundColor: 'rgba(0, 0, 0, 0)',
         overflow: 'hidden'
     },
-    custom1831098: {
-        minHeight: '23.694366455078125px'
-    }
 }));

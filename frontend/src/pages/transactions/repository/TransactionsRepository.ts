@@ -31,6 +31,6 @@ export default class TransactionsRepository implements IDataRepository<Transacti
     async onUpdate(dataUpdate: IDataUpdate) {
             const responce = await this.transactionsService.getTransactions(dataUpdate);
             this.data = responce.data;
-            this.totalCount = responce.count;
+            this.totalCount = responce.totalCount;
     }
 }

@@ -3,7 +3,6 @@ import { useStyles } from 'src/pages/blocks/component/BlockBlockchainInfo/style'
 import { observer } from 'mobx-react-lite';
 import Grid from '@material-ui/core/Grid';
 import BlockchainInfo from 'src/app/component/Common/blockchainInfo';
-import { useDI } from '@app/core';
 import AddressesBlockchainInfoModel from 'src/pages/addresses/component/AddressesBlockchainInfo/model';
 import { useModel } from '@app/core/src';
 

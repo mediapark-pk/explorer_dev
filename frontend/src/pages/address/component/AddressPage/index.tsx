@@ -5,7 +5,6 @@ import AddressBlockchainInfo from 'src/pages/address/component/AddressBlockchain
 import { useDI } from '@app/core';
 import AddressPageModel from 'src/pages/address/component/AddressPage/model';
 import { observer } from 'mobx-react-lite';
-import { withRouter } from 'react-router-dom';
 import AddressTable from 'src/pages/address/component/AddressTable';
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 import { useParams } from 'react-router';
@@ -14,18 +13,18 @@ interface IAddressPageProps {
 
 }
 
-const AddressPage: React.FC<IAddressPageProps> = ({ }) => {
+const AddressPage: React.FC<IAddressPageProps> = ({}) => {
     const classes = useStyles({});
-    const { address } = useParams<{address?: string }>();
-    const addressPageModel = useDI(AddressPageModel);
+    const { address } = useParams<{ address?: string }>();
+    const model = useDI(AddressPageModel);
 
     React.useEffect(() => {
         if (address) {
-            addressPageModel.loadAccount(address);
+            model.loadAccount(address);
         }
     }, [address]);
 
-    if (addressPageModel.isLoading) {
+    if (model.isLoading) {
         return (
             <div className={classes.loading}>
                 <CircularProgress size={72}/>
@@ -35,11 +34,11 @@ const AddressPage: React.FC<IAddressPageProps> = ({ }) => {
 
     return (
         <div className={classes.root}>
-            <PageTitle headline='Address'>{addressPageModel.account.address}</PageTitle>
-            <AddressBlockchainInfo account={addressPageModel.account}/>
+            <PageTitle headline='Address'>{model.account.address}</PageTitle>
+            <AddressBlockchainInfo account={model.account}/>
             <AddressTable/>
         </div>
     );
 };
 
-export default withRouter(observer(AddressPage));
+export default observer(AddressPage);
