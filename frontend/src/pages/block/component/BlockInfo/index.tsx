@@ -1,33 +1,78 @@
 import React from 'react';
 import { useStyles } from 'src/pages/block/component/BlockInfo/style';
-import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
-import BlockInfoModel from 'src/pages/block/component/BlockInfo/model';
-import BlockId from 'src/pages/block/component/BlockId';
-import ForgedBy from 'src/pages/block/component/ForgedBy';
-import DateTime2 from 'src/pages/block/component/DateTime2';
-import Volume1 from 'src/pages/block/component/Volume1';
-import Fee2 from 'src/pages/block/component/Fee2';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
+import { Block } from 'src/core/model/Block';
 
 interface IBlockInfoProps {
+    block: Block;
 }
 
-const BlockInfo: React.FC<IBlockInfoProps> = ({ }) => {
+const BlockInfo: React.FC<IBlockInfoProps> = ({ block }) => {
     const classes = useStyles({});
-    const model = useDI(BlockInfoModel);
 
-    return (
-        <div className={classes.root} >
-            <BlockId blockId={model.blockId} />
-            <ForgedBy generatorName={model.generatorName} />
-            <DateTime2 createdAt={model.createdAt} />
-            <Volume1 volume={model.volume} />
-            <Fee2 fee={model.fee} />
+     return (
+        <div className={classes.root}>
+            <Grid container spacing={1}>
+                <Grid container item xs={12} sm={12} lg={12} xl={12}>
+                    <Grid container item xs={12}>
+                        <Grid item xs={6} sm={4} lg={2} xl={2}>
+                            <div className={classes.transactionInfo}>
+                                <Typography className={classes.transactionInfoTitle}>
+                                    Block ID
+                                </Typography>
+                                <Link className={classes.link} to={`/block/${block.id}`}>
+                                    {block.id}
+                                </Link>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6} sm={4} lg={2} xl={2}>
+                            <div className={classes.transactionInfo}>
+                                <Typography className={classes.transactionInfoTitle}>
+                                    Block forger
+                                </Typography>
+                                <Typography>
+                                    {block.generatorPublicKey}
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6} sm={4} lg={2} xl={2}>
+                            <div className={classes.transactionInfo}>
+                                <Typography className={classes.transactionInfoTitle}>
+                                    Date/Time
+                                </Typography>
+                                <Typography>
+                                    {block.createdAt}
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6} sm={4} lg={2} xl={2}>
+                            <div className={classes.transactionInfo}>
+                                <Typography className={classes.transactionInfoTitle}>
+                                    Amount
+                                </Typography>
+                                <Typography>
+                                    {block.amount}
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6} sm={4} lg={2} xl={2}>
+                            <div className={classes.transactionInfo}>
+                                <Typography className={classes.transactionInfoTitle}>
+                                    Fee
+                                </Typography>
+                                <Typography>
+                                    {block.fee}
+                                </Typography>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
         </div>
     );
 };
 
 export default observer(BlockInfo);
-
-
-

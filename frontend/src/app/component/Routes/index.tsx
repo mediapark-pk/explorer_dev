@@ -9,13 +9,10 @@ import AddressPage from 'src/pages/address/component/AddressPage';
 import LoginPage from 'src/pages/Login/component/LoginPage';
 import RegistrationPage from 'src/pages/Registration/component/RegistrationPage';
 import ForgetPage from 'src/pages/Forget/component/ForgetPage';
-import AddresesFavoritesPage from 'src/pages/address/backlog/AddresesFavoritesPage';
-import AddresesProfilePage from 'src/pages/address/backlog/AddresesProfilePage';
-import AddresesSettingsPage from 'src/pages/address/backlog/AddresesSettingsPage';
 import SearchPage from 'src/pages/search/component/SearchPage';
 import TransactionPage from 'src/pages/transaction/component/TransactionPage';
 import TransactionsPage from 'src/pages/transactions/component/TransactionsPage';
-import SingleBlockPage from 'src/pages/block/component/SingleBlockPage';
+import BlockPage from 'src/pages/block/component/BlockPage';
 import BlocksPage from 'src/pages/blocks/component/BlocksPage';
 import DashboardPage from 'src/pages/dashboard/component/DashboardPage';
 import RedirectPage from 'src/app/component/RedirectPage';
@@ -32,13 +29,10 @@ const Routes = () => {
             <Route path='/Login' exact component={LoginPage} />
             <Route path='/Registration' exact component={RegistrationPage} />
             <Route path='/Forget' exact component={ForgetPage} />
-            <Route path='/addresses/favorites' exact component={AddresesFavoritesPage} />
-            <Route path='/addresses/privatnotes' exact component={AddresesProfilePage} />
-            <Route path='/addresses/settings' exact component={AddresesSettingsPage} />
             <Route path='/search' exact component={SearchPage} />
             <Route path='/transaction/:id' exact component={TransactionPage} />
             <Route path='/transactions' exact component={TransactionsPage} />
-            <Route path='/block/single' exact component={SingleBlockPage} />
+            <Route path='/block/:id' exact component={BlockPage} />
             <Route path='/blocks' exact component={BlocksPage} />
             <Route path='/' exact component={DashboardPage} />
             <Route path='/404' exact component={RedirectPage} />

@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { COLORS } from 'src/app/component/Theme/theme';
 
 export const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -6,6 +7,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         flexGrow: 0,
         flexShrink: 1,
         marginLeft: '0%',
+        padding: '0% 8%',
         marginRight: '0%',
         marginTop: '0px',
         marginBottom: '0px',
@@ -20,5 +22,26 @@ export const useStyles = makeStyles((theme: Theme) => ({
         backgroundPositionY: 'center',
         backgroundPositionX: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0)'
-    }
+    },
+    transactionInfoTitle: {
+        marginBottom: '3px',
+        color: 'rgba(255, 255, 255, 0.5)',
+        fontSize: '12px',
+        fontWeight: 400,
+        fontFamily: 'Roboto',
+    },
+    transactionInfo: {
+        marginLeft: '0%',
+        marginRight: '0%',
+        marginTop: '56px',
+        marginBottom: '42.5px',
+        minWidth: '100px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        backgroundColor: 'rgba(0, 0, 0, 0)'
+    },
+    link: {
+        color: COLORS.PICTON_BLUE,
+    },
 }));

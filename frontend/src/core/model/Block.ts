@@ -7,7 +7,7 @@ export type BlockId = string;
 export class Block {
     id: BlockId;
     version?: number;
-    createdAt: moment.Moment;
+    createdAt: number;
     height: number;
     previousBlockId?: string;
     transactionCount: number;
@@ -31,7 +31,18 @@ export class Block {
         this.generatorPublicKey = raw.generatorPublicKey;
         this.signature = raw.signature;
         this.relay = raw.relay;
-
-        this.createdAt = moment(raw.createdAt);
+        this.createdAt = raw.createdAt;
     }
 }
+
+export const createMockBlock = (): Block => {
+    return {
+        id: '2B344A2B344A2B34',
+        createdAt: 10,
+        height: 121254,
+        transactionCount: 12,
+        amount: 0.03,
+        fee: 0.0016,
+        generatorPublicKey: 'sd_ddk_brunei17',
+    };
+};

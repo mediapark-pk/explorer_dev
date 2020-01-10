@@ -5,6 +5,7 @@ import { Block } from 'src/core/model/Block';
 import { DataProvider } from '@app/core';
 import { Table, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
 import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel, AppTableSearchLabel } from '@app/ui-kit';
+import { Link } from 'react-router-dom';
 
 interface IBlocksTableProps {
     dataProvider: DataProvider<Block>;
@@ -83,9 +84,9 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                                     </Typography>
                                 </TableCell>
                                 <TableCell className={classes.contrast}>
-                                    <Typography>
-                                        {item.id}
-                                    </Typography>
+                                    <Link className={classes.link} to={`/block/${item.id}`}>
+                                        { item.id }
+                                    </Link>
                                 </TableCell>
                                 <TableCell>
                                     <Typography>

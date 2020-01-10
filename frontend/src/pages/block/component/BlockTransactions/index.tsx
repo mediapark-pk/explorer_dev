@@ -1,56 +1,40 @@
 import React from 'react';
-import { useStyles } from 'src/pages/address/component/AddressTable/style';
+import { useStyles } from 'src/pages/block/component/BlockTransactions/style';
+import { useDI } from '@app/core';
+import { observer } from 'mobx-react-lite';
+import BlockTransactionsModel from 'src/pages/block/component/BlockTransactions/model';
 import { AppTable } from '@app/ui-kit';
 import { AppTableTitle } from '@app/ui-kit';
-import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import Typography from '@material-ui/core/Typography';
-import { AppTableBody } from '@app/ui-kit';
 import { Transaction } from 'src/core/model/Transaction';
-import { useDI } from '@app/core';
-import AddressPageModel from 'src/pages/address/component/AddressPage/model';
-import { Tabs } from '@material-ui/core';
-import { observer } from 'mobx-react-lite';
+import { AppTableBody } from '@app/ui-kit';
 import { AppTablePaginator, AppTableSearchLabel, AppTableSortLabel } from '@app/ui-kit/src';
 import { Link } from 'react-router-dom';
 
-interface IAddressTableProps {
-
+interface IBlockTransactionsProps {
 }
 
-const AddressTable: React.FC<IAddressTableProps> = ({}) => {
+const BlockTransactions: React.FC<IBlockTransactionsProps> = ({}) => {
     const classes = useStyles({});
-    const addressPageModel = useDI(AddressPageModel);
+    const model = useDI(BlockTransactionsModel);
 
     return (
         <div className={classes.root}>
             <AppTable
                 className={classes.appTable}
-                dataProvider={addressPageModel.dataProvider}
+                dataProvider={model.dataProvider}
             >
                 <AppTableTitle className={classes.appTableTitle}>
-                    <Tabs
-                        value={addressPageModel.currentTab}
-                        onChange={(event, newValue) =>
-                            addressPageModel.updateTab(newValue)
-                        }
-                        className={classes.tabs}
-                        TabIndicatorProps={{
-                            className: classes.tabIndicator
-                        }}
-                    >
-                        <Tab
-                            className={classes.tab}
-                            label={'Sent'}
-                        />
-                        <Tab
-                            className={classes.tab}
-                            label={'Recieved'}
-                        />
-                    </Tabs>
+                    <Typography>
+                        Block transactions
+                    </Typography>
+                    <Typography>
+                        {model.dataProvider.repository.totalCount}
+                    </Typography>
                     <AppTablePaginator/>
                 </AppTableTitle>
                 <Table className={classes.table}>
@@ -59,19 +43,24 @@ const AddressTable: React.FC<IAddressTableProps> = ({}) => {
                             className={classes.tableRow}
                         >
                             <TableCell className={classes.tableHeadTitle}>
-                                <AppTableSearchLabel field='blockId'>
-                                    Block
-                                </AppTableSearchLabel>
-                            </TableCell>
-                            <TableCell className={classes.tableHeadTitle}>
                                 <AppTableSearchLabel field='id'>
                                     Transaction
                                 </AppTableSearchLabel>
                             </TableCell>
                             <TableCell className={classes.tableHeadTitle}>
                                 <AppTableSearchLabel field='address'>
-                                    {addressPageModel.isSentTab ? 'Sender' : 'Recipient'}
+                                    Sender
                                 </AppTableSearchLabel>
+                            </TableCell>
+                            <TableCell className={classes.tableHeadTitle}>
+                                <AppTableSearchLabel field='address'>
+                                    Recipient
+                                </AppTableSearchLabel>
+                            </TableCell>
+                            <TableCell className={classes.tableHeadTitle}>
+                                <AppTableSortLabel columnId='type'>
+                                    Date / Time
+                                </AppTableSortLabel>
                             </TableCell>
                             <TableCell className={classes.tableHeadTitle}>
                                 <AppTableSortLabel columnId='type'>
@@ -90,32 +79,36 @@ const AddressTable: React.FC<IAddressTableProps> = ({}) => {
                             </TableCell>
                         </TableRow>
                     </TableHead>
-                    <AppTableBody
-                        className={classes.appTableBody}
-                    >
+                    <AppTableBody className={classes.appTableBody}>
                         {(item: Transaction, index: number) => (
                             <TableRow key={index}>
-                                <TableCell>
-                                    <Link className={classes.link} to={`/block/${item.blockId}`}>
-                                        {item.blockId}
-                                    </Link>
-                                </TableCell>
                                 <TableCell>
                                     <Link className={classes.link} to={`/transaction/${item.id}`}>
                                         {item.id}
                                     </Link>
                                 </TableCell>
                                 <TableCell>
-                                    {addressPageModel.isSentTab
+                                    <Link className={classes.link} to={`/account/${item.senderAddress}`}>
+                                        {item.senderAddress}
+                                    </Link>
+                                    <Typography>
+
+                                    </Typography>
+                                </TableCell>
+                                <TableCell>
+                                    {item.asset.recipientAddress
                                         ?
-                                        <Link className={classes.link} to={`/account/${item.senderAddress}`}>
-                                            {item.senderAddress}
-                                        </Link>
-                                        :
                                         <Link className={classes.link} to={`/account/${item.asset.recipientAddress}`}>
                                             {item.asset.recipientAddress}
                                         </Link>
+                                        :
+                                        null
                                     }
+                                </TableCell>
+                                <TableCell>
+                                    <Typography>
+                                        {item.createdAt}
+                                    </Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Typography>
@@ -141,4 +134,4 @@ const AddressTable: React.FC<IAddressTableProps> = ({}) => {
     );
 };
 
-export default observer(AddressTable);
+export default observer(BlockTransactions);

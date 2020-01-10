@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/transaction/component/TransactionPage/style';
-import BackButton from 'src/pages/transaction/component/BackButton';
+import BackButton from 'src/app/component/BackButton';
 import TransactionInfo from 'src/pages/transaction/component/TransactionInfo';
 import PageTitle from 'src/pages/transaction/component/PageTitle';
 import TransactionPageModel from 'src/pages/transaction/component/TransactionPage/model';

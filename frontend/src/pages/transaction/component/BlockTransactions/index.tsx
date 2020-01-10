@@ -21,17 +21,20 @@ interface IBlockTransactionsProps {
 
 const BlockTransactions: React.FC<IBlockTransactionsProps> = ({ }) => {
     const classes = useStyles({});
-    const blockTransactionsModel = useModel(BlockTransactionsModel);
+    const model = useModel(BlockTransactionsModel);
 
     return (
         <div className={classes.root}>
             <AppTable
                 className={classes.appTable}
-                dataProvider={blockTransactionsModel.dataProvider}
+                dataProvider={model.dataProvider}
             >
                 <AppTableTitle className={classes.appTableTitle}>
                     <Typography>
-                        Transactions in same block (10)
+                        Transactions in same block
+                    </Typography>
+                    <Typography>
+                        {model.dataProvider.repository.totalCount}
                     </Typography>
                     <AppTablePaginator/>
                 </AppTableTitle>

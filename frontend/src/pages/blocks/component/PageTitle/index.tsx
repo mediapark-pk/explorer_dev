@@ -10,7 +10,6 @@ interface IPageTitleProps {
 
 const PageTitle: React.FC<IPageTitleProps> = ({ }) => {
     const classes = useStyles({});
-    const model = useDI(PageTitleModel);
 
     return (
         <div className={classes.root} >
