@@ -13,12 +13,12 @@ import AddresesFavoritesPage from 'src/pages/address/backlog/AddresesFavoritesPa
 import AddresesProfilePage from 'src/pages/address/backlog/AddresesProfilePage';
 import AddresesSettingsPage from 'src/pages/address/backlog/AddresesSettingsPage';
 import SearchPage from 'src/pages/search/component/SearchPage';
-import SingleTransactionPage from 'src/pages/transaction/component/SingleTransactionPage';
+import TransactionPage from 'src/pages/transaction/component/TransactionPage';
 import TransactionsPage from 'src/pages/transactions/component/TransactionsPage';
 import SingleBlockPage from 'src/pages/block/component/SingleBlockPage';
 import BlocksPage from 'src/pages/blocks/component/BlocksPage';
 import DashboardPage from 'src/pages/dashboard/component/DashboardPage';
-
+import RedirectPage from 'src/app/component/RedirectPage';
 
 const Routes = () => {
     return (
@@ -36,12 +36,13 @@ const Routes = () => {
             <Route path='/addresses/privatnotes' exact component={AddresesProfilePage} />
             <Route path='/addresses/settings' exact component={AddresesSettingsPage} />
             <Route path='/search' exact component={SearchPage} />
-            <Route path='/transaction/single' exact component={SingleTransactionPage} />
+            <Route path='/transaction/:id' exact component={TransactionPage} />
             <Route path='/transactions' exact component={TransactionsPage} />
             <Route path='/block/single' exact component={SingleBlockPage} />
             <Route path='/blocks' exact component={BlocksPage} />
-            <Route path='/dashboard' exact component={DashboardPage} />
-            <Redirect from='/' to='/delegates' />
+            <Route path='/' exact component={DashboardPage} />
+            <Route path='/404' exact component={RedirectPage} />
+            <Redirect to='/404' />
         </Switch>
     );
 };

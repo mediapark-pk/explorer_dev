@@ -16,6 +16,7 @@ import { AppTablePaginator, AppTableSearchLabel, AppTableSortLabel } from '@app/
 import { useModel } from '@app/core/src';
 import TransactionsTableModel from 'src/pages/transactions/component/TransactionsTable/model';
 import { TransactionsMode } from 'src/pages/transactions/repository/TransactionsRepository';
+import { Link } from 'react-router-dom';
 
 interface ITransactionsTableProps {
 
@@ -143,23 +144,23 @@ const TransactionsTable: React.FC<ITransactionsTableProps> = ({ }) => {
                                         </Typography>
                                 </TableCell>
                                 <TableCell>
-                                        <Typography>
-                                            { item.id }
-                                        </Typography>
+                                    <Link className={classes.link} to={`/transaction/${item.id}`}>
+                                        { item.id }
+                                    </Link>
+                                </TableCell>
+                                <TableCell>
+                                    <Link className={classes.link} to={`/account/${item.senderAddress}`}>
+                                        { item.senderAddress }
+                                    </Link>
+                                </TableCell>
+                                <TableCell>
+                                    <Link className={classes.link} to={`/account/${item.asset.recipientAddress}`}>
+                                        { item.asset.recipientAddress }
+                                    </Link>
                                 </TableCell>
                                 <TableCell>
                                         <Typography>
-                                            { item.senderAddress }
-                                        </Typography>
-                                </TableCell>
-                                <TableCell>
-                                        <Typography>
-                                            { item.asset.recipientAddress }
-                                        </Typography>
-                                </TableCell>
-                                <TableCell>
-                                        <Typography>
-                                            { item.createdAt}
+                                            { item.createdAt }
                                         </Typography>
                                 </TableCell>
                                 <TableCell>

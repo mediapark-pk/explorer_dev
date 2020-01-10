@@ -3,6 +3,7 @@ import { useStyles } from 'src/pages/transactions/component/TransactionsPage/sty
 import PageTitle from 'src/pages/transactions/component/PageTitle';
 import TransactionsBlockchainInfo from 'src/pages/transactions/component/TransactionsBlockchainInfo';
 import TransactionsTable from 'src/pages/transactions/component/TransactionsTable';
+import { observer } from 'mobx-react-lite';
 
 interface ITransactionsPageProps {
 }
@@ -19,4 +20,4 @@ const TransactionsPage: React.FC<ITransactionsPageProps> = ({ }) => {
     );
 };
 
-export default TransactionsPage;
+export default observer(TransactionsPage);
