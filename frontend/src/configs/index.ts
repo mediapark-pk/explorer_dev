@@ -1,8 +1,8 @@
 export const CONSTANTS = {
     SOCKET: {
-        PROTOCOL: process.env.SOCKET_PROTOCOL || 'ws',
-        HOST: process.env.PUBLIC_HOST || '0.0.0.0',
-        PORT: Number(process.env.PUBLIC_PORT) || 7008
+        PROTOCOL: process.env.WS_PROTOCOL || 'ws',
+        HOST: process.env.WS_HOST || '127.0.0.1',
+        PORT: Number(process.env.WS_PORT) || 7008
     },
     VIEW: {
         LAST_BLOCKS_LIMIT: 10,

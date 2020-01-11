@@ -72,13 +72,7 @@ const config = {
                 to: path.resolve(DIR, 'dist/public'),
             },
         ]),
-        new webpack.DefinePlugin({
-            'process.env': JSON.stringify({
-                WORKSPACE: process.env.WORKSPACE,
-                FRONTEND_PORT: process.env.FRONTEND_PORT,
-                FRONTEND_HOST: process.env.FRONTEND_HOST,
-            }),
-        })
+        new webpack.EnvironmentPlugin(Object.keys(process.env)),
     ]
 };
 

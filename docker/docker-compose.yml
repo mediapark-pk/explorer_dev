@@ -1,0 +1,53 @@
+version: "2"
+services:
+  frontend:
+    image: FRONTEND_PACKAGE_NAME:FRONTEND_VERSION
+    container_name: FRONTEND_PACKAGE_NAME
+    ports:
+      - 4900:4900
+    volumes:
+      - ./nginx.template.conf:/etc/nginx/nginx.template
+    networks:
+      BACKEND_PACKAGE_NAME:
+        ipv4_address: 10.6.20.1
+    environment:
+      - FRONTEND_PORT=4900
+      - FRONTEND_SERVER_NAME=FRONTEND_PACKAGE_NAME
+    env_file:
+      - example.env
+    command: /bin/bash -c "envsubst < /etc/nginx/nginx.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
+
+  backend:
+    image: BACKEND_PACKAGE_NAME:BACKEND_VERSION
+    container_name: BACKEND_PACKAGE_NAME
+    ports:
+      - 4903:4903
+    networks:
+      BACKEND_PACKAGE_NAME:
+        ipv4_address: 10.6.20.3
+    env_file:
+      - example.env
+    command: npm run prod
+    restart: always
+
+  db:
+    image: postgres:9.6-alpine
+    container_name: BACKEND_PACKAGE_NAME-db
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      BACKEND_PACKAGE_NAME:
+        ipv4_address: 10.6.20.4
+    env_file:
+      - example.env
+    restart: always
+
+networks:
+  BACKEND_PACKAGE_NAME:
+    external:
+      name: docker_ddk-testnet
+
+volumes:
+  db-data:

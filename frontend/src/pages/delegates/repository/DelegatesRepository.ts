@@ -20,21 +20,11 @@ export default class DelegatesRepository implements IDataRepository<Delegate> {
 
     @action async onUpdate(dataUpdate: IDataUpdate) {
         try {
-            const responce = await this.getDelegates(dataUpdate);
+            const responce = await this.service.getDelegates(dataUpdate);
             this.data = responce.data;
             this.totalCount = responce.count;
         } catch (e) {
-            console.log(e);
-        }
-    }
-
-    async getDelegates(dataUpdate) {
-        switch (dataUpdate.params.fetchMode) {
-            case DelegatesFetchMode.Active:
-                return this.service.getActiveDelegates(dataUpdate);
-            case DelegatesFetchMode.All:
-            default:
-                return this.service.getAllDelegates(dataUpdate);
+            console.error(e);
         }
     }
 }
