@@ -24,10 +24,13 @@ export default class TransactionsVolumeRepository implements IDataRepository<Tra
     @observable totalCount: number = 0;
 
     @action async onUpdate(dataUpdate: IDataUpdate) {
+        // alert("should no be here")
         await delay(100);
-        var data = mockData;
+        var datasets = [
+            mockData,
+        ];
 
-        this.data = data;
+        this.data = datasets;
         this.totalCount = 500;
     }
 }

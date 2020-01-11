@@ -168,6 +168,13 @@ export const THEME: ThemeOptions = createMuiTheme({
             gutters: {
                 padding: '0px!important',
             }
+        },
+        MuiSlider: {
+            track: {
+                backgroundColor: COLORS.PICTON_BLUE_A2,
+                borderLeft: '2px solid ' + COLORS.PICTON_BLUE_A7,
+                borderRight: '2px solid ' + COLORS.PICTON_BLUE_A7,
+            }
         }
     }
 });

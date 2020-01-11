@@ -16,7 +16,8 @@ const BlocksPage: React.FC<IBlocksPageProps> = ({ }) => {
     return (
         <div className={classes.root} >
             <PageTitle />
-            <BlockBlockchainInfo dataProvider={blocksPageModel.transactionsVolumeDataProvider} />
+            {/* <BlockBlockchainInfo dataProvider={blocksPageModel.transactionsVolumeDataProvider} /> */}
+            <BlockBlockchainInfo dataProvider={blocksPageModel.marketCapitalizationDataProvider} />
             <BlocksTable dataProvider={blocksPageModel.dataProvider} />
         </div>
     );

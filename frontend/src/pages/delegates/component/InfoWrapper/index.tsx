@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/InfoWrapper/style';
 import CommonInfo from 'src/pages/delegates/component/CommonInfo';
-import RatingDiagram from 'src/pages/delegates/component/RatingDiagram';
+import RatingDiagram from 'src/app/component/chart/RatingDiagram';
 import RatingMap from 'src/pages/delegates/component/RatingMap';
 import RatingTable from 'src/pages/delegates/component/RatingTable';
 

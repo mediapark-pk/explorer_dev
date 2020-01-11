@@ -4,7 +4,7 @@ import { THEME } from 'src/app/component/Theme/theme';
 import StylesProvider from '@material-ui/styles/StylesProvider';
 
 interface ILayoutProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
