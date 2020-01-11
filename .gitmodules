@@ -10,4 +10,16 @@
 	path = packages/ui-kit
 	url = git@192.168.50.46:shitbusters/ui-kit.git
 
+[submodule "socket-client"]
+	path = packages/socket-client
+	url = git@192.168.50.46:shitbusters/socket-client.git
+
+[submodule "socket-nest"]
+	path = packages/socket-nest
+	url = git@192.168.50.46:shitbusters/socket-nest.git
+
+[submodule "socket-types"]
+	path = packages/socket-types
+	url = git@192.168.50.46:shitbusters/socket-types.git
+
 ; git submodule update --init --recursive

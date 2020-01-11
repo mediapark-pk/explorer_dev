@@ -1,27 +1,19 @@
-cd packages
+git submodule update --remote --rebase
+git submodule foreach 'rm ./node_modules/@app -rf && npm install'
 
-# cd web
-# rm ./node_modules/@app -rf
-# rm package-lock.json
-# npm install
-# cd ..
+cd backend
 
-cd core
-rm ./node_modules/@app -rf
-rm package-lock.json
+rm ./package-lock.json
+rm -rf ./node_modules
+
 npm install
 cd ..
 
-cd ui-kit
-rm ./node_modules/@app -rf
-rm package-lock.json
-npm install
-cd ..
+cd frontend
 
-cd ../frontend
-rm ./node_modules/@app -rf
-rm ./node_modules/ui-kit -rf
-rm package-lock.json
+rm ./package-lock.json
+rm -rf ./node_modules
+
 npm install
 cd ..
 

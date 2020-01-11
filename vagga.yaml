@@ -1,8 +1,25 @@
 _vars:
+  pg_env: &pg_env
+    LANG: en_US.UTF-8
+    PG_PORT: 5433
+    PG_DB: explorer
+    PGDATA: /data
+    PG_BIN: /usr/lib/postgresql/10/bin
+    PG_HOST: 0.0.0.0
+    PG_USER: explorer
+    PG_PASSWORD: K(=3YW!$7A\[QhX>
+
   app_env: &app_env
-    WORKSPACE: development
+    WORKSPACE: DEVELOPMENT
     FRONTEND_PORT: 5000
     FRONTEND_HOST: 0.0.0.0
+    BACKEND_PORT: 4901
+    BACKEND_HOST: 0.0.0.0
+    WS_PORT: 4903
+    WS_HOST: 0.0.0.0
+    WS_PROTOCOL: ws
+    BACKEND_WS_PORT: 4903
+    PROTOCOL: http
 
   app_env_dev: &app_env_dev
     <<:
@@ -13,6 +30,57 @@ _ignore-dirs:
 
 containers:
 
+  nginx:
+    setup:
+      - !Alpine v3.10
+      - !Install [nginx]
+    environ:
+      HOME: /work/.home
+
+  postgres:
+    setup:
+      - !Ubuntu cosmic
+      - !UbuntuUniverse
+      # Use fixed user id and group id for postgres, because in some cases
+      # we may need to upgrade (rebuild) a postgres container, but keep the data
+      # on a `!Persistent` volume still usable. User ids in ubuntu packages are
+      # not guaranteed to be same on every installation.
+      #
+      # The command-lines are from the postgres-common package except
+      # added --uid 200 --gid 200
+      - !Sh |
+          addgroup --system --gid 200 explorer
+          adduser --uid 200 --system --home /data --no-create-home \
+              --shell /bin/bash --group --gecos "PostgreSQL administrator" \
+              explorer
+      - !Install [postgresql, postgresql-contrib, nodejs, npm]
+      - !NpmInstall [postgraphile]
+      - !EnsureDir /data
+    environ:
+      <<: *pg_env
+      NODE_PATH: /usr/lib/node_modules
+    volumes:
+      /data: !Persistent
+        name: postgresql
+        owner-uid: 200
+        owner-gid: 200
+        init-command: _pg-create-db
+      /run: !Tmpfs
+        subdirs:
+          postgresql: { mode: 0o777 }  # until we have user, group options
+
+  backend:
+    setup:
+      - !Alpine v3.10
+      - !Install [npm, nodejs, git]
+      - !Depends backend/package.json
+      - !Sh |
+          set -ex
+          cd /work/backend
+          npm install
+    environ:
+      HOME: /work/backend/.home
+
   frontend:
     setup:
     - !Alpine v3.7
@@ -21,21 +89,87 @@ containers:
     - !Sh |
         set -ex
         cd /work/frontend
+        npm link /work/packages/socket-types
         npm install
     environ:
       HOME: /work/frontend/.home
 
 commands:
 
+  _pg-create-db: &_pg-create-db !Command
+    description: Init postgres database
+    container: postgres
+    environ:
+      <<: *pg_env
+    user-id: 200
+    group-id: 200
+    run: |
+      set -ex
+      echo $PG_DB
+      ls -la /data
+      $PG_BIN/pg_ctl initdb
+      $PG_BIN/pg_ctl -w -o '-F --port=$PG_PORT -k /tmp' start
+      $PG_BIN/createuser -h $PG_HOST -p $PG_PORT vagga
+      $PG_BIN/createdb -h $PG_HOST -p $PG_PORT $PG_DB -O vagga
+      $PG_BIN/pg_ctl stop
+
+  postgres: &postgres !Command
+    description: Run postgres database
+    container: postgres
+    environ:
+      <<: *pg_env
+    user-id: 200
+    group-id: 200
+    run: |
+      trap "$PG_BIN/pg_ctl -w stop; trap - INT; kill -INT $$" INT
+      $PG_BIN/pg_ctl -w -o '-F --port=$PG_PORT -k /tmp' start
+      while sleep 3600; do :; done
+
   frontend-dev: &frontend-dev !Command
     description: Run dev frontend
     container: frontend
-    work-dir: frontend
     environ:
       <<: *app_env_dev
+    work-dir: frontend
     run: npm run dev
 
+  migration-run: &migration-run !Command
+    description: Migration Run
+    container: backend
+    environ:
+      <<: *app_env_dev
+    work-dir: backend
+    run: npm run migration:run
+
+  backend-watch: &backend-watch !Command
+    description: Build dev backend and watch
+    container: backend
+    environ:
+      <<: *app_env_dev
+    work-dir: backend
+    run: npm run watch
+
+  backend-build: &backend-watch !Command
+    description: Build dev backend
+    container: backend
+    environ:
+      <<: *app_env_dev
+    work-dir: backend
+    run: npm run build
+
+  backend-dev: &backend-dev !Command
+    description: Run dev backend
+    prerequisites: [backend-build]
+    container: backend
+    environ:
+      <<: *app_env_dev
+    work-dir: backend
+    run: npm run dev
+
+# RUN
   run: !Supervise
     description: Local development environment
     children:
-      frontend-dev: *frontend-dev
+      postgres: *postgres
+      backend: *backend-dev
+      frontend: *frontend-dev

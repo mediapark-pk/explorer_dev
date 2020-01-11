@@ -6,11 +6,13 @@ import Routes from 'src/app/component/Routes';
 import { ModalContainer } from '@app/ui-kit';
 import HistoryService from 'src/app/services/HistoryService';
 import { useDI } from '@app/core';
+import { Socket } from '@app/socket-client';
 
 interface IAppProps { }
 
 const App: React.FC<IAppProps> = () => {
     const historyService = useDI(HistoryService);
+    const socket = useDI(Socket);
 
     return (
         <Router history={historyService.history}>

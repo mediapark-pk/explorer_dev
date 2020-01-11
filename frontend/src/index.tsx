@@ -4,6 +4,7 @@ import 'reflect-metadata';
 import App from 'src/app/component/App';
 import { Provider } from '@app/core';
 import { container } from 'src/container';
+import 'src/init';
 
 ReactDOM.render((
     <Provider container={container}>
