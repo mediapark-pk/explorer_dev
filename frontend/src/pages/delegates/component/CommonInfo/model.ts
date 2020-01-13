@@ -1,10 +1,14 @@
 import { singleton } from 'src/container';
 import { DelegatesInfo } from 'src/core/model/DelegatesInfo';
-import DelegatesInfoRepository from 'src/pages/delegates/repository/DelegatesInfoRepository';
-import { observable } from 'mobx';
+import DelegatesService from 'src/pages/delegates/service/DelegatesService';
+import { observable, action } from 'mobx';
+import { Subscription } from 'rxjs';
+import { OnInit, OnDestroy } from '@app/core';
 
 @singleton
-export default class BlockAllBlocksModel  {
+export default class BlockAllBlocksModel implements OnInit, OnDestroy {
+
+    @observable isLoading: boolean;
 
     @observable delegatesInfo: DelegatesInfo = new DelegatesInfo({
         activeCount: 0,
@@ -15,15 +19,32 @@ export default class BlockAllBlocksModel  {
         voteThreshold: 0
     });
 
+    private onDelegatesInfoUpdate: Subscription;
+
     constructor(
-        private readonly repository: DelegatesInfoRepository,
-    ) {
-        this.loadData();
+        private readonly service: DelegatesService,
+    ) { }
+
+    @action onInit() {
+        this.onDelegatesInfoUpdate = this.service.onDelegatesInfoUpdate()
+            .subscribe(info => {
+                this.delegatesInfo = new DelegatesInfo(info);
+            });
+
+        this.loadInfo();
     }
 
-    loadData() {
-        this.repository.onUpdate().then(() => {
-            this.delegatesInfo = this.repository.data;
-        });
+    @action async loadInfo() {
+        this.isLoading = true;
+
+        try {
+            this.delegatesInfo = new DelegatesInfo(await this.service.getDelegatesInfo());
+        } finally {
+            this.isLoading = false;
+        }
+    }
+
+    onDestroy() {
+        this.onDelegatesInfoUpdate.unsubscribe();
     }
 }

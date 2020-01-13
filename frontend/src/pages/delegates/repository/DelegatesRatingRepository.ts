@@ -18,7 +18,7 @@ export default class DelegatesRatingRepository implements IDataRepository<Delega
             this.data = responce.data;
             this.totalCount = responce.count;
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
     }
 }

@@ -8,7 +8,6 @@ import { observable } from 'mobx';
 
 @singleton
 export default class BlocksPageModel {
-
     @observable dataProvider: DataProvider<Block>;
     @observable transactionsVolumeDataProvider: DataProvider<TransactionAmount>;
     @observable marketCapitalizationDataProvider: DataProvider<Array<TransactionAmount>>;
@@ -34,5 +33,6 @@ export default class BlocksPageModel {
         this.dataProvider.loadData();
         // this.transactionsVolumeDataProvider.loadData();
         this.marketCapitalizationDataProvider.loadData();
+        this.dataProvider.loadData();
     }
 }

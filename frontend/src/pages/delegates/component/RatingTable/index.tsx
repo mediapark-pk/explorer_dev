@@ -5,9 +5,9 @@ import { Delegate } from 'src/core/model/Delegate';
 import { AppTableBody, AppTable } from '@app/ui-kit';
 import { Table } from '@material-ui/core';
 import { useDI } from '@app/core';
-import RatingTableRow from 'src/pages/delegates/component/RatingTable/components/RatingTableRow';
-import RatingTableFilter from 'src/pages/delegates/component/RatingTable/components/RatingTableFilter';
-import RatingTableHeader from 'src/pages/delegates/component/RatingTable/components/RatingTableHeader';
+import RatingTableRow from 'src/pages/delegates/component/RatingTable/component/RatingTableRow';
+import RatingTableFilter from 'src/pages/delegates/component/RatingTable/component/RatingTableFilter';
+import RatingTableHeader from 'src/pages/delegates/component/RatingTable/component/RatingTableHeader';
 import { observer } from 'mobx-react-lite';
 
 interface IRatingTableProps {}

@@ -55,9 +55,8 @@ export default class RatingTableModel  {
             case AllowedSorts.MissedBlocks:
                 return 'Missed';
             case AllowedSorts.ForgedBlocks:
-                return 'Forged';
             default:
-                throw new Error(`[ArgumentException] valueColumnName getter doesn't work with ${this.params.sort}`);
+                return 'Forged';
         }
     }
     
@@ -71,9 +70,8 @@ export default class RatingTableModel  {
             case AllowedSorts.MissedBlocks:
                 return 'missedBlocks';
             case AllowedSorts.ForgedBlocks:
-                return 'forgedBlocks';
             default:
-                throw new Error(`[ArgumentException] valueColumnName getter doesn't work with ${this.params.sort}`);
+                return 'forgedBlocks';
         }
     }
 }

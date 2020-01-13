@@ -12,9 +12,11 @@
     "dev": "webpack-dev-server --config webpack/dev.js"
   },
   "dependencies": {
+    "@app/common": "file:../packages/common",
     "@app/core": "file:../packages/core",
     "@app/ui-kit": "file:../packages/ui-kit",
     "@app/web": "file:../packages/web",
+    "@app/socket-client": "file:../packages/socket-client",
     "@date-io/moment": "^1.3.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
@@ -24,6 +26,7 @@
     "@material-ui/pickers": "^3.2.4",
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
+    "copy-to-clipboard": "^3.2.0",
     "ddk.registry": "git+https://github.com/AraiEzzra/DDK.REGISTRY.git",
     "history": "^4.9.0",
     "inversify": "^5.0.1",
@@ -31,6 +34,7 @@
     "mobx-react-lite": "^1.5.2",
     "mobx-react-router": "^4.1.0",
     "moment": "^2.24.0",
+    "qrcode.react": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router": "^5.0.0",
