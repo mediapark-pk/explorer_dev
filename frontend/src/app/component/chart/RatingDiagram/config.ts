@@ -1,5 +1,5 @@
 import { defaultAppChartDoughnutConfig, AppChartDatasets } from '@app/ui-kit';
-import { CHART_BACKGROUND_COLORS } from '../colors';
+import { CHART_BACKGROUND_COLORS } from 'src/app/component/chart/colors';
 
 export const ratingDiagramconfigFunction = (datasets: AppChartDatasets) => ({
     ...defaultAppChartDoughnutConfig,
