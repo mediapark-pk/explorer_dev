@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/RatingTable/style';
 import RatingTableModel from 'src/pages/delegates/component/RatingTable/model';
-import { Delegate } from 'src/core/model/Delegate';
+import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
 import { AppTableBody, AppTable } from '@app/ui-kit';
 import { Table } from '@material-ui/core';
 import { useDI } from '@app/core';
@@ -23,9 +23,9 @@ const RatingTable: React.FC<IRatingTableProps> = ({ }) => {
                 <Table>
                     <RatingTableHeader dataName={model.valueColumnName} />
                     <AppTableBody>
-                        {(item: Delegate, index: number) => (
+                        {(item: VMDelegate, index: number) => (
                             <RatingTableRow 
-                                key={index}
+                                key={item.publicKey}
                                 name={item.username}
                                 rank={index + 1}
                                 data={item[model.valuePropertyName].toString()}

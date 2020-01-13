@@ -1,6 +1,6 @@
 import { singleton } from 'src/container';
 import { DataProvider, OnInit } from '@app/core';
-import { Delegate } from 'src/core/model/Delegate';
+import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
 import DelegatesRepository, { DelegatesFetchMode } from 'src/pages/delegates/repository/DelegatesRepository';
 import { observable, action } from 'mobx';
 import { ChangeEvent } from 'react';
@@ -11,7 +11,7 @@ export { DelegatesFetchMode };
 @singleton
 export default class TablesWrapperModel implements OnInit {
 
-    @observable dataProvider: DataProvider<Delegate>;
+    @observable dataProvider: DataProvider<VMDelegate>;
 
     @observable fetchMode: DelegatesFetchMode = DelegatesFetchMode.Active;
 

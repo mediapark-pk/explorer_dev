@@ -1,7 +1,7 @@
 import { singleton } from 'src/container';
 import { DataProvider, OnInit } from '@app/core';
-import { Vote } from 'src/core/model/Vote';
-import { Block } from 'src/core/model/Block';
+import { VMVote } from 'src/pages/delegate/model/VMVote';
+import { VMBlock } from 'src/pages/delegate/model/VMBlock';
 import ForgedBlocksRepository from 'src/pages/delegate/repository/ForgedBlocksRepository';
 import VotesRepository from 'src/pages/delegate/repository/VotesRepository';
 import MainPageModel from 'src/pages/delegate/component/MainPage/model';
@@ -26,8 +26,8 @@ export enum Tab {
 @singleton
 export default class TablesWrapperModel implements OnInit {
 
-    @observable forgedBlocksDataProvider: DataProvider<Block>;
-    @observable votesDataProvider: DataProvider<Vote>;
+    @observable forgedBlocksDataProvider: DataProvider<VMBlock>;
+    @observable votesDataProvider: DataProvider<VMVote>;
 
     @observable currentTab: Tab = Tab.Forged;
 

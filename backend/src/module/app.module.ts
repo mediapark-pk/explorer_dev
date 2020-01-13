@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ApiModule } from '@app/socket-nest';
 import { DatabaseModule } from 'src/module/database';
-import { AppController } from 'src/module/app.controller';
 import { DelegateModule } from 'src/module/delegate';
 
 @Module({
@@ -10,8 +9,6 @@ import { DelegateModule } from 'src/module/delegate';
     DatabaseModule,
     DelegateModule,
   ],
-  controllers: [
-    AppController
-  ]
+  controllers: []
 })
 export class AppModule { }

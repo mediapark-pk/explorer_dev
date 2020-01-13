@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from '@material-ui/core';
 import { AppTableBody } from '@app/ui-kit';
-import { Vote } from 'src/core/model/Vote';
+import { VMVote } from 'src/pages/delegate/model/VMVote';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/VotesTable/style';
 import VotesTableRow from 'src/pages/delegate/component/TablesWrapper/component/VotesTable/component/VotesTableRow';
 import VotesTableHeader from 'src/pages/delegate/component/TablesWrapper/component/VotesTable/component/VotesTableHeader';
@@ -15,8 +15,8 @@ const VotesTable: React.FC<IVotesTableProps> = ({ }) => {
         <Table className={classes.table}>
             <VotesTableHeader />
             <AppTableBody className={classes.appTableBody} >
-                {(item: Vote, index: number) => (
-                    <VotesTableRow key={index} value={item} />
+                {(item: VMVote) => (
+                    <VotesTableRow key={item.id} value={item} />
                 )}
             </AppTableBody>
         </Table>

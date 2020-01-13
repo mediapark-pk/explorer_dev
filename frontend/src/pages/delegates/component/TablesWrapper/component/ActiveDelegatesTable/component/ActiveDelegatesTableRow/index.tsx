@@ -1,11 +1,11 @@
 import React from 'react';
 import { TableCell, Typography, TableRow, Link } from '@material-ui/core';
 import { useStyles } from 'src/pages/delegates/component/TablesWrapper/component/ActiveDelegatesTable/component/ActiveDelegatesTableRow/style';
-import { Delegate } from 'src/core/model/Delegate';
+import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
 import { NavLink } from 'react-router-dom';
 
 interface IActiveDelegatesTableRowProps {
-    value: Delegate;
+    value: VMDelegate;
 }
 
 const ActiveDelegatesTableRow: React.FC<IActiveDelegatesTableRowProps> = ({ value }) => {

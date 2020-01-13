@@ -1,17 +1,19 @@
 import copy from 'copy-to-clipboard';
 import { action, observable, reaction } from 'mobx';
 import { singleton } from 'src/container';
-import { DelegateInfo } from 'src/core/model/DelegateInfo';
 import DelegateService from 'src/pages/delegate/service/DelegateService';
+import { VMDelegateSummary } from 'src/pages/delegate/model/VMDelegateSummary';
+import { RawDelegateSummary } from '@app/common';
 import { Subscription } from 'rxjs';
 import { OnInit, OnDestroy } from '@app/core';
+import { filter } from 'rxjs/operators';
 
 @singleton
 export default class CommonInfoModel implements OnInit, OnDestroy {
 
     @observable isLoading: boolean;
 
-    @observable delegateInfo: DelegateInfo = {
+    @observable delegateInfo: VMDelegateSummary = new VMDelegateSummary({
         address: '',
         blockHeight: 0,
         consensus: true,
@@ -21,10 +23,9 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
         location: '',
         missedBlocks: 0,
         peers: 0,
-        uptime: 0,
         votes: 0,
         username: '',
-    };
+    });
 
     delegateId: string;
 
@@ -36,10 +37,11 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
 
     onInit() {
         this.onDelegateUpdate = this.service.onDelegateUpdate()
-            .subscribe((info: DelegateInfo) => {
-                if (info.address === this.delegateInfo.address) {
-                    this.delegateInfo = info;
-                }
+            .pipe(
+                filter((info: RawDelegateSummary) => info.address === this.delegateInfo.address)
+            )
+            .subscribe((info: RawDelegateSummary) => {
+                this.delegateInfo = new VMDelegateSummary(info);
             });
     }
 
@@ -48,7 +50,9 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
         this.delegateId = id;
 
         try {
-            this.delegateInfo = await this.service.getDelegateInfo({ params: { id: this.delegateId } });
+            this.delegateInfo = new VMDelegateSummary(
+                await this.service.getDelegateSummary(this.delegateId)
+            );
         } finally {
             this.isLoading = false;
         }
@@ -61,7 +65,7 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
     
     @action.bound
     async addToFavorites() {
-        await this.service.addToFavorites({ params: { id: this.delegateId } });
+        await this.service.addToFavorites(this.delegateId);
     }
 
     onDestroy() {

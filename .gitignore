@@ -1,6 +1,7 @@
 .idea
 .vagga
 .home
+.vscode
 package-lock.json
 dist
 node_modules

@@ -24,6 +24,7 @@ _vars:
   app_env_dev: &app_env_dev
     <<:
     - *app_env
+    - *pg_env
 
 _ignore-dirs:
 - .git

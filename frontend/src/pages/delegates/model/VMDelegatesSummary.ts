@@ -1,7 +1,7 @@
 import moment from 'moment';
-import { RawDelegatesInfo } from 'src/core/model/RawDelegatesInfo';
+import { RawDelegatesSummary } from '@app/common';
 
-export class DelegatesInfo {
+export class VMDelegatesSummary {
     allCount: number;
     activeCount: number;
     standbyCount: number;
@@ -9,7 +9,7 @@ export class DelegatesInfo {
     voteFreeztime: moment.Duration;
     stakeFreeztime: moment.Duration;
 
-    constructor(raw: RawDelegatesInfo) {
+    constructor(raw: RawDelegatesSummary) {
         this.activeCount = raw.activeCount;
         this.allCount = raw.allCount;
         this.standbyCount = raw.standbyCount;

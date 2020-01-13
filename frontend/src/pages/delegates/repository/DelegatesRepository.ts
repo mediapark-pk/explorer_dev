@@ -1,7 +1,7 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import { Delegate } from 'src/core/model/Delegate';
+import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
 import DelegatesService from 'src/pages/delegates/service/DelegatesService';
 
 export enum DelegatesFetchMode {
@@ -10,9 +10,9 @@ export enum DelegatesFetchMode {
 }
 
 @transient
-export default class DelegatesRepository implements IDataRepository<Delegate> {
+export default class DelegatesRepository implements IDataRepository<VMDelegate> {
 
-    @observable data: Delegate[] = [];
+    @observable data: VMDelegate[] = [];
     @observable totalCount: number = 0;
     
     constructor(private readonly service: DelegatesService) {
@@ -21,7 +21,7 @@ export default class DelegatesRepository implements IDataRepository<Delegate> {
     @action async onUpdate(dataUpdate: IDataUpdate) {
         try {
             const responce = await this.service.getDelegates(dataUpdate);
-            this.data = responce.data;
+            this.data = responce.data.map(raw => new VMDelegate(raw));
             this.totalCount = responce.count;
         } catch (e) {
             console.error(e);

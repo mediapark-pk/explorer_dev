@@ -11,7 +11,7 @@ const options: TypeOrmModuleOptions = {
   type: 'postgres',
   host: process.env.PG_HOST,
   port: Number(process.env.PG_PORT),
-  username: process.env.PG_USER || 'bohdan',
+  username: process.env.PG_USER || 'explorer',
   password: process.env.PG_PASSWORD || '1',
   database: process.env.PG_DB || 'test_database',
   uuidExtension: 'uuid-ossp',

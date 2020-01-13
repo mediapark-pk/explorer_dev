@@ -1,4 +1,4 @@
-export type RawDelegateInfo = {
+export type RawDelegateSummary = {
     address: string;
     blockHeight: number;
     consensus: boolean;
@@ -8,7 +8,6 @@ export type RawDelegateInfo = {
     location: string;
     missedBlocks: number;
     peers: number;
-    uptime: number;
     votes: number;
     username: string;
 };

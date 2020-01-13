@@ -2,11 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 import { TableCell, Typography, TableRow, Link } from '@material-ui/core';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/ForgedBlocksTable/component/ForgedBlocksTableRow/style';
-import { Block } from 'src/core/model/Block';
+import { VMBlock } from 'src/pages/delegate/model/VMBlock';
 import { NavLink } from 'react-router-dom';
 
 interface IForgedBlocksTableRowProps {
-    value: Block;
+    value: VMBlock;
 }
 
 const ForgedBlocksTableRow: React.FC<IForgedBlocksTableRowProps> = ({ value }) => {

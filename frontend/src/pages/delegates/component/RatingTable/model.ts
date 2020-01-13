@@ -1,6 +1,6 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
-import { Delegate } from 'src/core/model/Delegate';
+import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
 import DelegatesRatingRepository, { 
     DelegatesRatingAllowedFilter,
     DelegatesRatingAllowedSort
@@ -11,7 +11,7 @@ import { observable, action, observe, computed } from 'mobx';
 @singleton
 export default class RatingTableModel  {
 
-    @observable dataProvider: DataProvider<Delegate>;
+    @observable dataProvider: DataProvider<VMDelegate>;
 
     @observable params: {
         filter: DelegatesRatingAllowedFilter,
@@ -61,7 +61,7 @@ export default class RatingTableModel  {
     }
     
     @computed
-    get valuePropertyName(): keyof Delegate {
+    get valuePropertyName(): keyof VMDelegate {
         switch (this.params.sort) {
             case AllowedSorts.Votes:
                 return 'votes';
