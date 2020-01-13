@@ -15,7 +15,7 @@ export class AppChartTimeModel implements IAppChartTimeModel, IAppChartMultipleD
     constructor(dataProvider: DataProvider) {
         this.dataProvider = dataProvider;
         this.datasets = this.dataProvider.repository.data;
-        for (let i = 0; i <= this.datasets.length - 1; i++) {
+        for (let i = 0; i < this.datasets.length; i++) {
             this.visibleDatasets[i] = true;
         }
         this.primaryDataset = this.datasets[0];
