@@ -22,6 +22,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         marginRight: '8.33%',
         marginTop: '7.5px',
         marginBottom: '4px',
-        minHeight: '392px'
+        height: '550px'
     }
 }));
