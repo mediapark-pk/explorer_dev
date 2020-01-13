@@ -17,6 +17,6 @@ export default class BalanceVolumeRepository implements IDataRepository<VMBalanc
     @action async onUpdate(dataUpdate: IDataUpdate) {
         const list = await this.service.getBalanceVolume(dataUpdate);
         this.data = list.data;
-        this.totalCount = list.count;
+        this.totalCount = list.totalCount;
     }
 }
