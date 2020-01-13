@@ -22,7 +22,7 @@ export default class DelegatesRepository implements IDataRepository<VMDelegate> 
         try {
             const responce = await this.service.getDelegates(dataUpdate);
             this.data = responce.data.map(raw => new VMDelegate(raw));
-            this.totalCount = responce.count;
+            this.totalCount = responce.totalCount;
         } catch (e) {
             console.error(e);
         }

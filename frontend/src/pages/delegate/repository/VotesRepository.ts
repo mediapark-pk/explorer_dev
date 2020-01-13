@@ -17,7 +17,7 @@ export default class DelegatesRatingRepository implements IDataRepository<VMVote
         try {
             const responce = await this.service.getVotes(dataUpdate);
             this.data = responce.data.map(v => new VMVote(v));
-            this.totalCount = responce.count;
+            this.totalCount = responce.totalCount;
         } catch (e) {
             console.log(e);
         }
