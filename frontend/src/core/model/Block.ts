@@ -1,5 +1,5 @@
 import { Transaction } from 'src/core/model/Transaction';
-import { RawBlock } from 'src/core/model/RawBlock';
+import { RawBlock } from '@app/common';
 import moment from 'moment';
 
 export type BlockId = string;

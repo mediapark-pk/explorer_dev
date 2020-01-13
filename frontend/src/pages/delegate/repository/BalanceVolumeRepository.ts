@@ -1,14 +1,13 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import { delay } from 'src/util';
-import { BalanceVolume } from 'src/core/model/BalanceVolume';
+import { VMBalanceVolume } from 'src/pages/delegate/model/VMBalanceVolume';
 import DelegateService from 'src/pages/delegate/service/DelegateService';
 
 @transient
-export default class BalanceVolumeRepository implements IDataRepository<BalanceVolume> {
+export default class BalanceVolumeRepository implements IDataRepository<VMBalanceVolume> {
 
-    @observable data: Array<BalanceVolume> = [];
+    @observable data: Array<VMBalanceVolume> = [];
     @observable totalCount: number = 0;
 
     constructor(

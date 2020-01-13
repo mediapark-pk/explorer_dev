@@ -1,5 +1,5 @@
 import { singleton } from 'src/container';
-import { DelegatesInfo } from 'src/core/model/DelegatesInfo';
+import { VMDelegatesSummary } from 'src/pages/delegates/model/VMDelegatesSummary';
 import DelegatesService from 'src/pages/delegates/service/DelegatesService';
 import { observable, action } from 'mobx';
 import { Subscription } from 'rxjs';
@@ -10,7 +10,7 @@ export default class BlockAllBlocksModel implements OnInit, OnDestroy {
 
     @observable isLoading: boolean;
 
-    @observable delegatesInfo: DelegatesInfo = new DelegatesInfo({
+    @observable delegatesInfo: VMDelegatesSummary = new VMDelegatesSummary({
         activeCount: 0,
         allCount: 0,
         stakeFreeztime: 0,
@@ -26,9 +26,9 @@ export default class BlockAllBlocksModel implements OnInit, OnDestroy {
     ) { }
 
     @action onInit() {
-        this.onDelegatesInfoUpdate = this.service.onDelegatesInfoUpdate()
+        this.onDelegatesInfoUpdate = this.service.onDelegatesSummaryUpdate()
             .subscribe(info => {
-                this.delegatesInfo = new DelegatesInfo(info);
+                this.delegatesInfo = new VMDelegatesSummary(info);
             });
 
         this.loadInfo();
@@ -38,7 +38,7 @@ export default class BlockAllBlocksModel implements OnInit, OnDestroy {
         this.isLoading = true;
 
         try {
-            this.delegatesInfo = new DelegatesInfo(await this.service.getDelegatesInfo());
+            this.delegatesInfo = new VMDelegatesSummary(await this.service.getDelegatesSummary());
         } finally {
             this.isLoading = false;
         }

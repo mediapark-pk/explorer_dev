@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from '@material-ui/core';
 import { AppTableBody } from '@app/ui-kit';
-import { Delegate } from 'src/core/model/Delegate';
+import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
 import { useStyles } from 'src/pages/delegates/component/TablesWrapper/component/ActiveDelegatesTable/style';
 import TableRow from 'src/pages/delegates/component/TablesWrapper/component/ActiveDelegatesTable/component/ActiveDelegatesTableRow';
 import TableHeader from 'src/pages/delegates/component/TablesWrapper/component/ActiveDelegatesTable/component/ActiveDelegatesTableHeader';
@@ -15,8 +15,8 @@ const ActiveDelegatesTable: React.FC<IActiveDelegatesTableProps> = ({ }) => {
         <Table className={classes.table}>
             <TableHeader />
             <AppTableBody className={classes.appTableBody} >
-                {(item: Delegate, index: number) => (
-                    <TableRow key={index} value={item} />
+                {(item: VMDelegate, index: number) => (
+                    <TableRow key={item.publicKey} value={item} />
                 )}
             </AppTableBody>
         </Table>

@@ -1,4 +1,4 @@
-export type RawDelegatesInfo = {
+export type RawDelegatesSummary = {
     allCount: number;
     activeCount: number;
     standbyCount: number;

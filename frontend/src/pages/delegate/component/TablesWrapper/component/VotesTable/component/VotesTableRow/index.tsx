@@ -2,11 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 import { TableCell, Typography, TableRow, Link } from '@material-ui/core';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/VotesTable/component/VotesTableRow/style';
-import { Vote } from 'src/core/model/Vote';
+import { VMVote } from 'src/pages/delegate/model/VMVote';
 import { NavLink } from 'react-router-dom';
 
 interface IVotesTableRowProps {
-    value: Vote;
+    value: VMVote;
 }
 
 const VotesTableRow: React.FC<IVotesTableRowProps> = ({ value }) => {

@@ -1,7 +1,7 @@
 import { RawVote } from '@app/common';
 import moment from 'moment';
 
-export class Vote {
+export class VMVote {
     id: string;
     blockId: string;
     senderId: string;

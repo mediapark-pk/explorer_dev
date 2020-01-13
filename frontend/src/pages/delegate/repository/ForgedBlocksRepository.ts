@@ -1,12 +1,12 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import { Block } from 'src/core/model/Block';
+import { VMBlock } from 'src/pages/delegate/model/VMBlock';
 import DelegateService from 'src/pages/delegate/service/DelegateService';
 
 @transient
-export default class ForgedBlocksRepository implements IDataRepository<Block> {
-    @observable data: Block[] = [];
+export default class ForgedBlocksRepository implements IDataRepository<VMBlock> {
+    @observable data: VMBlock[] = [];
     @observable totalCount: number = 0;
     
     constructor(
@@ -16,7 +16,7 @@ export default class ForgedBlocksRepository implements IDataRepository<Block> {
     @action async onUpdate(dataUpdate: IDataUpdate) {
         try {
             const responce = await this.service.getForgedBlocks(dataUpdate);
-            this.data = responce.data.map(b => new Block(b));
+            this.data = responce.data;
             this.totalCount = responce.count;
         } catch (e) {
             console.log(e);

@@ -1,4 +1,4 @@
-import { IDelegate, ILocation } from 'src/interface';
+import { RawDelegate } from '@app/common';
 import * as Factory from 'factory.ts';
 import {
   getRandomNumber,
@@ -6,7 +6,8 @@ import {
   getRandomDecimal
 } from 'src/_mocks_/utils';
 
-const delegateFactory = Factory.Sync.makeFactory<IDelegate>({
+// tslint:disable: no-magic-numbers
+const delegateFactory = Factory.Sync.makeFactory<RawDelegate>({
   approval: Factory.each(i => getRandomDecimal(80, 100, 2)),
   forgedBlocks: Factory.each(i => getRandomNumber(1, 30)),
   missedBlocks: Factory.each(i => getRandomNumber(1, 30)),

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from '@material-ui/core';
 import { AppTableBody } from '@app/ui-kit';
-import { Delegate } from 'src/core/model/Delegate';
+import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
 import { useStyles } from 'src/pages/delegates/component/TablesWrapper/component/AllDelegatesTable/style';
 import AllDelegatesTableRow from 'src/pages/delegates/component/TablesWrapper/component/AllDelegatesTable/component/AllDelegatesTableRow';
 import AllDelegatesTableHeader from 'src/pages/delegates/component/TablesWrapper/component/AllDelegatesTable/component/AllDelegatesTableHeader';
@@ -15,8 +15,8 @@ const AllDelegatesTable: React.FC<IAllDelegatesTableProps> = ({ }) => {
         <Table className={classes.table}>
             <AllDelegatesTableHeader />
             <AppTableBody className={classes.appTableBody} >
-                {(item: Delegate, index: number) => (
-                    <AllDelegatesTableRow key={index} value={item} />
+                {(item: VMDelegate, index: number) => (
+                    <AllDelegatesTableRow key={item.publicKey} value={item} />
                 )}
             </AppTableBody>
         </Table>

@@ -1,10 +1,11 @@
-import { IDelegatesInfo } from 'src/interface';
+import { RawDelegatesSummary } from '@app/common';
 import * as Factory from 'factory.ts';
 import {
   getRandomNumber,
 } from 'src/_mocks_/utils';
 
-const delegatesInfoFactory = Factory.Sync.makeFactory<IDelegatesInfo>({
+// tslint:disable: no-magic-numbers
+const delegatesSummaryFactory = Factory.Sync.makeFactory<RawDelegatesSummary>({
   allCount: Factory.each(i => getRandomNumber(100, 3000)),
   activeCount: Factory.each(i => getRandomNumber(100, 1000)),
   standbyCount: Factory.each(i => getRandomNumber(100, 300)),
@@ -13,4 +14,4 @@ const delegatesInfoFactory = Factory.Sync.makeFactory<IDelegatesInfo>({
   stakeFreeztime: Factory.each(i => getRandomNumber(6048000, 14515200000)),
 });
 
-export const getDelegateInfoMock = () => delegatesInfoFactory.build();
+export const getDelegatesSummaryMock = () => delegatesSummaryFactory.build();
