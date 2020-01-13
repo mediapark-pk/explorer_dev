@@ -3,34 +3,34 @@ import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
 import { delay } from 'src/util';
 
-// TODO: Consider reuse proper core interface instead this custom one:
 export interface TransactionAmount {
-    t: number,
-    y: number,
+    t: number;
+    y: number;
 }
 
-const mockData = [];
-for (var i = 0; i < 500; i++) {
-    mockData.push({
-        t: Date.now() + i*200000000,
-        y: Math.abs((i>0 ? mockData[i-1].y : 20) + Math.random()*2 - 1)
-    })
+// tslint:disable:no-magic-numbers // there's mock data below
+const MOCK_DATA_LENGTH = 500;
+
+function getMockData (): Array<Array<TransactionAmount>> {
+    const mockData = [];
+    for (let i = 0; i < MOCK_DATA_LENGTH; i++) {
+        mockData.push({
+            t: Date.now() + i * 200000000,
+            y: Math.abs((i > 0 ? mockData[i - 1].y : 20) + Math.random() * 2 - 1)
+        });
+    }
+    return [mockData];
 }
 
 @transient
-export default class TransactionsVolumeRepository implements IDataRepository<TransactionAmount> {
+export default class TransactionsVolumeRepository implements IDataRepository<Array<TransactionAmount>> {
 
-    @observable data: Array<TransactionAmount> = [];
+    @observable data: Array<Array<TransactionAmount>> = [];
     @observable totalCount: number = 0;
 
     @action async onUpdate(dataUpdate: IDataUpdate) {
-        // alert("should no be here")
         await delay(100);
-        var datasets = [
-            mockData,
-        ];
-
-        this.data = datasets;
-        this.totalCount = 500;
+        this.data = getMockData();
+        this.totalCount = MOCK_DATA_LENGTH;
     }
 }

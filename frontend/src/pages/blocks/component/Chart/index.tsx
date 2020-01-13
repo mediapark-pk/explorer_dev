@@ -15,17 +15,7 @@ export const Chart: React.FC<IChartProps> = observer(({ dataProvider }) => {
 
     return (
         <div className={classes.root} >
-
             <AppRichTimeChart dataProvider={dataProvider} />
-
-            {/* <AppRichMultiTimeChart dataProvider={dataProvider} datasetMeta={[
-                { label: 'ETH', color: CHART_COLORS.blue },
-                { label: 'BTC', color: CHART_COLORS.orange },
-                { label: 'USD', color: CHART_COLORS.green },
-            ]}>
-                <h5>Market capitalization</h5>
-            </AppRichMultiTimeChart> */}
-
         </div>
     );
 });
