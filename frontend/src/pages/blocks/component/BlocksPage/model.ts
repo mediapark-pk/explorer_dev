@@ -8,7 +8,7 @@ import { observable } from 'mobx';
 @singleton
 export default class BlocksPageModel {
     @observable dataProvider: DataProvider<Block>;
-    @observable transactionsVolumeDataProvider: DataProvider<TransactionAmount>;
+    @observable transactionsVolumeDataProvider: DataProvider<Array<TransactionAmount>>;
 
     constructor(
         blocksRepository: BlocksRepository,
@@ -25,6 +25,5 @@ export default class BlocksPageModel {
 
         this.dataProvider.loadData();
         this.transactionsVolumeDataProvider.loadData();
-        this.dataProvider.loadData();
     }
 }

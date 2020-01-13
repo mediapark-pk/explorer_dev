@@ -3,7 +3,6 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme: Theme) => ({
     root: {
         marginBottom: '85px',
-        // alignSelf: 'flex-end',
         position: 'relative',
     },
     chart: {

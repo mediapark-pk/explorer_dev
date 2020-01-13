@@ -10,7 +10,7 @@ import { registerChartShadowPlugin } from '@app/ui-kit/src/chart/common/chartSha
 import {
     mainChartConfigFunction as defaultExplorerMainChartConfigFunction,
     minimapConfigFunction as defaultExplorerMinimapConfigFunction
-} from './config';
+} from 'src/app/component/chart/TimeChart/config';
 
 export interface IAppRichTimeChartProps {
     className?: string;

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import { AppRichTimeChart } from '../TimeChart';
+import { AppRichTimeChart } from 'src/app/component/chart/TimeChart';
 import { observer } from 'mobx-react-lite';
-import { mainChartConfigFunction, minimapConfigFunction } from './config';
+import { mainChartConfigFunction, minimapConfigFunction } from 'src/app/component/chart/MultiTimeChart/config';
 import { DataProvider } from '@app/core';
 import { AppChartDatasetMeta, AppDatasetSelector } from '@app/ui-kit';
 

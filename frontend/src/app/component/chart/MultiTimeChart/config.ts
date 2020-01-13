@@ -1,4 +1,4 @@
-import { CHART_COLORS, CHART_LINE_COLORS } from '../colors';
+import { CHART_COLORS, CHART_LINE_COLORS } from 'src/app/component/chart/colors';
 import { AppChartDatasets } from '@app/ui-kit';
 import { defaultAppChartLineConfig as defaultUikitAppChartLineConfig } from '@app/ui-kit';
 import { defaultAppChartMinimapConfig as defaultUikitAppChartMinimapConfig } from '@app/ui-kit';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStyles } from 'src/app/component/chart/RatingDiagram/style';
 import { AppChartDoughnut, AppChart } from '@app/ui-kit';
-import { AppChartDoughnutModel } from './model';
-import { ratingDiagramconfigFunction } from './config';
+import { AppChartDoughnutModel } from 'src/app/component/chart/RatingDiagram/model';
+import { ratingDiagramconfigFunction } from 'src/app/component/chart/RatingDiagram/config';
 
 interface IRatingDiagramProps {}
 
