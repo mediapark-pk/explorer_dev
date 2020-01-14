@@ -40,20 +40,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         flexGrow: 1,
     },
-    favorite: {
-        marginRight: '1.23%',
-        color: theme.palette.primary.main,
-        fontSize: '14px!important',
-        fontWeight: 500,
-        letterSpacing: '0.75px',
-        textTransform: 'uppercase',
-        minWidth: '136px',
-    },
-    favoriteIcon: {
-        marginLeft: '1.23%',
-        height: '24px',
-        color: theme.palette.primary.main,
-    },
     button_icon: {
         height: '24px',
         color: theme.palette.text.secondary,

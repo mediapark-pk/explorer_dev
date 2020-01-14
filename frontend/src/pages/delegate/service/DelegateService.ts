@@ -1,5 +1,6 @@
 import { Socket } from '@app/socket-client';
 import { singleton } from 'src/container';
+import { delay } from 'src/util';
 import { 
     Request,
     ResponseList,
@@ -14,7 +15,6 @@ import {
     RawBalanceVolume,
     RawVote,
  } from '@app/common';
-
 
 @singleton
 export default class DelegateService {
@@ -37,6 +37,13 @@ export default class DelegateService {
 
     async addToFavorites(id: string): Promise<Response<any>> {
         return this.socket.query(SocketCode.ADD_DELEGATE_TO_FAVORITES, id);
+    }
+
+    async saveNote(delegateId: string, noteText: string): Promise<Response<any>> {
+        // TODO: Unmock
+        console.log('MOCK_saveNote. delegateId=' + delegateId + ', noteText=' + noteText);
+        await delay(500);
+        // return this.socket.query(SocketCode.ADD_SAVE_NOTE, request);
     }
 
     async getBalanceVolume(request: Request): Promise<ResponseList<RawBalanceVolume>> {
