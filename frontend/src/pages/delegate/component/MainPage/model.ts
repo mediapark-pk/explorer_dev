@@ -7,7 +7,7 @@ import { RawDelegateSummary } from '@app/common';
 import { Subscription } from 'rxjs';
 import { OnInit, OnDestroy } from '@app/core';
 import { filter } from 'rxjs/operators';
-import { debounce } from 'lodash';
+import debounce from 'lodash.debounce';
 
 // TODO: Put in a proper place
 interface VMFavoriteDelegateInfo {
