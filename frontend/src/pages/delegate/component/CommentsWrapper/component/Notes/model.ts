@@ -4,7 +4,9 @@ import { observable, action } from 'mobx';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import DelegateService from 'src/pages/delegate/service/DelegateService';
-    
+import { useModel } from '@app/core';
+import MainPageModel from 'src/pages/delegate/component/MainPage/model';
+
 const AUTOSAVE_DEBOUNCE_INTERVAL = 500;
 
 @singleton
@@ -13,8 +15,8 @@ export default class NotesModel implements OnInit, OnDestroy {
     @observable isNoteSaving: boolean = false;
     @observable isNoteSaved: boolean = false;
 
-    delegateId: string;
-    
+    private mainPageModel = useModel(MainPageModel);
+
     onNoteUpdate: Subject<string> = new Subject();
 
     constructor(
@@ -36,9 +38,8 @@ export default class NotesModel implements OnInit, OnDestroy {
         this.isNoteSaving = true;
         this.isNoteSaved = false;
         // MOCK logic
-        await this.service.saveNote(this.delegateId, noteText);
+        await this.service.saveNote(this.mainPageModel.delegateId, noteText);
         this.isNoteSaving = false;
-        // TODO: Set 'true' on success only
         this.isNoteSaved = true;
     }
 

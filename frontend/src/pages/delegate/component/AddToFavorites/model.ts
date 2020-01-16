@@ -1,7 +1,9 @@
 import { singleton } from 'src/container';
 import { observable, action } from 'mobx';
 import DelegateService from 'src/pages/delegate/service/DelegateService';
-    
+import { useModel } from '@app/core';
+import MainPageModel from 'src/pages/delegate/component/MainPage/model';
+
 interface VMFavoriteDelegateInfo {
     favorite: boolean;
     notifyOnIncoming: boolean;
@@ -16,17 +18,17 @@ export default class AddToFavoritesModel {
         notifyOnOutgoing: false,
     };
     
-    delegateId: string;
+    private mainPageModel = useModel(MainPageModel);
     
     constructor(
         private readonly service: DelegateService,
     ) { }
-
-
+    
+    
     @action.bound
     async addToFavorites() {
         // MOCK logic
         this.favoriteDelegateInfo.favorite = !this.favoriteDelegateInfo.favorite;
-        await this.service.addToFavorites(this.delegateId);
+        await this.service.addToFavorites(this.mainPageModel.delegateId);
     }
 }
