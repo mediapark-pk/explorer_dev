@@ -30,7 +30,6 @@
     "ddk.registry": "git+https://github.com/AraiEzzra/DDK.REGISTRY.git",
     "history": "^4.9.0",
     "inversify": "^5.0.1",
-    "lodash.debounce": "^4.0.8",
     "mobx": "^4.15.2",
     "mobx-react-lite": "^1.5.2",
     "mobx-react-router": "^4.1.0",
@@ -48,7 +47,6 @@
   "devDependencies": {
     "@types/classnames": "^2.2.8",
     "@types/history": "^4.7.4",
-    "@types/lodash.debounce": "^4.0.6",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.8.4",
     "@types/react-router": "^5.1.4",
