@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme: Theme) => ({
     root: {},
     wrapper: {
-        marginTop: '68px',
+        padding: '68px 8.33% 0 8.33%',
     },
     loader: {
         position: 'absolute',

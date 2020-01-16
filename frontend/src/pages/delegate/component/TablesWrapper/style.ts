@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     root: {
         display: 'flex',
         maxWidth: '784px',
-        marginLeft: '8.33%',
+        width: '55%',
         marginRight: '8.33%',
         flexGrow: 1,
     },

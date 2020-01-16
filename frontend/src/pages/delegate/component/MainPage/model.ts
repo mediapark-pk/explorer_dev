@@ -4,9 +4,9 @@ import { singleton } from 'src/container';
 import DelegateService from 'src/pages/delegate/service/DelegateService';
 import { VMDelegateSummary } from 'src/pages/delegate/model/VMDelegateSummary';
 import { RawDelegateSummary } from '@app/common';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { OnInit, OnDestroy } from '@app/core';
-import { filter } from 'rxjs/operators';
+import { filter, debounceTime } from 'rxjs/operators';
 
 @singleton
 export default class CommonInfoModel implements OnInit, OnDestroy {
@@ -61,11 +61,6 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
     @action.bound
     copyAddress() {
         copy(this.delegateInfo.address);
-    }
-    
-    @action.bound
-    async addToFavorites() {
-        await this.service.addToFavorites(this.delegateId);
     }
 
     onDestroy() {

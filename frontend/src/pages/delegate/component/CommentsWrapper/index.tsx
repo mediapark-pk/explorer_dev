@@ -3,7 +3,7 @@ import { AppTabPanel } from '@app/ui-kit';
 import { useStyles } from 'src/pages/delegate/component/CommentsWrapper/style';
 import { Tabs, Tab } from '@material-ui/core';
 import Comments from 'src/pages/delegate/component/CommentsWrapper/component/Comments';
-import Notes from 'src/pages/delegate/component/CommentsWrapper/component/Notes';
+import { Notes } from 'src/pages/delegate/component/CommentsWrapper/component/Notes';
 
 enum TabPanels {
     Comments,

@@ -4,6 +4,7 @@ import { Typography, Badge, Button } from '@material-ui/core';
 import * as Icons from '@material-ui/icons';
 import { withRouter, useHistory } from 'react-router';
 import MainPageModel from 'src/pages/delegate/component/MainPage/model';
+import { AddToFavorites } from 'src/pages/delegate/component/AddToFavorites';
 import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 
@@ -39,12 +40,7 @@ const PageTitle: React.FC<IPageTitleProps> = ({ }) => {
                     </Badge>
                 </div>
                 <div className={classes.favoriteWrapper}>
-                    <Button onClick={model.addToFavorites}>
-                        <Typography className={classes.favorite} >
-                            Add to favorites
-                        </Typography>
-                        <Icons.FavoriteBorder className={classes.favoriteIcon} />
-                    </Button>
+                    <AddToFavorites />
                 </div>
             </div>
         </div>

@@ -5,6 +5,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         marginTop: '11px',
+        flexGrow: 1,
+        width: '35%',
     },
     tabs: {
         minHeight: '30px',        
