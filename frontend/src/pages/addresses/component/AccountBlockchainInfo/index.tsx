@@ -3,15 +3,15 @@ import { useStyles } from 'src/pages/blocks/component/BlockBlockchainInfo/style'
 import { observer } from 'mobx-react-lite';
 import Grid from '@material-ui/core/Grid';
 import BlockchainInfo from 'src/app/component/Common/blockchainInfo';
-import AddressesBlockchainInfoModel from 'src/pages/addresses/component/AddressesBlockchainInfo/model';
+import AccountBlockchainInfoModel from 'src/pages/addresses/component/AccountBlockchainInfo/model';
 import { useModel } from '@app/core/src';
 
-interface IAddressesBlockchaineInfoProps {
+interface IAccountBlockchainInfoProps {
 }
 
-const AddressesBlockchainInfo: React.FC<IAddressesBlockchaineInfoProps> = ({}) => {
+const AccountBlockchainInfo: React.FC<IAccountBlockchainInfoProps> = ({}) => {
     const classes = useStyles({});
-    const model = useModel(AddressesBlockchainInfoModel);
+    const model = useModel(AccountBlockchainInfoModel);
 
     const items = [
         {
@@ -57,4 +57,4 @@ const AddressesBlockchainInfo: React.FC<IAddressesBlockchaineInfoProps> = ({}) =
     );
 };
 
-export default observer(AddressesBlockchainInfo);
+export default observer(AccountBlockchainInfo);

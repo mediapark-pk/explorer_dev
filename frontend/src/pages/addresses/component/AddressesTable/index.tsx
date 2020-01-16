@@ -10,14 +10,14 @@ import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { Account } from 'src/core/model/Account';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import SearchIcon from '@material-ui/icons/Search';
 import { Link } from 'react-router-dom';
 import { AppTablePaginator } from '@app/ui-kit/src';
+import { VMAccount } from 'src/pages/addresses/model/VMAccount';
 
 interface IAddressesTableProps {
-    dataProvider: DataProvider<Account>;
+    dataProvider: DataProvider<VMAccount>;
 }
 
 const AddressesTable: React.FC<IAddressesTableProps> = ({ dataProvider }) => {
@@ -63,10 +63,26 @@ const AddressesTable: React.FC<IAddressesTableProps> = ({ dataProvider }) => {
                                     <ImportExportIcon/>
                                 </div>
                             </TableCell>
+                            <TableCell>
+                                <div className={classes.tableHeadTitle}>
+                                    <Typography>
+                                        Delegate name
+                                    </Typography>
+                                    <ImportExportIcon/>
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                                <div className={classes.tableHeadTitle}>
+                                    <Typography>
+                                        Txn count
+                                    </Typography>
+                                    <ImportExportIcon/>
+                                </div>
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <AppTableBody className={classes.appTableBody}>
-                        {(item: Account, index: number) => (
+                        {(item: VMAccount, index: number) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <Typography>
@@ -81,6 +97,16 @@ const AddressesTable: React.FC<IAddressesTableProps> = ({ dataProvider }) => {
                                 <TableCell>
                                     <Typography>
                                         {item.actualBalance}
+                                    </Typography>
+                                </TableCell>
+                                <TableCell>
+                                    <Typography>
+                                        {item.delegateName}
+                                    </Typography>
+                                </TableCell>
+                                <TableCell>
+                                    <Typography>
+                                        {item.transactionCount}
                                     </Typography>
                                 </TableCell>
                             </TableRow>

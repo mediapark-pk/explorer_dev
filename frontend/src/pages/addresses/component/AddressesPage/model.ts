@@ -1,20 +1,20 @@
-import { Account } from 'src/core/model/Account';
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
-import AddressesRepository from 'src/pages/addresses/repository/AccountRepository';
+import AccountRepository from 'src/pages/addresses/repository/AccountRepository';
 import { observable } from 'mobx';
+import { VMAccount } from 'src/pages/addresses/model/VMAccount';
 
 @singleton
 export default class AddressesPageModel {
 
-    @observable dataProvider: DataProvider<Account>;
+    @observable dataProvider: DataProvider<VMAccount>;
 
     constructor(
-        addressesRepository: AddressesRepository,
+        accountRepository: AccountRepository,
     ) {
 
         this.dataProvider = new DataProvider({
-            repository: addressesRepository
+            repository: accountRepository
         });
 
         this.dataProvider.loadData();

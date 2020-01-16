@@ -1,13 +1,13 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import { Account } from 'src/core/model/Account';
 import AccountService from 'src/pages/addresses/service/AccountService';
+import { VMAccount } from 'src/pages/addresses/model/VMAccount';
 
 @transient
-export default class AccountRepository implements IDataRepository<Account> {
+export default class AccountRepository implements IDataRepository<VMAccount> {
 
-    @observable data: Array<Account> = [];
+    @observable data: VMAccount[] = [];
     @observable totalCount: number = 0;
 
     constructor(
@@ -19,7 +19,7 @@ export default class AccountRepository implements IDataRepository<Account> {
     @action
     async onUpdate(dataUpdate: IDataUpdate) {
             const responce = await this.accountService.getAll(dataUpdate);
-            this.data = responce.data;
+            this.data = responce.data.map(raw => new VMAccount(raw));
             this.totalCount = responce.totalCount;
     }
 }

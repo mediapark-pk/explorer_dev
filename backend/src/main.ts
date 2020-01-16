@@ -1,4 +1,3 @@
-
 import 'module-alias/register';
 import { NestFactory } from '@nestjs/core';
 import { WsAdapter } from '@nestjs/platform-ws';
