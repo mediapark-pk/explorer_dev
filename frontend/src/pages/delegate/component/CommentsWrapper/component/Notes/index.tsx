@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useStyles } from 'src/pages/delegate/component/CommentsWrapper/component/Notes/style';
+import NotesModel from 'src/pages/delegate/component/CommentsWrapper/component/Notes/model';
 import { TextField } from '@material-ui/core';
-import MainPageModel from 'src/pages/delegate/component/MainPage/model';
-import { useDI } from '@app/core';
+import { useModel } from '@app/core';
 import { observer } from 'mobx-react-lite';
 
 interface INotesProps {}
@@ -12,18 +12,16 @@ const TEXTAREA_ROWS = 10;
 
 export const Notes: React.FC<INotesProps> = observer(({ }) => {
     const classes = useStyles({});
-    const model = useDI(MainPageModel);
-    const [count, setCount] = useState(0);
+    const model = useModel(NotesModel);
     const [noteText, setNoteText] = useState('');
 
     const onChange = function (event: React.ChangeEvent<HTMLTextAreaElement>) {
         let value = event.target.value;
         
         setNoteText(value);
-        setCount(value.length);
         
         model.isNoteSaved = false;
-        model.saveNoteDebounce(value);
+        model.onNoteUpdate.next(value);
     };
 
     return (
@@ -39,7 +37,7 @@ export const Notes: React.FC<INotesProps> = observer(({ }) => {
                 onChange={onChange}
             />
             <div className={classes.bottomWrapper}>
-                <span className={classes.counter}>{count} / {MAX_SYMBOLS}</span>
+                <span className={classes.counter}>{noteText.length} / {MAX_SYMBOLS}</span>
                 <span className={classes.saving}>
                     {model.isNoteSaving && 'Saving...'}
                     {model.isNoteSaved && 'Saved'}

@@ -7,7 +7,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         margin: '2ex 0',
     },
     textField: {
-        // borderBottom: 'none',
         backgroundColor: '#1E243A',
         padding: '2ex',
     },
