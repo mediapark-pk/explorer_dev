@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'src/pages/addresses/component/AddressesInfo/style';
 import { observer } from 'mobx-react-lite';
-import AddressesBlockchainInfo from 'src/pages/addresses/component/AddressesBlockchainInfo';
+import AddressesBlockchainInfo from 'src/pages/addresses/component/AccountBlockchainInfo';
 import RichList from 'src/pages/addresses/component/RichList';
 
 interface IAddressesInfoProps {

@@ -1,30 +1,38 @@
 import { singleton } from 'src/container';
-import { delay } from 'src/util';
-import { Account, Address, createMockAccount } from 'src/core/model/Account';
-import { Request, ResponseList } from '@app/web';
-
-const mocks: Array<Account> = [];
-
-for (let i = 0; i < 100; i++) {
-    mocks.push(createMockAccount());
-}
+import { action } from 'mobx';
+import { SocketCode } from '@app/common';
+import { Socket } from '@app/socket-client';
+import { Request, ResponseList, Response } from '@app/web';
+import { RawAccount, RawAccountsBlockchainInfo } from '@app/common';
+import { Observable } from 'rxjs';
 
 @singleton
-class AccountService {
+export default class AccountService {
 
-    async getAll(request: Request): Promise<ResponseList<Account>> {
-        await delay();
-        return {
-            totalCount: mocks.length,
-            data: mocks
-        };
+    constructor(
+        private readonly socket: Socket
+    ) {
     }
 
-    async getOne(address: Address): Promise<Account> {
-        await delay();
-        return mocks.find(item => item.address === address);
+
+    @action
+    async getAll(request: Request): Promise<ResponseList<RawAccount>> {
+        return this.socket.query(SocketCode.GET_ACCOUNTS, request);
     }
+
+    @action
+    async getOne(address: string): Promise<Response<RawAccount>> {
+        return this.socket.query(SocketCode.GET_ACCOUNT);
+    }
+
+    @action
+    async getAccountsBlockchainInfo(): Promise<Response<RawAccountsBlockchainInfo>> {
+        return this.socket.query(SocketCode.GET_ACCOUNTS_BLOCKCHAIN_INFO);
+    }
+
+    onAccountsBlockchainInfoUpdate(): Observable<Response<RawAccountsBlockchainInfo>> {
+        return this.socket.getEvent(SocketCode.ON_ACCOUNTS_BLOCKCHAIN_INFO_UPDATE);
+    }
+
 
 }
-
-export default AccountService;
