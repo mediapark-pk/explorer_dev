@@ -7,6 +7,7 @@ import {
 } from '@app/common';
 
 import {
+    getTransactionMock,
     getTransactionsMock,
 } from 'src/_mocks_';
 
@@ -18,7 +19,7 @@ export class TransactionService {
 
     async getTransactions(request: Request): Promise<ResponseListEntity<RawTransaction>> {
         console.log('[TransactionService] getTransactions', request);
-        
+
         try {
             // TODO: Implement/review request/response
             return new ResponseEntity({ data: {
@@ -30,14 +31,13 @@ export class TransactionService {
         }
     }
 
-    async getTransaction(request: Request): Promise<ResponseListEntity<RawTransaction>> {
+    async getTransaction(request: Request): Promise<ResponseEntity<RawTransaction>> {
         console.log('[TransactionService] getTransaction', request);
-        
+
         try {
             // TODO: Implement/review request/response
-            return new ResponseEntity({ data: {
-                data: getTransactionsMock((request as any).pagination.limit),
-                totalCount: (request as any).pagination.limit * 15 },
+            return new ResponseEntity({
+                data: getTransactionMock(),
             });
         } catch (e) {
             return new ResponseEntity({ errors: [e.messge] });
@@ -46,7 +46,7 @@ export class TransactionService {
 
     async getTransactionsByBlockId(request: Request): Promise<ResponseListEntity<RawTransaction>> {
         console.log('[TransactionService] getTransactionsByBlockId', request);
-        
+
         try {
             // TODO: Implement/review request/response
             return new ResponseEntity({ data: {

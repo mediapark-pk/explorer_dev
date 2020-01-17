@@ -18,8 +18,10 @@ const transactionFactory = Factory.Sync.makeFactory<RawTransaction>({
     senderAddress: Factory.each(i => getRandomString(10)),
     senderPublicKey: Factory.each(i => getRandomString(10)),
     signature: Factory.each(i => getRandomString(10)),
-    type: Factory.each(i => 10),
-    asset: 'MOCK_ASSET',
+    type: Factory.each(i => 20),
+    asset: {
+
+    },
 });
 
 export const getTransactionMock = () => transactionFactory.build();
