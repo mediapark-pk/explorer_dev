@@ -1,9 +1,8 @@
 import { singleton } from 'src/container';
 import { DataProvider, OnInit } from '@app/core';
-// import { Transaction } from 'src/core/model/Transaction';
 import TransactionsRepository, { TransactionsMode } from 'src/pages/transactions/repository/TransactionsRepository';
 import { action, observable } from 'mobx';
-import { VMTransaction } from '../../model/VMTransaction';
+import { VMTransaction } from 'src/pages/transactions/model/VMTransaction';
 
 
 @singleton
