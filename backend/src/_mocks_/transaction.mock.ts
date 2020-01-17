@@ -1,8 +1,8 @@
 import { RawTransaction } from '@app/common';
 import * as Factory from 'factory.ts';
 import {
-  getRandomNumber,
-  getRandomString,
+    getRandomNumber,
+    getRandomString,
 } from 'src/_mocks_/utils';
 
 // tslint:disable: no-magic-numbers
@@ -18,13 +18,15 @@ const transactionFactory = Factory.Sync.makeFactory<RawTransaction>({
     senderAddress: Factory.each(i => getRandomString(10)),
     senderPublicKey: Factory.each(i => getRandomString(10)),
     signature: Factory.each(i => getRandomString(10)),
-    type: Factory.each(i => 20),
-    asset: {
-
-    },
+    type: 10,
+    asset: Factory.each(i => ({
+        recipientAddress: getRandomString(10),
+        amount: getRandomNumber(1, 10),
+        delegate: 'this_is_mock'
+    })),
 });
 
 export const getTransactionMock = () => transactionFactory.build();
 
 export const getTransactionsMock = (count: number) =>
-  [...Array.from(Array(count))].map(e => getTransactionMock());
+    [...Array.from(Array(count))].map(e => getTransactionMock());

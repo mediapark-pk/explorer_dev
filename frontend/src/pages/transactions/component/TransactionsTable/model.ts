@@ -1,15 +1,16 @@
 import { singleton } from 'src/container';
 import { DataProvider, OnInit } from '@app/core';
-import { Transaction } from 'src/core/model/Transaction';
+// import { Transaction } from 'src/core/model/Transaction';
 import TransactionsRepository, { TransactionsMode } from 'src/pages/transactions/repository/TransactionsRepository';
 import { action, observable } from 'mobx';
+import { VMTransaction } from '../../model/VMTransaction';
 
 
 @singleton
 export default class TransactionsTableModel implements OnInit {
     @observable isLoading: boolean = true;
     @observable currentTab: TransactionsMode = TransactionsMode.AllTransactions;
-    @observable dataProvider: DataProvider<Transaction>;
+    @observable dataProvider: DataProvider<VMTransaction>;
 
     constructor(
         transactionsRepository: TransactionsRepository
