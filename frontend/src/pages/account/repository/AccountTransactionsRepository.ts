@@ -1,16 +1,21 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import { Transaction } from 'src/core/model/Transaction';
 import { TransactionsService } from 'src/pages/transactions/service/TransactionsService';
+import { VMTransaction } from 'src/common/model/VMTransaction';
+
+export enum Type {
+    Sent = 'sent',
+    Recieved = 'recieved',
+}
 
 @transient
-export default class TransactionsRepository implements IDataRepository<Transaction> {
+export default class AccountTransactionsRepository implements IDataRepository<VMTransaction> {
 
-    @observable data: Transaction [] = [];
+    @observable data: Array<VMTransaction> = [];
     @observable totalCount: number = 0;
 
-    constructor(
+     constructor(
         private readonly transactionsService: TransactionsService
     ) {
 
@@ -18,7 +23,7 @@ export default class TransactionsRepository implements IDataRepository<Transacti
 
     @action
     async onUpdate(dataUpdate: IDataUpdate) {
-            const responce = await this.transactionsService.getTransactionsByBlockId(dataUpdate);
+            const responce = await this.transactionsService.getTransactions(dataUpdate);
             this.data = responce.data;
             this.totalCount = responce.totalCount;
     }

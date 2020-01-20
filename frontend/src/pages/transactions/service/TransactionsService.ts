@@ -2,14 +2,12 @@ import { singleton } from 'src/container';
 import { action } from 'mobx';
 import { SocketCode } from '@app/common';
 import { Socket } from '@app/socket-client';
-import { 
+import {
     Request,
     ResponseList,
     Response
  } from '@app/web';
-import { 
-    RawTransaction,
-} from '@app/common';
+import { RawTransaction } from '@app/common';
 
 export enum AllowedSorts {
     // TODO: Review and check names
