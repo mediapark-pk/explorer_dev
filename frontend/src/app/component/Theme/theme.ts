@@ -90,12 +90,15 @@ export const THEME: ThemeOptions = createMuiTheme({
                 borderBottom: 'none',
             },
             body: {
-                 color: 'rgba(255, 255, 255, 1)',
+                 color: COLORS.WHITE,
             }
         },
         MuiButton: {
             root: {
                 padding: 0,
+                '&:hover': {
+                    backgroundColor: COLORS.PICTON_BLUE_A2,
+                },
             },
             text: {
                 padding: 0,
@@ -109,6 +112,13 @@ export const THEME: ThemeOptions = createMuiTheme({
         MuiInput: {
             input: {
                 padding: 0,
+                '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
+                    WebkitAppearance: 'none',
+                    margin: 0,
+                },
+                '[type=number]': {
+                    MozAppearance: 'textfield',
+                }
             },
             underline: {
                 '&:before': 'none',
@@ -122,7 +132,7 @@ export const THEME: ThemeOptions = createMuiTheme({
                 },
             },
             icon: {
-                color: 'rgba(255, 255, 255, 0.54)'
+                color: COLORS.GRAY
             }
         },
         MuiOutlinedInput: {
@@ -131,12 +141,28 @@ export const THEME: ThemeOptions = createMuiTheme({
                 fontSize: '12px !important',
                 lineHeight: '16px',
                 letterSpacing: '0.4px',
-                color: 'rgba(255, 255, 255, 0.54)',
+                color: COLORS.GRAY,
             },
             notchedOutline: {
-                borderColor: 'rgba(255, 255, 255, 0.54)',
+                borderColor: COLORS.GRAY,
                 '$root:hover &': {
-                    borderColor: 'rgba(255, 255, 255, 1)'
+                    borderColor: COLORS.WHITE
+                }
+            }
+        },
+        MuiMenu: {
+            list: {
+                background: COLORS.MIRAGE_L,
+            }
+        },
+        MuiMenuItem: {
+            root: {
+                padding: '4px 6px !important',
+                '&:hover': {
+                    backgroundColor: COLORS.PICTON_BLUE_A2,
+                },
+                '&.Mui-selected, &.Mui-selected:hover': {
+                    backgroundColor: COLORS.PICTON_BLUE_A7,
                 }
             }
         },
@@ -185,7 +211,7 @@ export const THEME: ThemeOptions = createMuiTheme({
                     textDecoration: 'none!important'
                 }
             }
-        }
+        },
     }
 });
 
