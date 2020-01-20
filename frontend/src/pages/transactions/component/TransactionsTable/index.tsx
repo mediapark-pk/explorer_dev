@@ -154,8 +154,8 @@ const TransactionsTable: React.FC<ITransactionsTableProps> = ({}) => {
                                     </Link>
                                 </TableCell>
                                 <TableCell>
-                                    <Link className={classes.link} to={`/account/${item.recipientAddress}`}>
-                                        {item.recipientAddress}
+                                    <Link className={classes.link} to={`/account/${item.asset.recipientAddress}`}>
+                                        {item.asset.recipientAddress}
                                     </Link>
                                 </TableCell>
                                 <TableCell>
@@ -170,7 +170,7 @@ const TransactionsTable: React.FC<ITransactionsTableProps> = ({}) => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography>
-                                        {item.amount}
+                                        {item.asset.amount}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
