@@ -10,13 +10,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
-import { Transaction } from 'src/core/model/Transaction';
 import { AppTableBody } from '@app/ui-kit';
 import { AppTablePaginator, AppTableSearchLabel, AppTableSortLabel } from '@app/ui-kit/src';
 import { useModel } from '@app/core/src';
 import TransactionsTableModel from 'src/pages/transactions/component/TransactionsTable/model';
 import { TransactionsMode } from 'src/pages/transactions/repository/TransactionsRepository';
 import { Link } from 'react-router-dom';
+import { VMTransaction } from 'src/pages/transactions/model/VMTransaction';
 
 interface ITransactionsTableProps {
 
@@ -136,7 +136,7 @@ const TransactionsTable: React.FC<ITransactionsTableProps> = ({}) => {
                         </TableRow>
                     </TableHead>
                     <AppTableBody className={classes.appTableBody}>
-                        {(item: Transaction, index: number) => (
+                        {(item: VMTransaction, index: number) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <Link className={classes.link} to={`/block/${item.blockId}`}>
@@ -160,7 +160,7 @@ const TransactionsTable: React.FC<ITransactionsTableProps> = ({}) => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography>
-                                        {item.createdAt}
+                                        {item.createdAt.humanize()}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>

@@ -4,6 +4,7 @@ export * from './RawDelegateSummary';
 export * from './RawDelegatesSummary';
 export * from './RawVote';
 export * from './RawDelegate';
+export * from './RawTransaction';
 export * from './RawAccount';
 export * from './RawStakeOrder';
 export * from './RawAccountsBlockchainInfo';
