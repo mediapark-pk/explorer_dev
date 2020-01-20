@@ -1,8 +1,8 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import { Transaction } from 'src/core/model/Transaction';
-import TransactionsService from 'src/pages/transactions/service/TransactionsService';
+import { TransactionsService } from 'src/pages/transactions/service/TransactionsService';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 
 export enum Type {
     Sent = 'sent',
@@ -10,9 +10,9 @@ export enum Type {
 }
 
 @transient
-export default class AccountTransactionsRepository implements IDataRepository<Transaction> {
+export default class AccountTransactionsRepository implements IDataRepository<VMTransaction> {
 
-    @observable data: Array<Transaction> = [];
+    @observable data: Array<VMTransaction> = [];
     @observable totalCount: number = 0;
 
      constructor(

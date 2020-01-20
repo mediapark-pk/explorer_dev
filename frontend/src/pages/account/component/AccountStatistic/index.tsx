@@ -8,11 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import { useModel } from '@app/core/src';
 import { VMAccount } from 'src/common/model/VMAccount';
 
-interface IAccountStatisticModelProps {
+interface IAccountStatisticProps {
     account: VMAccount;
 }
 
-const AccountStatistic: React.FC<IAccountStatisticModelProps> = ({ account }) => {
+const AccountStatistic: React.FC<IAccountStatisticProps> = ({ account }) => {
     const classes = useStyles({});
     const model = useModel(AccountStatisticModel);
 

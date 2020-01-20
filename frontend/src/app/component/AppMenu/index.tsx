@@ -14,7 +14,7 @@ const AppMenu: React.FC<IAppMenuProps> = ({ }) => {
             <NavLink to='/delegates'    className={classes.button} activeClassName={classes.active}>Delegates</NavLink>
             <NavLink to='/transactions' className={classes.button} activeClassName={classes.active}>Transactions</NavLink>
             <NavLink to='/blocks'       className={classes.button} activeClassName={classes.active}>Blocks</NavLink>
-            <NavLink to='/addresses'    className={classes.button} activeClassName={classes.active}>Addresses</NavLink>
+            <NavLink to='/accounts'    className={classes.button} activeClassName={classes.active}>Addresses</NavLink>
             <NavLink to='/statistics'   className={classes.button} activeClassName={classes.active}>Statistics</NavLink>
         </div>
     );

@@ -13,7 +13,7 @@ import TableCell from '@material-ui/core/TableCell';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import SearchIcon from '@material-ui/icons/Search';
 import { Link } from 'react-router-dom';
-import { AppTablePaginator } from '@app/ui-kit/src';
+import { AppTablePaginator, AppTableSearchLabel, AppTableSortLabel } from '@app/ui-kit/src';
 import { VMAccount } from 'src/common/model/VMAccount';
 
 interface IAccountsTableProps {
@@ -40,44 +40,30 @@ const AccountsTable: React.FC<IAccountsTableProps> = ({ dataProvider }) => {
                         <TableRow
                             className={classes.tableRow}
                         >
-                            <TableCell>
-                                <div className={classes.tableHeadTitle}>
-                                    <Typography>
-                                        Rank
-                                    </Typography>
-                                </div>
+                            <TableCell className={classes.tableHeadTitle}>
+                                <Typography>
+                                    Rank
+                                </Typography>
                             </TableCell>
-                            <TableCell>
-                                <div className={classes.tableHeadTitle}>
-                                    <Typography>
-                                        Address
-                                    </Typography>
-                                     <SearchIcon/>
-                                </div>
+                            <TableCell className={classes.tableHeadTitle}>
+                                <AppTableSearchLabel field='address'>
+                                    Address
+                                </AppTableSearchLabel>
                             </TableCell>
-                            <TableCell>
-                                <div className={classes.tableHeadTitle}>
-                                    <Typography>
-                                        Balance (DDK)
-                                    </Typography>
-                                    <ImportExportIcon/>
-                                </div>
+                            <TableCell className={classes.tableHeadTitle}>
+                                <AppTableSortLabel columnId='amount'>
+                                    Balance (DDK)
+                                </AppTableSortLabel>
                             </TableCell>
-                            <TableCell>
-                                <div className={classes.tableHeadTitle}>
-                                    <Typography>
-                                        Delegate name
-                                    </Typography>
-                                    <ImportExportIcon/>
-                                </div>
+                            <TableCell className={classes.tableHeadTitle}>
+                                <AppTableSearchLabel field='delegate'>
+                                    Delegate name
+                                </AppTableSearchLabel>
                             </TableCell>
-                            <TableCell>
-                                <div className={classes.tableHeadTitle}>
-                                    <Typography>
-                                        Txn count
-                                    </Typography>
-                                    <ImportExportIcon/>
-                                </div>
+                            <TableCell className={classes.tableHeadTitle}>
+                                <AppTableSortLabel columnId='txncount'>
+                                    Txn count
+                                </AppTableSortLabel>
                             </TableCell>
                         </TableRow>
                     </TableHead>

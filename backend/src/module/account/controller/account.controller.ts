@@ -14,21 +14,21 @@ export class AccountController {
 
     @RPC(SocketCode.GET_ACCOUNTS)
     async findAll(@Body() request: Request) {
-        return await this.service.findAll(request);
+        return this.service.findAll(request);
     }
 
     @RPC(SocketCode.GET_ACCOUNT)
     async findOne(@Body() address: string) {
-        return await this.service.findOne(address);
+        return this.service.findOne(address);
     }
 
     @RPC(SocketCode.GET_ACCOUNTS_BLOCKCHAIN_INFO)
     async getAccountsBlockchainInfo() {
-        return await this.service.getAccountsBlockchainInfo();
+        return this.service.getAccountsBlockchainInfo();
     }
 
     @RPC(SocketCode.GET_ACCOUNT_STATISTIC)
     async getAccountStatistic() {
-        return await this.service.getAccountStatistic();
+        return this.service.getAccountStatistic();
     }
 }

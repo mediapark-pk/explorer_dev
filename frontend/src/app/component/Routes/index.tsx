@@ -4,8 +4,8 @@ import DelegatesPage from 'src/pages/delegates/component/MainPage';
 import DelegatePage from 'src/pages/delegate/component/MainPage';
 import StatisticsPage from 'src/pages/statistics/component/StatisticsPage';
 import SingleStatPage from 'src/pages/statistics/component/SingleStatPage';
-import AddressesPage from 'src/pages/accounts/component/AccountsPage';
-import AddressPage from 'src/pages/account/component/AccountPage';
+import AccountsPage from 'src/pages/accounts/component/AccountsPage';
+import AccountPage from 'src/pages/account/component/AccountPage';
 import LoginPage from 'src/pages/Login/component/LoginPage';
 import RegistrationPage from 'src/pages/Registration/component/RegistrationPage';
 import ForgetPage from 'src/pages/Forget/component/ForgetPage';
@@ -24,8 +24,8 @@ const Routes = () => {
             <Route path='/delegates/:id' exact component={DelegatePage} />
             <Route path='/statistics' exact component={StatisticsPage} />
             <Route path='/statistics/single' exact component={SingleStatPage} />
-            <Route path='/addresses' exact component={AddressesPage} />
-            <Route path='/account/:address' exact component={AddressPage} />
+            <Route path='/accounts' exact component={AccountsPage} />
+            <Route path='/account/:address' exact component={AccountPage} />
             <Route path='/Login' exact component={LoginPage} />
             <Route path='/Registration' exact component={RegistrationPage} />
             <Route path='/Forget' exact component={ForgetPage} />
