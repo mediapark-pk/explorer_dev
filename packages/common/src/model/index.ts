@@ -8,3 +8,6 @@ export * from './RawTransaction';
 export * from './RawAccount';
 export * from './RawStakeOrder';
 export * from './RawAccountsBlockchainInfo';
+export * from './RawTransaction';
+export * from './RawBlockchainInfo';
+export * from './RawDDKMarketData';

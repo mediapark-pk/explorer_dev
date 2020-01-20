@@ -19,12 +19,8 @@ export default class DelegatesRepository implements IDataRepository<VMDelegate> 
     }
 
     @action async onUpdate(dataUpdate: IDataUpdate) {
-        try {
-            const responce = await this.service.getDelegates(dataUpdate);
-            this.data = responce.data.map(raw => new VMDelegate(raw));
-            this.totalCount = responce.totalCount;
-        } catch (e) {
-            console.error(e);
-        }
+        const responce = await this.service.getDelegates(dataUpdate);
+        this.data = responce.data.map(raw => new VMDelegate(raw));
+        this.totalCount = responce.totalCount;
     }
 }

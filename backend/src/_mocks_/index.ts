@@ -8,3 +8,4 @@ export * from 'src/_mocks_/transaction.mock';
 export * from 'src/_mocks_/account.mock';
 export * from 'src/_mocks_/accountsBlockchainInfo.mock';
 export * from 'src/_mocks_/stake.mock';
+export * from 'src/_mocks_/blockchainInfo.mock';
