@@ -1,5 +1,5 @@
 import { CHART_COLORS } from 'src/app/component/chart/colors';
-import { AppChartDatasets } from '@app/ui-kit';
+import { AppChartDatasets, ChartConfigurationWithStyles } from '@app/ui-kit';
 import { defaultAppChartLineConfig as defaultUikitAppChartLineConfig } from '@app/ui-kit';
 import { defaultAppChartMinimapConfig as defaultUikitAppChartMinimapConfig } from '@app/ui-kit';
 
@@ -10,7 +10,7 @@ export const GRADIENT_HEIGHT = 2;
 export function mainChartConfigFunction(
     datasets: AppChartDatasets,
     canvasElement: HTMLCanvasElement
-): Chart.ChartConfiguration {
+): ChartConfigurationWithStyles {
     
     let lineCanvasContext = canvasElement.getContext('2d');
     const backgroundColor = lineCanvasContext.createLinearGradient(0, 0, 0, canvasElement.height * GRADIENT_HEIGHT);
@@ -28,6 +28,10 @@ export function mainChartConfigFunction(
                         borderColor: CHART_COLORS.blue,
                         borderWidth: 2,
                         lineTension: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.26)',
+                        shadowBlur: 4,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 4,
                     }
                 ]
             }
