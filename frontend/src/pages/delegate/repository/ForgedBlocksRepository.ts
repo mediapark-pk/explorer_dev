@@ -14,13 +14,9 @@ export default class ForgedBlocksRepository implements IDataRepository<VMBlock> 
     ) { }
 
     @action async onUpdate(dataUpdate: IDataUpdate) {
-        try {
-            const responce = await this.service.getForgedBlocks(dataUpdate);
-            this.data = responce.data;
-            this.totalCount = responce.totalCount;
-        } catch (e) {
-            console.log(e);
-        }
+        const responce = await this.service.getForgedBlocks(dataUpdate);
+        this.data = responce.data.map(e => new VMBlock(e));
+        this.totalCount = responce.totalCount;
     }
 }
 

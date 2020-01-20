@@ -14,7 +14,7 @@ import TransactionPage from 'src/pages/transaction/component/TransactionPage';
 import TransactionsPage from 'src/pages/transactions/component/TransactionsPage';
 import BlockPage from 'src/pages/block/component/BlockPage';
 import BlocksPage from 'src/pages/blocks/component/BlocksPage';
-import DashboardPage from 'src/pages/dashboard/component/DashboardPage';
+import DashboardPage from 'src/pages/dashboard/component/MainPage';
 import RedirectPage from 'src/app/component/RedirectPage';
 
 const Routes = () => {

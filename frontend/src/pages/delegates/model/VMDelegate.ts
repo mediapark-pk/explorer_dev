@@ -17,27 +17,29 @@ export class VMDelegate {
         lat: number;
         long: number;
     };
+    status: string;
 
-    constructor(delegate: RawDelegate) {
-        this.approval = delegate.approval;
-        this.forgedBlocks = delegate.forgedBlocks;
-        this.missedBlocks = delegate.missedBlocks;
-        this.publicKey = delegate.publicKey;
-        this.username = delegate.username;
-        this.votes = delegate.votes;
-        this.confirmedVoteCount = delegate.confirmedVoteCount;
+    constructor(raw: RawDelegate) {
+        this.approval = raw.approval;
+        this.forgedBlocks = raw.forgedBlocks;
+        this.missedBlocks = raw.missedBlocks;
+        this.publicKey = raw.publicKey;
+        this.username = raw.username;
+        this.votes = raw.votes;
+        this.confirmedVoteCount = raw.confirmedVoteCount;
+        this.status = raw.status;
 
-        if (delegate.location) {
+        if (raw.location) {
             this.location = {
-                lat: delegate.location.lat,
-                long: delegate.location.long
+                lat: raw.location.lat,
+                long: raw.location.long
             };
         }
 
-        if (delegate.forgedBlocks !== 0) {
+        if (raw.forgedBlocks !== 0) {
             this.uptime = getWholePercent(
-                delegate.forgedBlocks,
-                delegate.forgedBlocks + delegate.missedBlocks,
+                raw.forgedBlocks,
+                raw.forgedBlocks + raw.missedBlocks,
             ).toFixed(DEFAULT_FRACTION_DIGIST) + '%';
         } else {
             this.uptime = '0%';

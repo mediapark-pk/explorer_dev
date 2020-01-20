@@ -9,7 +9,7 @@ import {
 // tslint:disable: no-magic-numbers
 const blockFactory = Factory.Sync.makeFactory<RawBlock>({
   id: Factory.each(i => getRandomString(10)),
-  createdAt: Factory.each(i => (new Date()).getTime() - getRandomNumber(10000, 3000000)),
+  createdAt: Factory.each(i => (new Date()).getTime() - getRandomNumber(100, 30000)),
   version: Factory.each(i => getRandomDecimal(1, 10, 2)),
   height: Factory.each(i => getRandomNumber(10, 300)),
   previousBlockId: Factory.each(i => getRandomString(10)),
