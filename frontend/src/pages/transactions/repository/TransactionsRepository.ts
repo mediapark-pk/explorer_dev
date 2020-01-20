@@ -2,7 +2,7 @@ import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
 import { TransactionsService } from 'src/pages/transactions/service/TransactionsService';
-import { VMTransaction } from '../model/VMTransaction';
+import { VMTransaction } from 'src/pages/transactions/model/VMTransaction';
 
 export enum TransactionsMode {
     AllTransactions = 'allTransactions',
