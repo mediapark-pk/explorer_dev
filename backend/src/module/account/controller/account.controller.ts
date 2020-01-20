@@ -26,4 +26,9 @@ export class AccountController {
     async getAccountsBlockchainInfo() {
         return await this.service.getAccountsBlockchainInfo();
     }
+
+    @RPC(SocketCode.GET_ACCOUNT_STATISTIC)
+    async getAccountStatistic() {
+        return await this.service.getAccountStatistic();
+    }
 }

@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { ResponseEntity, ResponseListEntity } from '@app/socket-types';
 import { Request } from '@app/web';
 import { RawAccount } from '@app/common';
-import { getAccountMock, getAccountsMock, getAccountsBlockchainInfoMock } from 'src/_mocks_';
-import { RawAccountsBlockchainInfo } from '@app/common';
+import { getAccountMock, getAccountsMock, getAccountsBlockchainInfoMock, getAccountStatisticMock } from 'src/_mocks_';
+import { RawAccountsBlockchainInfo, RawAccountStatistic } from '@app/common';
 
 @Injectable()
 export class AccountService {
@@ -41,6 +41,16 @@ export class AccountService {
 
         try {
             return new ResponseEntity({ data: getAccountsBlockchainInfoMock() });
+        } catch (e) {
+            return new ResponseEntity({ errors: [e.message] });
+        }
+    }
+
+    async getAccountStatistic(): Promise<ResponseEntity<RawAccountStatistic>> {
+        console.log('[AccountService] getAccountStatistic');
+
+        try {
+            return new ResponseEntity({ data: getAccountStatisticMock() });
         } catch (e) {
             return new ResponseEntity({ errors: [e.message] });
         }
