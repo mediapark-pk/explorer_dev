@@ -18,27 +18,32 @@ export enum TransactionType {
     DELEGATE = 30,
     STAKE = 40,
     SENDSTAKE = 50,
-    VOTE = 60
+    VOTE = 60,
 }
 
+// TODO: Some types should be imported from where they are declared initially
+export type Timestamp = number;
+export type BlockId = string;
+export type TransactionId = string;
+export type Address = string;
+export type PublicKey = string;
 export type Asset = {
     recipientAddress: string;
     amount: number;
 }
 
-export type RawTransaction = {
-    id: string;
-    blockId: string;
-    type: TransactionType;
-    senderPublicKey: string;
-    signature: string;
-    secondSignature?: string;
-    createdAt: number;
-    salt?: string;
+export class RawTransaction {
+    id: TransactionId;
+    blockId: BlockId;
+    confirmations?: boolean;
+    createdAt: Timestamp;
     fee: number;
-    confirmations?: number;
-    status?: TransactionStatus;
     relay?: number;
-    senderAddress?: string;
+    salt?: string;
+    secondSignature?: string;
+    senderAddress: Address;
+    senderPublicKey?: PublicKey;
+    signature?: string;
+    type: TransactionType;
     asset?: Asset;
-};
+}

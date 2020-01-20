@@ -1,35 +1,51 @@
 import { singleton } from 'src/container';
-import { createMockTransaction, Transaction, TransactionId } from 'src/core/model/Transaction';
-import { delay } from 'src/util';
-import { Request, ResponseList } from '@app/web';
+import { action } from 'mobx';
+import { SocketCode } from '@app/common';
+import { Socket } from '@app/socket-client';
+import { 
+    Request,
+    ResponseList,
+    Response
+ } from '@app/web';
+import { 
+    RawTransaction,
+} from '@app/common';
 
-const mocks: Array<Transaction> = [];
+export enum AllowedSorts {
+    // TODO: Review and check names
+    Time = 'time',
+    Type = 'type',
+    Amount = 'amount',
+    Fee = 'fee',
+}
 
-for (let i = 0; i < 100; i++) {
-    mocks.push(createMockTransaction());
+export enum AllowedFilters {
+    // TODO: Review and check names
+    Block = 'block_id',
+    Transaction = 'transaction_id',
+    Sender = 'sender',
+    Recipient = 'recipient'
 }
 
 @singleton
-class TransactionsService {
-    async getTransactions(request: Request): Promise<ResponseList<Transaction>> {
-        await delay();
-        return {
-            totalCount: mocks.length,
-            data: mocks
-        };
-    }
-    async getOne(id: TransactionId): Promise<Transaction> {
-        await delay();
-        return mocks.find(item => item.id === id);
+export class TransactionsService {
+
+    constructor (
+        private readonly socket: Socket
+    ) { }
+
+    @action
+    async getTransactions(request: Request): Promise<ResponseList<RawTransaction>> {
+        return this.socket.query(SocketCode.GET_TRANSACTIONS, request);
     }
 
-    async getTransactionsByBlockId(request: Request): Promise<ResponseList<Transaction>> {
-        await delay();
-        return {
-            totalCount: mocks.length,
-            data: mocks
-        };
+    @action
+    async getTransaction(request: Request): Promise<Response<RawTransaction>> {
+        return this.socket.query(SocketCode.GET_TRANSACTION, request);
+    }
+
+    @action
+    async getTransactionsByBlockId(request: Request): Promise<ResponseList<RawTransaction>> {
+        return this.socket.query(SocketCode.GET_TRANSACTIONS_BY_BLOCK_ID, request);
     }
 }
-
-export default TransactionsService;
