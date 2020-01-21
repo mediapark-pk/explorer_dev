@@ -32,7 +32,7 @@ const ForgedBlocksTableRow: React.FC<IForgedBlocksTableRowProps> = ({ value }) =
                 classes.link
             )} >
                 <Typography>
-                    {value.createdAt}
+                    {value.createdAt.humanize()}
                 </Typography>
             </TableCell>
             <TableCell className={clsx(classes.tableCell, classes.centered)} >

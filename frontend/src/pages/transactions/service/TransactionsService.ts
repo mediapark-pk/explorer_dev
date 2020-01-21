@@ -1,12 +1,8 @@
 import { singleton } from 'src/container';
 import { action } from 'mobx';
-import { SocketCode } from '@app/common';
+import { SocketCode, TransactionId } from '@app/common';
 import { Socket } from '@app/socket-client';
-import {
-    Request,
-    ResponseList,
-    Response
- } from '@app/web';
+import { Request, ResponseList, Response } from '@app/web';
 import { RawTransaction } from '@app/common';
 
 export enum AllowedSorts {
@@ -38,8 +34,8 @@ export class TransactionsService {
     }
 
     @action
-    async getTransaction(request: Request): Promise<Response<RawTransaction>> {
-        return this.socket.query(SocketCode.GET_TRANSACTION, request);
+    async getTransaction(id: TransactionId): Promise<Response<RawTransaction>> {
+        return this.socket.query(SocketCode.GET_TRANSACTION, id);
     }
 
     @action

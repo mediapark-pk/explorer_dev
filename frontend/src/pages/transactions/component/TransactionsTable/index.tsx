@@ -16,7 +16,7 @@ import { useModel } from '@app/core/src';
 import TransactionsTableModel from 'src/pages/transactions/component/TransactionsTable/model';
 import { TransactionsMode } from 'src/pages/transactions/repository/TransactionsRepository';
 import { Link } from 'react-router-dom';
-import { VMTransaction } from 'src/pages/transactions/model/VMTransaction';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 
 interface ITransactionsTableProps {
 

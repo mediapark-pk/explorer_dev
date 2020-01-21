@@ -4,13 +4,14 @@ import { action, observable } from 'mobx';
 import { Transaction, TransactionId } from 'src/core/model/Transaction';
 import { TransactionsService } from 'src/pages/transactions/service/TransactionsService';
 import { RouterStore } from 'mobx-react-router';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 
 @singleton
 export default class TransactionPageModel {
 
     @observable isLoading: boolean = true;
-    @observable transaction: Transaction;
-    @observable dataProvider: DataProvider<Transaction>;
+    @observable transaction: VMTransaction;
+    @observable dataProvider: DataProvider<VMTransaction>;
 
     constructor(
         private readonly transactionService: TransactionsService,
@@ -22,7 +23,8 @@ export default class TransactionPageModel {
     async loadTransaction(id: TransactionId) {
         this.isLoading = true;
         try {
-            this.transaction = await this.transactionService.getTransaction(id);
+            let rawTransaction = await this.transactionService.getTransaction(id);
+            this.transaction = new VMTransaction(rawTransaction);
 
             if (!this.transaction) {
                 this.routerStore.push('/404');

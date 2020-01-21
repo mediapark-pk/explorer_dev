@@ -1,13 +1,13 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
-import { Transaction } from 'src/core/model/Transaction';
 import BlockTransactionsRepository from 'src/pages/transaction/repository/BlockTransactionsRepository';
 import { observable } from 'mobx';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 
 @singleton
 export default class BlockTransactionsModel  {
 
-    @observable dataProvider: DataProvider<Transaction>;
+    @observable dataProvider: DataProvider<VMTransaction>;
 
     constructor(
         blockTransactionsRepository: BlockTransactionsRepository,

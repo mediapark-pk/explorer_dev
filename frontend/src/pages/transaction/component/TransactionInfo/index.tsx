@@ -1,13 +1,13 @@
 import React from 'react';
 import { useStyles } from 'src/pages/transaction/component/TransactionInfo/style';
 import { observer } from 'mobx-react-lite';
-import { Transaction } from 'src/core/model/Transaction';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 
 interface ITransactionInfoProps {
-    transaction: Transaction;
+    transaction: VMTransaction;
 }
 
 const TransactionInfo: React.FC<ITransactionInfoProps> = ({ transaction }) => {
@@ -68,7 +68,8 @@ const TransactionInfo: React.FC<ITransactionInfoProps> = ({ transaction }) => {
                                     Block forger
                                 </Typography>
                                 <Typography>
-                                    {transaction.asset.delegate}
+                                    {/* TODO: Will transaction.asset.delegate.username always be defined here? */}
+                                    {transaction.asset.delegate.username}
                                 </Typography>
                             </div>
                         </Grid>
@@ -78,7 +79,7 @@ const TransactionInfo: React.FC<ITransactionInfoProps> = ({ transaction }) => {
                                     Date/Time
                                 </Typography>
                                 <Typography>
-                                    {transaction.createdAt}
+                                    {transaction.createdAt.humanize()}
                                 </Typography>
                             </div>
                             <div className={classes.transactionInfo}>

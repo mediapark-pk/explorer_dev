@@ -1,5 +1,6 @@
 import { RawTransaction } from '@app/common';
 import moment from 'moment';
+import { Delegate } from 'src/core/model/Delegate';
 
 export class VMTransaction {
     id: string;
@@ -10,6 +11,7 @@ export class VMTransaction {
     fee: number;
     asset: {
         recipientAddress?: string;
+        delegate?: Delegate;
         amount?: number;
     };
 

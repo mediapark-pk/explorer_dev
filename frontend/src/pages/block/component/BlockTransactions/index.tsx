@@ -10,10 +10,10 @@ import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { Transaction } from 'src/core/model/Transaction';
 import { AppTableBody } from '@app/ui-kit';
 import { AppTablePaginator, AppTableSearchLabel, AppTableSortLabel } from '@app/ui-kit/src';
 import { Link } from 'react-router-dom';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 
 interface IBlockTransactionsProps {
 }
@@ -80,7 +80,7 @@ const BlockTransactions: React.FC<IBlockTransactionsProps> = ({}) => {
                         </TableRow>
                     </TableHead>
                     <AppTableBody className={classes.appTableBody}>
-                        {(item: Transaction, index: number) => (
+                        {(item: VMTransaction, index: number) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <Link className={classes.link} to={`/transaction/${item.id}`}>
@@ -107,7 +107,7 @@ const BlockTransactions: React.FC<IBlockTransactionsProps> = ({}) => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography>
-                                        {item.createdAt}
+                                        {item.createdAt.humanize()}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>

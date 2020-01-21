@@ -1,7 +1,7 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import { VMTransaction } from 'src/pages/dashboard/model/VMTransaction';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 import { DashboardService } from 'src/pages/dashboard/service/DashboardService';
 
 @transient
