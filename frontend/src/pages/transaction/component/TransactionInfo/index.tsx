@@ -68,6 +68,7 @@ const TransactionInfo: React.FC<ITransactionInfoProps> = ({ transaction }) => {
                                     Block forger
                                 </Typography>
                                 <Typography>
+                                    {/* TODO: Will transaction.asset.delegate.username always be defined here? */}
                                     {transaction.asset.delegate.username}
                                 </Typography>
                             </div>
