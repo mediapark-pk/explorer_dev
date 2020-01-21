@@ -14,12 +14,11 @@ export default class TransactionsTableModel implements OnInit {
     constructor(
         transactionsRepository: TransactionsRepository
     ) {
-
         this.dataProvider = new DataProvider({
             repository: transactionsRepository
         });
-
     }
+
     @action async onInit() {
         this.loadData();
     }
