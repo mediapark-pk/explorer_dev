@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { ResponseEntity, ResponseListEntity } from '@app/socket-types';
 import { Request } from '@app/web';
-import { RawTransaction, TransactionId } from '@app/common';
+import { RawTransaction, TransactionId, RawTransactionsBlockchainInfo } from '@app/common';
 
 import {
     getTransactionMock,
     getTransactionsMock,
+    getTransactionsBlockchainInfoMock,
 } from 'src/_mocks_';
 
 @Injectable()
@@ -52,6 +53,16 @@ export class TransactionService {
             });
         } catch (e) {
             return new ResponseEntity({ errors: [e.messge] });
+        }
+    }
+
+    async getTransactionsBlockchainInfo(): Promise<ResponseEntity<RawTransactionsBlockchainInfo>> {
+        console.log('[Transactionservice] getTransactionsBlockchainInfo');
+
+        try {
+            return new ResponseEntity({ data: getTransactionsBlockchainInfoMock() });
+        } catch (e) {
+            return new ResponseEntity({ errors: [e.message] });
         }
     }
 
