@@ -1,6 +1,6 @@
 import { RawTransactionsBlockchainInfo } from '@app/common';
 
-export class TransactionsBlockchainInfo {
+export class VMTransactionsBlockchainInfo {
     totalTxnNumber: number;
     totalTxnVolume: string;
     averageTxnPerDay?: string;

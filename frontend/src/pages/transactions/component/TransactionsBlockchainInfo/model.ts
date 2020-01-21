@@ -1,6 +1,6 @@
 import { action, observable } from 'mobx';
 import { singleton } from 'src/container';
-import { TransactionsBlockchainInfo } from 'src/core/model/TransactionsBlockchainInfo';
+import { VMTransactionsBlockchainInfo } from 'src/common/model/VMTransactionsBlockchainInfo';
 import { Subscription } from 'rxjs';
 import { OnInit, subscriber } from '@app/core';
 import { TransactionsBlockchainInfoService } from 'src/common/service/TransactionsBlockchainInfoService';
@@ -10,7 +10,7 @@ import { RawTransactionsBlockchainInfo } from '@app/common';
 export default class TransactionsBlockchainInfoModel implements OnInit {
     
     @observable isLoading: boolean = false;
-    @observable data: TransactionsBlockchainInfo;
+    @observable data: VMTransactionsBlockchainInfo;
 
     @subscriber private subscription: Subscription;
 
@@ -23,7 +23,7 @@ export default class TransactionsBlockchainInfoModel implements OnInit {
 
         this.subscription = this.transactionsBlockchainInfoService.onTransactionsBlockchainInfoUpdate()
             .subscribe((raw: RawTransactionsBlockchainInfo) => {
-                this.data = new TransactionsBlockchainInfo(raw);
+                this.data = new VMTransactionsBlockchainInfo(raw);
             });
     }
 
@@ -31,7 +31,7 @@ export default class TransactionsBlockchainInfoModel implements OnInit {
         this.isLoading = true;
 
         try {
-            this.data = new TransactionsBlockchainInfo(
+            this.data = new VMTransactionsBlockchainInfo(
                 await this.transactionsBlockchainInfoService.getTransactionsBlockchainInfo()
             ); 
         } catch (e) {
