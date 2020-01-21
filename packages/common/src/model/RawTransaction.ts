@@ -28,7 +28,8 @@ export type TransactionId = string;
 export type Address = string;
 export type PublicKey = string;
 
-export class RawTransaction<TAssetType = any> {
+// TODO: Specify Asset type 
+export class RawTransaction<T = any> {
     id: TransactionId;
     blockId: BlockId;
     confirmations?: boolean;
@@ -41,5 +42,5 @@ export class RawTransaction<TAssetType = any> {
     senderPublicKey?: PublicKey;
     signature?: string;
     type: TransactionType;
-    asset?: TAssetType;
+    asset?: T;
 }
