@@ -26,4 +26,9 @@ export class TransactionController {
       return await this.service.getTransactionsByBlockId(request);
   }
 
+  @RPC(SocketCode.GET_TRANSACTIONS_BLOCKCHAIN_INFO)
+  async getTransactionsBlockchainInfo() {
+      return this.service.getTransactionsBlockchainInfo();
+  }
+
 }
