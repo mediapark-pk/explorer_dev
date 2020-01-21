@@ -5,7 +5,7 @@ import { TransactionsService } from 'src/pages/transactions/service/Transactions
 import { VMTransaction } from 'src/common/model/VMTransaction';
 
 @transient
-export default class TransactionsRepository implements IDataRepository<VMTransaction> {
+export default class BlockTransactionsRepository implements IDataRepository<VMTransaction> {
 
     @observable data: VMTransaction [] = [];
     @observable totalCount: number = 0;

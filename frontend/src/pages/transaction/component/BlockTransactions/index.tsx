@@ -8,12 +8,12 @@ import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { Transaction } from 'src/core/model/Transaction';
 import { AppTableBody } from '@app/ui-kit';
 import { AppTablePaginator, AppTableSearchLabel, AppTableSortLabel } from '@app/ui-kit/src';
 import { useModel } from '@app/core/src';
 import BlockTransactionsModel from 'src/pages/transaction/component/BlockTransactions/model';
 import { Link } from 'react-router-dom';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 
 interface IBlockTransactionsProps {
 
