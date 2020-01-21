@@ -1,5 +1,3 @@
-import { Delegate } from "src/core/model/Delegate";
-
 export enum TransactionStatus {
     CREATED = 0,
     QUEUED = 1,
@@ -29,13 +27,9 @@ export type BlockId = string;
 export type TransactionId = string;
 export type Address = string;
 export type PublicKey = string;
-export type Asset = {
-    recipientAddress: string;
-    amount: number;
-    delegate: Delegate;
-}
 
-export class RawTransaction {
+// TODO: Specify Asset type 
+export class RawTransaction<T = any> {
     id: TransactionId;
     blockId: BlockId;
     confirmations?: boolean;
@@ -48,5 +42,5 @@ export class RawTransaction {
     senderPublicKey?: PublicKey;
     signature?: string;
     type: TransactionType;
-    asset?: Asset;
+    asset?: T;
 }
