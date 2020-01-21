@@ -2,17 +2,17 @@ import { action, observable } from 'mobx';
 import { singleton } from 'src/container';
 import { TransactionsBlockchainInfo } from 'src/core/model/TransactionsBlockchainInfo';
 import { Subscription } from 'rxjs';
-import { OnInit, OnDestroy } from '@app/core';
+import { OnInit, subscriber } from '@app/core';
 import { TransactionsBlockchainInfoService } from 'src/common/service/TransactionsBlockchainInfoService';
 import { RawTransactionsBlockchainInfo } from '@app/common';
 
 @singleton
-export default class TransactionsBlockchainInfoModel implements OnInit, OnDestroy {
+export default class TransactionsBlockchainInfoModel implements OnInit {
     
     @observable isLoading: boolean = false;
     @observable data: TransactionsBlockchainInfo;
 
-    private subscription: Subscription;
+    @subscriber private subscription: Subscription;
 
     constructor(
         private readonly transactionsBlockchainInfoService: TransactionsBlockchainInfoService
@@ -25,10 +25,6 @@ export default class TransactionsBlockchainInfoModel implements OnInit, OnDestro
             .subscribe((raw: RawTransactionsBlockchainInfo) => {
                 this.data = new TransactionsBlockchainInfo(raw);
             });
-    }
-
-    @action async onDestroy() {
-        this.subscription.unsubscribe();
     }
 
     @action async loadData() {

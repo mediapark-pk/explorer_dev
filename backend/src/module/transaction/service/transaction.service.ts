@@ -16,8 +16,6 @@ export class TransactionService {
     ) { }
 
     async getTransactions(request: Request): Promise<ResponseListEntity<RawTransaction>> {
-        console.log('[TransactionService] getTransactions', request);
-
         try {
             // TODO: Implement/review request/response
             return new ResponseEntity({ data: {
@@ -30,8 +28,6 @@ export class TransactionService {
     }
 
     async getTransaction(id: TransactionId): Promise<ResponseEntity<RawTransaction>> {
-        console.log('[TransactionService] getTransaction', id);
-
         try {
             // TODO: Implement/review request/response
             return new ResponseEntity({
@@ -43,8 +39,6 @@ export class TransactionService {
     }
 
     async getTransactionsByBlockId(request: Request): Promise<ResponseListEntity<RawTransaction>> {
-        console.log('[TransactionService] getTransactionsByBlockId', request);
-
         try {
             // TODO: Implement/review request/response
             return new ResponseEntity({ data: {
@@ -57,8 +51,6 @@ export class TransactionService {
     }
 
     async getTransactionsBlockchainInfo(): Promise<ResponseEntity<RawTransactionsBlockchainInfo>> {
-        console.log('[Transactionservice] getTransactionsBlockchainInfo');
-
         try {
             return new ResponseEntity({ data: getTransactionsBlockchainInfoMock() });
         } catch (e) {
