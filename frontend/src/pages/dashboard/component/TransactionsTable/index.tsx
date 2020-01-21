@@ -4,7 +4,7 @@ import InfoTable from 'src/pages/dashboard/component/InfoTable';
 import TransactionsTableModel from 'src/pages/dashboard/component/TransactionsTable/model';
 import { useModel } from '@app/core';
 import { DelegateIcon, TransactionIcon } from 'src/app/component/Icons';
-import { VMTransaction } from 'src/pages/dashboard/model/VMTransaction';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 import { TableRow, TableCell, Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
@@ -59,7 +59,7 @@ const DelegatesTable: React.FC<ITransactionsTableProps> = ({ }) => {
                         </TableCell>
                         <TableCell className={classes.tTime} >
                             <Typography>
-                                {txn.createdAt}
+                                {txn.createdAt.humanize()}
                             </Typography>
                         </TableCell>
                         <TableCell className={classes.tFee} >

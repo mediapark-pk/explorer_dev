@@ -81,7 +81,7 @@ const BlockTransactions: React.FC<IBlockTransactionsProps> = ({ }) => {
                         </TableRow>
                     </TableHead>
                     <AppTableBody className={classes.appTableBody}>
-                        {(item: Transaction, index: number) => (
+                        {(item: VMTransaction, index: number) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <Link className={classes.link} to={`/transaction/${item.id}`}>
@@ -103,7 +103,7 @@ const BlockTransactions: React.FC<IBlockTransactionsProps> = ({ }) => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography>
-                                        {item.createdAt}
+                                        {item.createdAt.humanize()}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>

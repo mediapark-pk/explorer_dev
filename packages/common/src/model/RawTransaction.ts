@@ -1,3 +1,5 @@
+import { Delegate } from "src/core/model/Delegate";
+
 export enum TransactionStatus {
     CREATED = 0,
     QUEUED = 1,
@@ -30,6 +32,7 @@ export type PublicKey = string;
 export type Asset = {
     recipientAddress: string;
     amount: number;
+    delegate: Delegate;
 }
 
 export class RawTransaction {

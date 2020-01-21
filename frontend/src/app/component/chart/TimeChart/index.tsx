@@ -1,12 +1,10 @@
 import React, { ReactNode } from 'react';
 import { useStyles } from './styles';
 import { DataProvider } from '@app/core';
-import { Chart } from 'chart.js';
 import { observer } from 'mobx-react-lite';
 import { AppChartTimeModel } from './model';
 import classNames from 'classnames';
 import { AppChartConfigFunction, AppChart, AppChartLine, AppChartMinimap, AppFromToSelector, AppTimeZoomSelector } from '@app/ui-kit';
-import { registerChartShadowPlugin } from '@app/ui-kit/src/chart/common/chartShadowPlugin';
 import {
     mainChartConfigFunction as defaultExplorerMainChartConfigFunction,
     minimapConfigFunction as defaultExplorerMinimapConfigFunction
@@ -19,13 +17,6 @@ export interface IAppRichTimeChartProps {
     mainChartConfigFunction?: AppChartConfigFunction;
     minimapConfigFunction?: AppChartConfigFunction;
 }
-
-registerChartShadowPlugin(Chart, {
-    color: 'rgba(0, 0, 0, 0.26)',
-    blur: 4,
-    offsetX: 0,
-    offsetY: 4,
-});
 
 export const AppRichTimeChart: React.FC<IAppRichTimeChartProps> = observer(({ 
         className, 

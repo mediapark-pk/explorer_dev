@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ResponseEntity, ResponseListEntity } from '@app/socket-types';
 import { Request } from '@app/web';
-
-import {
-    RawTransaction,
-} from '@app/common';
+import { RawTransaction, TransactionId } from '@app/common';
 
 import {
     getTransactionMock,
@@ -31,8 +28,8 @@ export class TransactionService {
         }
     }
 
-    async getTransaction(request: Request): Promise<ResponseEntity<RawTransaction>> {
-        console.log('[TransactionService] getTransaction', request);
+    async getTransaction(id: TransactionId): Promise<ResponseEntity<RawTransaction>> {
+        console.log('[TransactionService] getTransaction', id);
 
         try {
             // TODO: Implement/review request/response
