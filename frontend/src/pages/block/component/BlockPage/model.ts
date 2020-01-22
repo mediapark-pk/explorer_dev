@@ -1,19 +1,20 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
 import { action, observable } from 'mobx';
-import BlocksService from 'src/pages/blocks/service/BlocksService';
+import BlockService from 'src/common/service/BlockService';
 import { RouterStore } from 'mobx-react-router';
-import { Block, BlockId } from 'src/core/model/Block';
+import { VMBlock, BlockId } from 'src/common/model/VMBlock';
+
 
 @singleton
 export default class BlockPageModel {
 
     @observable isLoading: boolean = true;
-    @observable block: Block;
-    dataProvider: DataProvider<Block>;
+    @observable block: VMBlock;
+    @observable dataProvider: DataProvider<VMBlock>;
 
     constructor(
-        private readonly blockService: BlocksService,
+        private readonly blockService: BlockService,
         private readonly routerStore: RouterStore
     ) {
     }
@@ -22,7 +23,8 @@ export default class BlockPageModel {
     async loadBlock(id: BlockId) {
         this.isLoading = true;
         try {
-            this.block = await this.blockService.getOne(id);
+            const rawBlock = await this.blockService.getBlock(id);
+            this.block = new VMBlock(rawBlock);
 
             if (!this.block) {
                 this.routerStore.push('/404');

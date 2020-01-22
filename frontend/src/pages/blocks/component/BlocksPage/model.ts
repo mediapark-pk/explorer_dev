@@ -1,13 +1,13 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
-import { Block } from 'src/core/model/Block';
 import BlocksRepository from 'src/pages/blocks/repository/BlocksRepository';
 import TransactionsVolumeRepository, {TransactionAmount} from 'src/pages/blocks/repository/TransactionsVolumeRepository';
 import { observable } from 'mobx';
+import { VMBlock } from 'src/common/model/VMBlock';
 
 @singleton
 export default class BlocksPageModel {
-    @observable dataProvider: DataProvider<Block>;
+    @observable dataProvider: DataProvider<VMBlock>;
     @observable transactionsVolumeDataProvider: DataProvider<Array<TransactionAmount>>;
 
     constructor(

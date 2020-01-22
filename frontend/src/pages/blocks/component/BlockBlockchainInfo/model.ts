@@ -1,43 +1,52 @@
 import { singleton } from 'src/container';
 import { observable, action } from 'mobx';
-import { BlockBlockchainInfo } from 'src/core/model/BlockBlockchainInfo';
-import BlockBlockchainInfoService from 'src/pages/blocks/service/BlockchainInfoService';
 import { Subscription } from 'rxjs';
 import { OnInit, OnDestroy } from '@app/core';
+import { VMBlockBlockchainInfo } from 'src/common/model/VMBlockBlockchainInfo';
+import { BlockService } from 'src/common/service/BlockService';
 
 @singleton
 export default class BlockBlockchainModel implements OnInit, OnDestroy {
 
     @observable isLoading: boolean = false;
 
-    @observable data: BlockBlockchainInfo;
+    @observable data: VMBlockBlockchainInfo = new VMBlockBlockchainInfo({
+        height: 0,
+        createdAt: 0,
+        totalBlockTime: 0,
+        totalFeeAmount: 0,
+        totalConnected: 0,
+        totalStakeAmount: 0
+    });
 
     private subscription: Subscription;
 
     constructor(
-        private readonly blockBlockchainInfoService: BlockBlockchainInfoService
+        private readonly blockBlockchainInfoService: BlockService
     ) {
-        this.data = new BlockBlockchainInfo();
     }
 
-    @action async onInit() {
+    @action
+    async onInit() {
         this.load();
 
-        this.subscription = this.blockBlockchainInfoService.getUpdate()
-            .subscribe(item => {
-                this.data = item;
-            });
+        this.subscription = this.blockBlockchainInfoService.onBlockBlockchainInfoUpdate()
+        .subscribe(item => {
+            this.data = new VMBlockBlockchainInfo(item);
+        });
     }
 
-    @action async onDestroy() {
+    @action
+    async onDestroy() {
         this.subscription.unsubscribe();
     }
 
-    @action async load() {
+    @action
+    async load() {
         this.isLoading = true;
 
         try {
-            this.data = await this.blockBlockchainInfoService.getInfo();
+            this.data = new VMBlockBlockchainInfo(await this.blockBlockchainInfoService.getBlockBlockchainInfo());
         } catch (e) {
             // TODO show error message
         } finally {

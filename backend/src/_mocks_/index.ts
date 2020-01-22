@@ -11,3 +11,4 @@ export * from 'src/_mocks_/accountsBlockchainInfo.mock';
 export * from 'src/_mocks_/stake.mock';
 export * from 'src/_mocks_/accountStatistic.mock';
 export * from 'src/_mocks_/blockchainInfo.mock';
+export * from 'src/_mocks_/blockBlockchainInfo.mock';

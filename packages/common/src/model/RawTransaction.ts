@@ -23,15 +23,14 @@ export enum TransactionType {
 
 // TODO: Some types should be imported from where they are declared initially
 export type Timestamp = number;
-export type BlockId = string;
 export type TransactionId = string;
 export type Address = string;
 export type PublicKey = string;
 
-// TODO: Specify Asset type 
+// TODO: Specify Asset type
 export class RawTransaction<T = any> {
     id: TransactionId;
-    blockId: BlockId;
+    blockId: string;
     confirmations?: boolean;
     createdAt: Timestamp;
     fee: number;
