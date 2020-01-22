@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { Body, RPC } from '@app/socket-nest';
+import { Body, RPC, RPCLog } from '@app/socket-nest';
 import { SocketCode } from '@app/common';
 import { Request } from '@app/web';
 import { AccountService } from 'src/module/account/service/account.service';
 
+@RPCLog
 @Injectable()
 export class AccountController {
 

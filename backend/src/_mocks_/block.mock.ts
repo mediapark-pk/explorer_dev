@@ -5,6 +5,7 @@ import {
   getRandomString,
   getRandomDecimal,
 } from 'src/_mocks_/utils';
+import { getDelegateMock } from 'src/_mocks_/delegate.mock';
 
 // tslint:disable: no-magic-numbers
 const blockFactory = Factory.Sync.makeFactory<RawBlock>({
@@ -16,6 +17,7 @@ const blockFactory = Factory.Sync.makeFactory<RawBlock>({
   transactionCount: Factory.each(i => getRandomNumber(10, 300)),
   fee: Factory.each(i => getRandomDecimal(0, 1, 3)),
   amount: Factory.each(i => getRandomDecimal(0, 1, 3)),
+  delegate: Factory.each(i => getDelegateMock()),
   payloadHash: Factory.each(i => getRandomString(10)),
   generatorPublicKey: Factory.each(i => getRandomString(20)),
   signature: Factory.each(i => getRandomString(10)),

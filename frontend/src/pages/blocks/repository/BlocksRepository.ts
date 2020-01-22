@@ -1,25 +1,25 @@
 import { action, observable } from 'mobx';
 import { transient } from 'src/container';
 import { IDataRepository, IDataUpdate } from '@app/core';
-import BlocksService from 'src/pages/blocks/service/BlocksService';
-import { Block } from 'src/core/model/Block';
+import BlockService from 'src/common/service/BlockService';
+import { VMBlock } from 'src/common/model/VMBlock';
 
 @transient
-export default class BlocksRepository implements IDataRepository<Block> {
+export default class BlocksRepository implements IDataRepository<VMBlock> {
 
-    @observable data: Block [] = [];
+    @observable data: VMBlock[] = [];
     @observable totalCount: number = 0;
 
     constructor(
-        private readonly blocksService: BlocksService
+        private readonly blockService: BlockService
     ) {
 
     }
 
     @action
     async onUpdate(dataUpdate: IDataUpdate) {
-            const responce = await this.blocksService.getBlocks(dataUpdate);
-            this.data = responce.data;
+            const responce = await this.blockService.getBlocks(dataUpdate);
+            this.data = responce.data.map(raw => new VMBlock(raw));
             this.totalCount = responce.totalCount;
     }
 }

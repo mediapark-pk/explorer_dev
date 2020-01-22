@@ -12,19 +12,18 @@ export enum Type {
 @transient
 export default class AccountTransactionsRepository implements IDataRepository<VMTransaction> {
 
-    @observable data: Array<VMTransaction> = [];
+    @observable data: VMTransaction [] = [];
     @observable totalCount: number = 0;
 
-     constructor(
+    constructor(
         private readonly transactionsService: TransactionsService
     ) {
-
     }
 
     @action
     async onUpdate(dataUpdate: IDataUpdate) {
-            const responce = await this.transactionsService.getTransactions(dataUpdate);
-            this.data = responce.data;
-            this.totalCount = responce.totalCount;
+        const responce = await this.transactionsService.getTransactions(dataUpdate);
+        this.data = responce.data.map(raw => new VMTransaction(raw));
+        this.totalCount = responce.totalCount;
     }
 }

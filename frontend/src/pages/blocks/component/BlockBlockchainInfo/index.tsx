@@ -19,7 +19,7 @@ const BlockBlockchainInfo: React.FC<IBlocksInfoProps> = ({ dataProvider }) => {
     const items = [
         {
             titleInfo: 'Block height',
-            value: model.data.id,
+            value: model.data.height,
         },
         {
             titleInfo: 'Active nodes',
@@ -31,7 +31,7 @@ const BlockBlockchainInfo: React.FC<IBlocksInfoProps> = ({ dataProvider }) => {
         },
         {
             titleInfo: 'Last block time',
-            value: model.data.createdAt,
+            value: model.data.createdAt.humanize(),
         },
         {
             titleInfo: 'Average block time',

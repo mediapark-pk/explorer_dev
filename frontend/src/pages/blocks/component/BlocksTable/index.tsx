@@ -1,14 +1,14 @@
 import React from 'react';
 import { useStyles } from 'src/pages/blocks/component/BlocksTable/style';
 import { observer } from 'mobx-react-lite';
-import { Block } from 'src/core/model/Block';
 import { DataProvider } from '@app/core';
 import { Table, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
 import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel, AppTableSearchLabel } from '@app/ui-kit';
 import { Link } from 'react-router-dom';
+import { VMBlock } from 'src/common/model/VMBlock';
 
 interface IBlocksTableProps {
-    dataProvider: DataProvider<Block>;
+    dataProvider: DataProvider<VMBlock>;
 }
 
 const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
@@ -47,6 +47,13 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadTitle}>
+                                    <AppTableSearchLabel field='delegate' >
+                                        Forget by
+                                    </AppTableSearchLabel>
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                                <div className={classes.tableHeadTitle}>
                                     <AppTableSortLabel columnId='createdAt'>
                                         Time
                                     </AppTableSortLabel>
@@ -76,7 +83,7 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                         </TableRow>
                     </TableHead>
                     <AppTableBody className={classes.appTableBody}>
-                        {(item: Block, index: number) => (
+                        {(item: VMBlock, index: number) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <Typography>
@@ -90,7 +97,12 @@ const BlocksTable: React.FC<IBlocksTableProps> = ({ dataProvider }) => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography>
-                                        {item.createdAt}
+                                        {item.delegate.username}
+                                    </Typography>
+                                </TableCell>
+                                <TableCell>
+                                    <Typography>
+                                        {item.createdAt.humanize()}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>

@@ -12,8 +12,6 @@ export class AccountService {
     }
 
     async findAll(request: Request): Promise<ResponseListEntity<RawAccount>> {
-        console.log('[AccountService] findAll', request);
-
         try {
             return new ResponseEntity({
                 data: {
@@ -27,8 +25,6 @@ export class AccountService {
     }
 
     async findOne(address: string): Promise<ResponseEntity<RawAccount>> {
-        console.log('[AccountService] findOne', address);
-
         try {
             return new ResponseEntity({ data: getAccountMock(address) });
         } catch (e) {
@@ -37,8 +33,6 @@ export class AccountService {
     }
 
     async getAccountsBlockchainInfo(): Promise<ResponseEntity<RawAccountsBlockchainInfo>> {
-        console.log('[AccountService] getAccountsBlockchainInfo');
-
         try {
             return new ResponseEntity({ data: getAccountsBlockchainInfoMock() });
         } catch (e) {
@@ -47,8 +41,6 @@ export class AccountService {
     }
 
     async getAccountStatistic(): Promise<ResponseEntity<RawAccountStatistic>> {
-        console.log('[AccountService] getAccountStatistic');
-
         try {
             return new ResponseEntity({ data: getAccountStatisticMock() });
         } catch (e) {

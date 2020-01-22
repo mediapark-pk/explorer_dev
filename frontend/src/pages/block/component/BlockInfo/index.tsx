@@ -4,10 +4,10 @@ import { observer } from 'mobx-react-lite';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
-import { Block } from 'src/core/model/Block';
+import { VMBlock } from 'src/common/model/VMBlock';
 
 interface IBlockInfoProps {
-    block: Block;
+    block: VMBlock;
 }
 
 const BlockInfo: React.FC<IBlockInfoProps> = ({ block }) => {
@@ -44,7 +44,7 @@ const BlockInfo: React.FC<IBlockInfoProps> = ({ block }) => {
                                     Date/Time
                                 </Typography>
                                 <Typography>
-                                    {block.createdAt}
+                                    {block.createdAt.humanize()}
                                 </Typography>
                             </div>
                         </Grid>

@@ -1,5 +1,6 @@
 export * from './RawBalanceVolume';
 export * from './RawBlock';
+export * from './RawBlockBlockchainInfo';
 export * from './RawDelegateSummary';
 export * from './RawDelegatesSummary';
 export * from './RawVote';

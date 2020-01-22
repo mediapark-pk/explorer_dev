@@ -1,11 +1,11 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
 import { action, computed, observable, reaction } from 'mobx';
-import { Transaction } from 'src/core/model/Transaction';
 import AccountService from 'src/common/service/AccountService';
 import { RouterStore } from 'mobx-react-router';
 import { VMAccount, Address } from 'src/common/model/VMAccount';
 import AccountTransactionsRepository, { Type } from 'src/pages/account/repository/AccountTransactionsRepository';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 
 export enum Tab {
     Sent,
@@ -17,7 +17,7 @@ export default class AccountPageModel {
 
     @observable isLoading: boolean = true;
     @observable account: VMAccount;
-    @observable dataProvider: DataProvider<Transaction>;
+    @observable dataProvider: DataProvider<VMTransaction>;
     @observable currentTab: Tab = Tab.Sent;
 
     constructor(
@@ -40,7 +40,6 @@ export default class AccountPageModel {
     @action
     async loadAccount(address: Address) {
         this.isLoading = true;
-
         try {
             this.account = await this.accountService.getOne(address);
             if (!this.account) {

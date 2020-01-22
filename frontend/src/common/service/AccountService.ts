@@ -14,7 +14,6 @@ export default class AccountService {
     ) {
     }
 
-
     @action
     async getAll(request: Request): Promise<ResponseList<RawAccount>> {
         return this.socket.query(SocketCode.GET_ACCOUNTS, request);
@@ -22,7 +21,7 @@ export default class AccountService {
 
     @action
     async getOne(address: string): Promise<Response<RawAccount>> {
-        return this.socket.query(SocketCode.GET_ACCOUNT);
+        return this.socket.query(SocketCode.GET_ACCOUNT, address);
     }
 
     @action

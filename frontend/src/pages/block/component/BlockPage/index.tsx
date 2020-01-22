@@ -15,7 +15,7 @@ interface IBlockPageProps {
 
 const BlockPage: React.FC<IBlockPageProps> = ({}) => {
     const classes = useStyles({});
-const { id } = useParams<{ id?: string }>();
+    const { id } = useParams<{ id?: string }>();
     const model = useModel(BlockPageModel);
 
     React.useEffect(() => {
@@ -34,7 +34,7 @@ const { id } = useParams<{ id?: string }>();
     return (
         <div className={classes.root}>
             <BackButton/>
-            <PageTitle headline='Block'>{model.block.id}</PageTitle>
+            <PageTitle headline='Block'>{model.block.height}</PageTitle>
             <BlockInfo block={model.block}/>
             <BlockTransactions/>
         </div>
