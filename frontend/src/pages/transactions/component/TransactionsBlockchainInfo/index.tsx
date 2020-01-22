@@ -13,6 +13,10 @@ const TransactionsBlockchainInfo: React.FC<ITransactionsBlockchainInfoProps> = (
     const classes = useStyles({});
     const model = useModel(TransactionsBlockchainInfoModel);
 
+    if (!model.data) {
+        return;
+    }
+
     const items = [
         {
             titleInfo: 'Total txn number',

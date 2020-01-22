@@ -1,42 +1,39 @@
 import { action, observable } from 'mobx';
 import { singleton } from 'src/container';
-import { TransactionsBlockchainInfo } from 'src/core/model/TransactionsBlockchainInfo';
+import { VMTransactionsBlockchainInfo } from 'src/common/model/VMTransactionsBlockchainInfo';
 import { Subscription } from 'rxjs';
-import TransactionsBlockchainInfoService from 'src/pages/transactions/service/TransactionsBlockchainInfoService';
-import { OnInit, OnDestroy } from '@app/core';
+import { OnInit, subscriber } from '@app/core';
+import { TransactionsBlockchainInfoService } from 'src/common/service/TransactionsBlockchainInfoService';
+import { RawTransactionsBlockchainInfo } from '@app/common';
 
 @singleton
-export default class TransactionsBlockchainInfoModel implements OnInit, OnDestroy {
-@observable isLoading: boolean = false;
+export default class TransactionsBlockchainInfoModel implements OnInit {
+    
+    @observable isLoading: boolean = false;
+    @observable data: VMTransactionsBlockchainInfo;
 
-    @observable data: TransactionsBlockchainInfo;
-
-    private subscription: Subscription;
+    @subscriber private subscription: Subscription;
 
     constructor(
         private readonly transactionsBlockchainInfoService: TransactionsBlockchainInfoService
-    ) {
-        this.data = new TransactionsBlockchainInfo();
-    }
+    ) { }
 
     @action async onInit() {
-        this.load();
+        this.loadData();
 
-        this.subscription = this.transactionsBlockchainInfoService.getUpdate()
-            .subscribe(item => {
-                this.data = item;
+        this.subscription = this.transactionsBlockchainInfoService.onTransactionsBlockchainInfoUpdate()
+            .subscribe((raw: RawTransactionsBlockchainInfo) => {
+                this.data = new VMTransactionsBlockchainInfo(raw);
             });
     }
 
-    @action async onDestroy() {
-        this.subscription.unsubscribe();
-    }
-
-    @action async load() {
+    @action async loadData() {
         this.isLoading = true;
 
         try {
-            this.data = await this.transactionsBlockchainInfoService.getInfo();
+            this.data = new VMTransactionsBlockchainInfo(
+                await this.transactionsBlockchainInfoService.getTransactionsBlockchainInfo()
+            ); 
         } catch (e) {
             // TODO show error message
         } finally {

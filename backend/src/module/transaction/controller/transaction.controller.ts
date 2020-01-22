@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { Body, RPC } from '@app/socket-nest';
+import { Body, RPC, RPCLog } from '@app/socket-nest';
 import { SocketCode, TransactionId } from '@app/common';
 import { TransactionService } from 'src/module/transaction/service/transaction.service';
 import { Request } from '@app/web';
 
+@RPCLog
 @Injectable()
 export class TransactionController {
 
@@ -24,6 +25,11 @@ export class TransactionController {
   @RPC(SocketCode.GET_TRANSACTIONS_BY_BLOCK_ID)
   public async getTransactionsByBlockId(@Body() request: Request) {
       return await this.service.getTransactionsByBlockId(request);
+  }
+
+  @RPC(SocketCode.GET_TRANSACTIONS_BLOCKCHAIN_INFO)
+  async getTransactionsBlockchainInfo() {
+      return this.service.getTransactionsBlockchainInfo();
   }
 
 }

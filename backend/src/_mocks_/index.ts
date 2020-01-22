@@ -4,6 +4,7 @@ export * from 'src/_mocks_/delegateSummary.mock';
 export * from 'src/_mocks_/balanceVolume.mock';
 export * from 'src/_mocks_/vote.mock';
 export * from 'src/_mocks_/block.mock';
+export * from 'src/_mocks_/transactionsBlockchainInfo.mock';
 export * from 'src/_mocks_/transaction.mock';
 export * from 'src/_mocks_/account.mock';
 export * from 'src/_mocks_/accountsBlockchainInfo.mock';
