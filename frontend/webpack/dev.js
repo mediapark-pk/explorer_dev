@@ -108,7 +108,7 @@ const config = {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(DIR, 'index.html'),
+            template: path.resolve(DIR, 'public/index.html'),
         }),
         new CopyWebpackPlugin([
             {
