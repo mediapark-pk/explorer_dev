@@ -2,17 +2,15 @@ import React, { Fragment } from 'react';
 import { useStyles } from 'src/popups/QRModal/style';
 import { ModalContext, ModalManager } from '@app/ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQrcode } from '@fortawesome/free-solid-svg-icons';
+import faQrcodeIcon from '@fortawesome/free-solid-svg-icons/faQrcode';
 import QRCode from 'qrcode.react';
-import { 
-    DialogTitle,
-    Typography,
-    IconButton,
-    DialogActions,
-    DialogContent,
-    Button
-} from '@material-ui/core';
-import { Close as CloseIcon } from '@material-ui/icons';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
 import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 
@@ -61,7 +59,7 @@ export const QRModalIcon: React.FC<IQRModalProps> = ({ data }) => {
             className={classes.qrCodeIcon}
             onClick={openPopup}
         >
-            <FontAwesomeIcon icon={faQrcode} className={classes.icon}/>
+            <FontAwesomeIcon icon={faQrcodeIcon} className={classes.icon}/>
         </Button>
     );
 };

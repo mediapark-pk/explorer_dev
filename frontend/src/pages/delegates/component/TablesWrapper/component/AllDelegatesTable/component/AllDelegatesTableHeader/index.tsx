@@ -1,12 +1,10 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/TablesWrapper/component/AllDelegatesTable/component/AllDelegatesTableHeader/style';
 import { AllowedFilters, AllowedSorts } from 'src/pages/delegates/component/TablesWrapper/model';
-import {
-    TableRow,
-    TableCell,
-    Typography,
-    TableHead
- } from '@material-ui/core';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
+import TableHead from '@material-ui/core/TableHead';
 import {
     AppTableSortLabel,
     AppTableSearchLabel

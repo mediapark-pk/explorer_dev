@@ -5,7 +5,9 @@ import { BlocksTableModel } from 'src/pages/dashboard/component/BlocksTable/mode
 import { useModel } from '@app/core';
 import { BlockIcon } from 'src/common/component/Icons';
 import { VMBlock } from 'src/common/model/VMBlock';
-import { TableRow, TableCell, Typography } from '@material-ui/core';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
 import { NavLink } from 'react-router-dom';
 
 interface IBlocksTableProps {}

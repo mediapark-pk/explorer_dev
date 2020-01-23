@@ -3,7 +3,8 @@ import { useStyles } from 'src/pages/delegates/component/CommonInfo/style';
 import CommonInfoModel from 'src/pages/delegates/component/CommonInfo/model';
 import { useModel } from '@app/core';
 import { observer } from 'mobx-react-lite';
-import { Typography, Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 interface ICommonInfoProps {}
 

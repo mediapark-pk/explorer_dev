@@ -4,13 +4,13 @@ import MapPoint from 'src/pages/delegates/component/RatingMap/component/MapPoint
 import RatingMapModel from 'src/pages/delegates/component/RatingMap/model';
 import { VMDelegate } from 'src/common/model/VMDelegate';
 import { observer } from 'mobx-react-lite';
-import { useDI } from '@app/core';
+import { useModel } from '@app/core';
 
 interface IMapPointsProps {}
 
 const MapPoints: React.FC<IMapPointsProps> = ({ }) => {
     const classes = useStyles({});
-    const model = useDI(RatingMapModel);
+    const model = useModel(RatingMapModel);
     
     return (
         <div className={classes.root} >

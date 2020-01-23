@@ -1,10 +1,8 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/RatingTable/component/RatingTableRow/style';
-import {
-    TableRow,
-    TableCell,
-    Typography
- } from '@material-ui/core';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
 
 interface IRatingTableRowProps {
     rank: number;

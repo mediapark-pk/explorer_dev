@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
 import { AppTableBody } from '@app/ui-kit';
 import { VMVote } from 'src/common/model/VMVote';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/VotesTable/style';

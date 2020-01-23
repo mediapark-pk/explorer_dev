@@ -1,6 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import { TableCell, Typography, TableRow, Link } from '@material-ui/core';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
+import TableRow from '@material-ui/core/TableRow';
+import Link from '@material-ui/core/Link';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/ForgedBlocksTable/component/ForgedBlocksTableRow/style';
 import { VMBlock } from 'src/common/model/VMBlock';
 import { NavLink } from 'react-router-dom';

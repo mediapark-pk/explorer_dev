@@ -3,7 +3,7 @@ import { useStyles } from 'src/pages/delegates/component/RatingTable/style';
 import RatingTableModel from 'src/pages/delegates/component/RatingTable/model';
 import { VMDelegate } from 'src/common/model/VMDelegate';
 import { AppTableBody, AppTable } from '@app/ui-kit';
-import { Table } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
 import { useDI } from '@app/core';
 import RatingTableRow from 'src/pages/delegates/component/RatingTable/component/RatingTableRow';
 import RatingTableFilter from 'src/pages/delegates/component/RatingTable/component/RatingTableFilter';

@@ -1,5 +1,8 @@
 import React from 'react';
-import { TableCell, Typography, TableRow, Link } from '@material-ui/core';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
+import TableRow from '@material-ui/core/TableRow';
+import Link from '@material-ui/core/Link';
 import { useStyles } from 'src/pages/delegates/component/TablesWrapper/component/ActiveDelegatesTable/component/ActiveDelegatesTableRow/style';
 import { VMDelegate } from 'src/common/model/VMDelegate';
 import { NavLink } from 'react-router-dom';

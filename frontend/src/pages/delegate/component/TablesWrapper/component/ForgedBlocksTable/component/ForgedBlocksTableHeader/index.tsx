@@ -1,15 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/ForgedBlocksTable/component/ForgedBlocksTableHeader/style';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
 import { 
     ForgedBlocksAllowedFilters as AllowedFilters, 
     ForgedBlocksAllowedSorts as AllowedSorts
 } from 'src/pages/delegate/component/TablesWrapper/model';
-import {
-    TableRow,
-    TableCell,
-    TableHead
- } from '@material-ui/core';
+
 import {
     AppTableSortLabel,
     AppTableSearchLabel

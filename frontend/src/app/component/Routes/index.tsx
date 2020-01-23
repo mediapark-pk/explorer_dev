@@ -6,9 +6,6 @@ import StatisticsPage from 'src/pages/statistics/component/StatisticsPage';
 import SingleStatPage from 'src/pages/statistics/component/SingleStatPage';
 import AccountsPage from 'src/pages/accounts/component/AccountsPage';
 import AccountPage from 'src/pages/account/component/AccountPage';
-import LoginPage from 'src/pages/Login/component/LoginPage';
-import RegistrationPage from 'src/pages/Registration/component/RegistrationPage';
-import ForgetPage from 'src/pages/Forget/component/ForgetPage';
 import SearchPage from 'src/pages/search/component/SearchPage';
 import TransactionPage from 'src/pages/transaction/component/TransactionPage';
 import TransactionsPage from 'src/pages/transactions/component/TransactionsPage';
@@ -26,9 +23,6 @@ const Routes = () => {
             <Route path='/statistics/single' exact component={SingleStatPage} />
             <Route path='/accounts' exact component={AccountsPage} />
             <Route path='/account/:address' exact component={AccountPage} />
-            <Route path='/Login' exact component={LoginPage} />
-            <Route path='/Registration' exact component={RegistrationPage} />
-            <Route path='/Forget' exact component={ForgetPage} />
             <Route path='/search' exact component={SearchPage} />
             <Route path='/transaction/:id' exact component={TransactionPage} />
             <Route path='/transactions' exact component={TransactionsPage} />

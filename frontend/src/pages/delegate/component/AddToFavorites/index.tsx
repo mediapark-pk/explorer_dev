@@ -1,7 +1,9 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegate/component/AddToFavorites/style';
-import { Typography, Button } from '@material-ui/core';
-import * as Icons from '@material-ui/icons';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import AddToFavoritesModel from 'src/pages/delegate/component/AddToFavorites/model';
@@ -15,7 +17,7 @@ export const AddToFavorites: React.FC<IAddToFavoritesProps> = observer(({ }) => 
     return model.favoriteDelegateInfo.favorite ? (
         <Button
             onClick={model.addToFavorites}
-            endIcon={<Icons.Favorite className={classes.favoriteIcon} />}
+            endIcon={<FavoriteIcon className={classes.favoriteIcon} />}
         >
             <Typography className={classes.favorite} >
                 In favorites
@@ -24,7 +26,7 @@ export const AddToFavorites: React.FC<IAddToFavoritesProps> = observer(({ }) => 
     ) : (
         <Button
             onClick={model.addToFavorites}
-            endIcon={<Icons.FavoriteBorder className={classes.favoriteIcon} />}
+            endIcon={<FavoriteBorderIcon className={classes.favoriteIcon} />}
         >
             <Typography className={classes.favorite} >
                 Add to favorites

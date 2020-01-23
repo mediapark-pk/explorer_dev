@@ -3,7 +3,8 @@ import * as Factory from 'factory.ts';
 import {
   getRandomNumber,
   getRandomString,
-  getRandomDecimal
+  getRandomDecimal,
+  getRandomLocation,
 } from 'src/_mocks_/utils';
 
 const ForgeStatusArray: ForgeStatus[] = Object.keys(ForgeStatus).map(key => ForgeStatus[key]);
@@ -18,10 +19,7 @@ const delegateFactory = Factory.Sync.makeFactory<RawDelegate>({
   votes: Factory.each(i => getRandomNumber(100, 3000)),
   confirmedVoteCount: Factory.each(i => getRandomNumber(100, 3000)),
   status: Factory.each(i => ForgeStatusArray[getRandomNumber(0, ForgeStatusArray.length - 1)]),
-  location: Factory.each(i => ({
-    lat: getRandomDecimal(-90, 90, 5),
-    long: getRandomDecimal(-180, 180, 5)
-  }))
+  location: Factory.each(i => getRandomLocation())
 });
 
 export const getDelegateMock = () => delegateFactory.build();

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { AppTabPanel } from '@app/ui-kit';
 import { useStyles } from 'src/pages/delegate/component/CommentsWrapper/style';
-import { Tabs, Tab } from '@material-ui/core';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import Comments from 'src/pages/delegate/component/CommentsWrapper/component/Comments';
 import { Notes } from 'src/pages/delegate/component/CommentsWrapper/component/Notes';
 

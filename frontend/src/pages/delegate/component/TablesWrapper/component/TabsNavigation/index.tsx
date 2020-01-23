@@ -3,10 +3,9 @@ import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/TabsNavigation/style';
 import TablesWrapperModel from 'src/pages/delegate/component/TablesWrapper/model';
-import {
-    Tabs,
-    Tab
- } from '@material-ui/core';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
  import { 
     AppTableTitle,
     AppTablePaginator,
