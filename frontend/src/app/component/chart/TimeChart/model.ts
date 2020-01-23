@@ -1,31 +1,46 @@
-import { computed, observable, action } from 'mobx';
+import { computed, observable, action, reaction } from 'mobx';
 import { DataProvider } from '@app/core';
 import { IAppChartTimeModel, IAppChartMultipleDatasetsModel, AppChartDataset, AppChartDatasets } from '@app/ui-kit';
 
 export class AppChartTimeModel implements IAppChartTimeModel, IAppChartMultipleDatasetsModel {
 
     dataProvider: DataProvider;
-    datasets: Array<AppChartDataset>;
-    primaryDataset: AppChartDataset;
     
     @observable visibleDatasets: Array<boolean> = [];
+    
     @observable from: number = -Infinity;
     @observable to: number = Infinity;
 
+    @observable isLoading: boolean = true;
+
+    @computed get datasets (): Array<AppChartDataset> {
+        const datasets = [...this.dataProvider.repository.data];
+
+        for (let i = 0; i < datasets.length; i++) {
+            datasets[i] = datasets[i].sort((a, b) => (a.t > b.t ? 1 : -1));
+        }
+
+       return datasets;
+    }
+
     constructor(dataProvider: DataProvider) {
         this.dataProvider = dataProvider;
-        this.datasets = [...this.dataProvider.repository.data];
 
-        for (let i = 0; i < this.datasets.length; i++) {
-            this.datasets[i] = this.datasets[i].sort((a, b) => (a.t > b.t ? 1 : -1));
-        }
+        reaction(
+            () => this.datasets,
+            () => {
+                this.isLoading = false;
+                for (let i = 0; i < this.datasets.length; i++) {
+                    this.visibleDatasets[i] = true;
+                }
+                this.zoomFullAndReset();
+            }
+        );
 
-        for (let i = 0; i < this.datasets.length; i++) {
-            this.visibleDatasets[i] = true;
-        }
+    }
 
-        this.primaryDataset = this.datasets[0];
-        this.zoomFullAndReset();
+    @computed get primaryDataset (): AppChartDataset {
+        return this.datasets[0];
     }
 
     private isPrimaryDatasetAvailable(): boolean {
