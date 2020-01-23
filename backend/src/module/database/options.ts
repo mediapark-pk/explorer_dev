@@ -1,12 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { getEntities, getMigrations } from 'src/module/database/utils';
 
-enum Workspace {
-  Dev = 'DEVELOPMENT',
-  Prod = 'PRODUCTION',
-  Stage = 'STAGE'
-}
-
 const options: TypeOrmModuleOptions = {
   type: 'postgres',
   host: process.env.PG_HOST,
@@ -23,7 +17,8 @@ const options: TypeOrmModuleOptions = {
       // to be compiled into dist/ folder.
       migrationsDir: 'src/modules/database/migration',
   },
-  synchronize: !process.env.WORKSPACE || process.env.WORKSPACE === Workspace.Dev,
+  // TODO only for dev
+  synchronize: true,
 };
 
 export = options;
