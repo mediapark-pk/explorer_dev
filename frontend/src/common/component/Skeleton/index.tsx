@@ -15,7 +15,7 @@ const Skeleton: React.FC<ISkeletonProps> = ({ className, ...props }) => {
     const classes = useStyles(props);
 
     return (
-        <div className={clsx(className, classes.root)} >
+        <div className={clsx(classes.root, className)} >
         </div>
     );
 };
