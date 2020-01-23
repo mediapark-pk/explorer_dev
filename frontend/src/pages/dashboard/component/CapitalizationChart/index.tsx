@@ -30,7 +30,7 @@ const MainPage: React.FC<IMainPageProps> = ({ }) => {
                     <span className={classes.under}>$</span>
                 </Typography>
             </div>
-            <AppRichMultiTimeChart dataProvider={model.dataProvider} datasetMeta={[
+            <AppRichMultiTimeChart className={classes.chart} dataProvider={model.dataProvider} datasetMeta={[
                 { label: 'ETH', color: CHART_COLORS.blue },
                 { label: 'BTC', color: CHART_COLORS.orange },
                 { label: 'USD', color: CHART_COLORS.green },

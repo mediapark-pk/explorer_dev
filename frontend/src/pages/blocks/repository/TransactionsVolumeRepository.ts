@@ -11,17 +11,24 @@ export interface TransactionAmount {
 // tslint:disable:no-magic-numbers // there's mock data below
 const MOCK_DATA_LENGTH = 500;
 
-function getMockData (): Array<Array<TransactionAmount>> {
-    const mockData = [];
-    for (let i = 0; i < MOCK_DATA_LENGTH; i++) {
-        mockData.push({
-            t: Date.now() + i * 200000000,
-            y: Math.abs((i > 0 ? mockData[i - 1].y : 20) + Math.random() * 2 - 1)
-        });
+export const getMockData = () => {
+    return _getMockData(MOCK_DATA_LENGTH);
+};
+
+const _getMockData = (count: number) => {
+    const mockData = [{
+      t: Date.now(),
+      y: 20,
+    }];
+    for (let i = 1; i < count; i++) {
+      mockData.push({
+        t: mockData[i - 1].t + Math.random() * 2000000000,
+        y: Math.abs(mockData[i - 1].y + Math.random() * 2 - 1)
+      });
     }
     return [mockData];
-}
-
+  };
+  
 @transient
 export class TransactionsVolumeRepository implements IDataRepository<Array<TransactionAmount>> {
 

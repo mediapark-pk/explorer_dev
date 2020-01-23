@@ -3,8 +3,8 @@ import { useStyles } from 'src/common/component/Skeleton/style';
 import clsx from 'clsx';
 
 interface ISkeletonProps {
-    width?: number;
-    height?: number;
+    width?: number | string;
+    height?: number | string;
     className?: string;
     inline?: boolean;
     top?: number;
