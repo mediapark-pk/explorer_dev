@@ -1,19 +1,19 @@
 import copy from 'copy-to-clipboard';
-import { action, observable, reaction } from 'mobx';
+import { action, observable } from 'mobx';
 import { singleton } from 'src/container';
-import DelegateService from 'src/pages/delegate/service/DelegateService';
-import { VMDelegateSummary } from 'src/pages/delegate/model/VMDelegateSummary';
-import { RawDelegateSummary } from '@app/common';
-import { Subscription, Subject } from 'rxjs';
-import { OnInit, OnDestroy } from '@app/core';
-import { filter, debounceTime } from 'rxjs/operators';
+import { DelegateService } from 'src/common/service/DelegateService';
+import { VMDelegateStatistic } from 'src/pages/delegate/model/VMDelegateStatistic';
+import { RawDelegateStatistic } from '@app/common';
+import { Subscription } from 'rxjs';
+import { OnInit, subscriber } from '@app/core';
+import { filter } from 'rxjs/operators';
 
 @singleton
-export default class CommonInfoModel implements OnInit, OnDestroy {
+export default class CommonInfoModel implements OnInit {
 
     @observable isLoading: boolean;
 
-    @observable delegateInfo: VMDelegateSummary = new VMDelegateSummary({
+    @observable delegateInfo: VMDelegateStatistic = new VMDelegateStatistic({
         address: '',
         blockHeight: 0,
         consensus: true,
@@ -29,6 +29,7 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
 
     delegateId: string;
 
+    @subscriber
     private onDelegateUpdate: Subscription;
 
     constructor(
@@ -36,12 +37,12 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
     ) { }
 
     onInit() {
-        this.onDelegateUpdate = this.service.onDelegateUpdate()
+        this.onDelegateUpdate = this.service.onStatisticUpdate()
             .pipe(
-                filter((info: RawDelegateSummary) => info.address === this.delegateInfo.address)
+                filter((info: RawDelegateStatistic) => info.address === this.delegateInfo.address)
             )
-            .subscribe((info: RawDelegateSummary) => {
-                this.delegateInfo = new VMDelegateSummary(info);
+            .subscribe((info: RawDelegateStatistic) => {
+                this.delegateInfo = new VMDelegateStatistic(info);
             });
     }
 
@@ -50,8 +51,8 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
         this.delegateId = id;
 
         try {
-            this.delegateInfo = new VMDelegateSummary(
-                await this.service.getDelegateSummary(this.delegateId)
+            this.delegateInfo = new VMDelegateStatistic(
+                await this.service.getStatisticById(this.delegateId)
             );
         } finally {
             this.isLoading = false;
@@ -61,9 +62,5 @@ export default class CommonInfoModel implements OnInit, OnDestroy {
     @action.bound
     copyAddress() {
         copy(this.delegateInfo.address);
-    }
-
-    onDestroy() {
-        this.onDelegateUpdate.unsubscribe();
     }
 }

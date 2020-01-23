@@ -3,7 +3,6 @@ import { Request, Response, ResponseList } from '@app/web';
 import { RawBlock, RawBlockBlockchainInfo } from '@app/common';
 import { SocketCode } from '@app/common';
 import { Socket } from '@app/socket-client';
-import { BlockId } from 'src/common/model/VMBlock';
 import { Observable } from 'rxjs';
 
 @singleton
@@ -17,7 +16,7 @@ export class BlockService {
         return this.socket.query(SocketCode.GET_BLOCKS, request);
     }
 
-    async getBlock(id: BlockId): Promise<Response<RawBlock>> {
+    async getBlock(id: string): Promise<Response<RawBlock>> {
         return this.socket.query(SocketCode.GET_BLOCK, id);
     }
 

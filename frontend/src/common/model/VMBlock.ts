@@ -1,11 +1,9 @@
 import { RawBlock } from '@app/common';
 import moment from 'moment';
-import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
-
-export type BlockId = string;
+import { VMDelegate } from 'src/common/model/VMDelegate';
 
 export class VMBlock {
-    id: BlockId;
+    id: string;
     version?: number;
     createdAt: moment.Duration;
     height: number;
@@ -25,13 +23,14 @@ export class VMBlock {
         this.height = raw.height;
         this.previousBlockId = raw.previousBlockId;
         this.transactionCount = raw.transactionCount;
+        this.delegate = new VMDelegate(raw.delegate);
         this.amount = raw.amount;
         this.fee = raw.fee;
-        this.delegate = new VMDelegate(raw.delegate);
         this.payloadHash = raw.payloadHash;
         this.generatorPublicKey = raw.generatorPublicKey;
         this.signature = raw.signature;
         this.relay = raw.relay;
+
         this.createdAt = moment.duration(raw.createdAt);
     }
 }

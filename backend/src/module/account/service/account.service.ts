@@ -15,8 +15,8 @@ export class AccountService {
         try {
             return new ResponseEntity({
                 data: {
-                    data: getAccountsMock((request as any).pagination.limit),
-                    totalCount: (request as any).pagination.limit * 15
+                    data: getAccountsMock(request.paginator.limit),
+                    totalCount: request.paginator.limit * 15
                 },
             });
         } catch (e) {

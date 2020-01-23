@@ -26,5 +26,5 @@ export class EventsController {
   async onOneSummaryUpdated(id: string) {
     this.api.sendToAll(SocketCode.ON_DELEGATE_SUMMARY_UPDATE, await this.service.getSummaryByDelegateId(id, 'US'));
   }
-  
+
 }

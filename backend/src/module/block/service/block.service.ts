@@ -22,8 +22,8 @@ export class BlockService {
         try {
             return new ResponseEntity({
                 data: {
-                    data: getBlocksMock((request as any).pagination.limit),
-                    totalCount: (request as any).pagination.limit * 15
+                    data: getBlocksMock(request.paginator.limit),
+                    totalCount: request.paginator.limit * 15
                 },
             });
         } catch (e) {

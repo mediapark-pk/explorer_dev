@@ -1,4 +1,4 @@
-import { RawDelegateSummary } from '@app/common';
+import { RawDelegateStatistic } from '@app/common';
 import * as Factory from 'factory.ts';
 import {
   getRandomNumber,
@@ -8,7 +8,7 @@ import {
 } from 'src/_mocks_/utils';
 
 // tslint:disable: no-magic-numbers
-const delegateSummaryFactory = Factory.Sync.makeFactory<RawDelegateSummary>({
+const delegateSummaryFactory = Factory.Sync.makeFactory<RawDelegateStatistic>({
   address: Factory.each(i => getRandomString(20)),
   blockHeight: Factory.each(i => getRandomNumber(100, 3000)),
   consensus: Factory.each(i => getRandomBoolean()),

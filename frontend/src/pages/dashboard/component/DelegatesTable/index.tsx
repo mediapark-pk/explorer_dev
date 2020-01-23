@@ -1,10 +1,10 @@
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/DelegatesTable/style';
 import InfoTable from 'src/pages/dashboard/component/InfoTable';
-import DelegatesTableModel from 'src/pages/dashboard/component/DelegatesTable/model';
+import { DelegatesTableModel } from 'src/pages/dashboard/component/DelegatesTable/model';
 import { useModel } from '@app/core';
-import { DelegateIcon } from 'src/app/component/Icons';
-import { VMDelegate } from 'src/pages/dashboard/model/VMDelegate';
+import { DelegateIcon } from 'src/common/component/Icons';
+import { VMDelegate } from 'src/common/model/VMDelegate';
 import { TableRow, TableCell, Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';

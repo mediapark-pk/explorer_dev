@@ -15,8 +15,6 @@ export class CommonService {
     ) { }
 
     async findBlockchainInfo(): Promise<ResponseEntity<RawBlockchainInfo>> {
-        console.log('[CommonService] findBlockchainInfo');
-
         try {
             return new ResponseEntity({ data: getBlockchainInfoMock() });
         } catch (e) {

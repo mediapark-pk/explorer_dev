@@ -1,12 +1,20 @@
 import { singleton } from 'src/container';
 import { DataProvider, OnInit } from '@app/core';
-import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
-import DelegatesRepository, { DelegatesFetchMode } from 'src/pages/delegates/repository/DelegatesRepository';
+import { VMDelegate } from 'src/common/model/VMDelegate';
+import {
+    DelegatesRepository,
+    DelegatesFetchMode,
+    AllowedFilters,
+    AllowedSorts,
+ } from 'src/common/repository/DelegatesRepository';
 import { observable, action } from 'mobx';
 import { ChangeEvent } from 'react';
 
-export { AllowedFilters, AllowedSorts } from 'src/pages/delegates/service/DelegatesService';
-export { DelegatesFetchMode };
+export { 
+    DelegatesFetchMode,
+    AllowedFilters,
+    AllowedSorts,
+ };
 
 @singleton
 export default class TablesWrapperModel implements OnInit {

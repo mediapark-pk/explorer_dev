@@ -1,12 +1,12 @@
 import { singleton } from 'src/container';
 import { observable, action } from 'mobx';
 import { Subscription } from 'rxjs';
-import { OnInit, OnDestroy } from '@app/core';
+import { OnInit, subscriber } from '@app/core';
 import { VMBlockBlockchainInfo } from 'src/common/model/VMBlockBlockchainInfo';
 import { BlockService } from 'src/common/service/BlockService';
 
 @singleton
-export default class BlockBlockchainModel implements OnInit, OnDestroy {
+export default class BlockBlockchainModel implements OnInit {
 
     @observable isLoading: boolean = false;
 
@@ -19,10 +19,11 @@ export default class BlockBlockchainModel implements OnInit, OnDestroy {
         totalStakeAmount: 0
     });
 
+    @subscriber
     private subscription: Subscription;
 
     constructor(
-        private readonly blockBlockchainInfoService: BlockService
+        private readonly blockService: BlockService
     ) {
     }
 
@@ -30,15 +31,10 @@ export default class BlockBlockchainModel implements OnInit, OnDestroy {
     async onInit() {
         this.load();
 
-        this.subscription = this.blockBlockchainInfoService.onBlockBlockchainInfoUpdate()
+        this.subscription = this.blockService.onBlockBlockchainInfoUpdate()
         .subscribe(item => {
             this.data = new VMBlockBlockchainInfo(item);
         });
-    }
-
-    @action
-    async onDestroy() {
-        this.subscription.unsubscribe();
     }
 
     @action
@@ -46,7 +42,7 @@ export default class BlockBlockchainModel implements OnInit, OnDestroy {
         this.isLoading = true;
 
         try {
-            this.data = new VMBlockBlockchainInfo(await this.blockBlockchainInfoService.getBlockBlockchainInfo());
+            this.data = new VMBlockBlockchainInfo(await this.blockService.getBlockBlockchainInfo());
         } catch (e) {
             // TODO show error message
         } finally {

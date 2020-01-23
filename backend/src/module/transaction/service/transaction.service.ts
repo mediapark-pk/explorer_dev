@@ -19,8 +19,8 @@ export class TransactionService {
         try {
             // TODO: Implement/review request/response
             return new ResponseEntity({ data: {
-                data: getTransactionsMock((request as any).pagination.limit),
-                totalCount: (request as any).pagination.limit * 15 },
+                data: getTransactionsMock(request.paginator.limit),
+                totalCount: request.paginator.limit * 15 },
             });
         } catch (e) {
             return new ResponseEntity({ errors: [e.messge] });
@@ -42,8 +42,8 @@ export class TransactionService {
         try {
             // TODO: Implement/review request/response
             return new ResponseEntity({ data: {
-                data: getTransactionsMock((request as any).pagination.limit),
-                totalCount: (request as any).pagination.limit * 15 },
+                data: getTransactionsMock(request.paginator.limit),
+                totalCount: request.paginator.limit * 15 },
             });
         } catch (e) {
             return new ResponseEntity({ errors: [e.messge] });

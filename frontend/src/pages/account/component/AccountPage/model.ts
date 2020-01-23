@@ -4,7 +4,7 @@ import { action, computed, observable, reaction } from 'mobx';
 import AccountService from 'src/common/service/AccountService';
 import { RouterStore } from 'mobx-react-router';
 import { VMAccount, Address } from 'src/common/model/VMAccount';
-import AccountTransactionsRepository, { Type } from 'src/pages/account/repository/AccountTransactionsRepository';
+import { AccountTransactionsRepository, Type } from 'src/pages/account/repository/AccountTransactionsRepository';
 import { VMTransaction } from 'src/common/model/VMTransaction';
 
 export enum Tab {
@@ -45,8 +45,6 @@ export default class AccountPageModel {
             if (!this.account) {
                 this.routerStore.push('/404');
             }
-        } catch (e) {
-            // TODO add errors handler
         } finally {
             this.isLoading = false;
         }

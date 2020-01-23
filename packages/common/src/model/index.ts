@@ -1,8 +1,8 @@
 export * from './RawBalanceVolume';
 export * from './RawBlock';
 export * from './RawBlockBlockchainInfo';
-export * from './RawDelegateSummary';
-export * from './RawDelegatesSummary';
+export * from './RawDelegateStatistic';
+export * from './RawDelegatesBlockchainInfo';
 export * from './RawVote';
 export * from './RawDelegate';
 export * from './RawTransactionsBlockchainInfo';
@@ -13,3 +13,4 @@ export * from './RawAccountsBlockchainInfo';
 export * from './RawAccountStatistic';
 export * from './RawBlockchainInfo';
 export * from './RawDDKMarketData';
+export * from './RawChartData';

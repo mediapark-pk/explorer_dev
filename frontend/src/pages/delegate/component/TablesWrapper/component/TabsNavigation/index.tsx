@@ -30,7 +30,7 @@ const TabsNavigation: React.FC<ITabsNavigationProps> = ({ }) => {
             >
                 <Tab
                     className={classes.tab}
-                    label={`Forged blocks (${model.forgedBlocksDataProvider.repository.totalCount})`}
+                    label={`Forged blocks (${model.blocksDataProvider.repository.totalCount})`}
                 />
                 <Tab
                     className={classes.tab}

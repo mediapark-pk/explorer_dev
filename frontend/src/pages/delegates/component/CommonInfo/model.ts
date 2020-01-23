@@ -1,16 +1,16 @@
 import { singleton } from 'src/container';
-import { VMDelegatesSummary } from 'src/pages/delegates/model/VMDelegatesSummary';
-import DelegatesService from 'src/pages/delegates/service/DelegatesService';
+import { VMBlockchainInfo } from 'src/pages/delegates/model/VMBlockchainInfo';
+import { DelegateService } from 'src/common/service/DelegateService';
 import { observable, action } from 'mobx';
 import { Subscription } from 'rxjs';
-import { OnInit, OnDestroy } from '@app/core';
+import { OnInit, subscriber } from '@app/core';
 
 @singleton
-export default class BlockAllBlocksModel implements OnInit, OnDestroy {
+export default class BlockAllBlocksModel implements OnInit {
 
     @observable isLoading: boolean;
 
-    @observable delegatesInfo: VMDelegatesSummary = new VMDelegatesSummary({
+    @observable delegatesInfo: VMBlockchainInfo = new VMBlockchainInfo({
         activeCount: 0,
         allCount: 0,
         stakeFreeztime: 0,
@@ -19,16 +19,17 @@ export default class BlockAllBlocksModel implements OnInit, OnDestroy {
         voteThreshold: 0
     });
 
+    @subscriber
     private onDelegatesInfoUpdate: Subscription;
 
     constructor(
-        private readonly service: DelegatesService,
+        private readonly service: DelegateService,
     ) { }
 
     @action onInit() {
-        this.onDelegatesInfoUpdate = this.service.onDelegatesSummaryUpdate()
+        this.onDelegatesInfoUpdate = this.service.onBlockchainInfoUpdate()
             .subscribe(info => {
-                this.delegatesInfo = new VMDelegatesSummary(info);
+                this.delegatesInfo = new VMBlockchainInfo(info);
             });
 
         this.loadInfo();
@@ -38,13 +39,9 @@ export default class BlockAllBlocksModel implements OnInit, OnDestroy {
         this.isLoading = true;
 
         try {
-            this.delegatesInfo = new VMDelegatesSummary(await this.service.getDelegatesSummary());
+            this.delegatesInfo = new VMBlockchainInfo(await this.service.getBlockchainInfo());
         } finally {
             this.isLoading = false;
         }
-    }
-
-    onDestroy() {
-        this.onDelegatesInfoUpdate.unsubscribe();
     }
 }

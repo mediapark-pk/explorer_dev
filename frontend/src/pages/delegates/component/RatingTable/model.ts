@@ -1,11 +1,12 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
-import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
-import DelegatesRatingRepository, { 
+import { VMDelegate } from 'src/common/model/VMDelegate';
+import {
+    DelegatesRepository, 
     DelegatesRatingAllowedFilter,
-    DelegatesRatingAllowedSort
- } from 'src/pages/delegates/repository/DelegatesRatingRepository';
-import { AllowedSorts } from 'src/pages/delegates/service/DelegatesService';
+    DelegatesRatingAllowedSort,
+    AllowedSorts,
+ } from 'src/common/repository/DelegatesRepository';
 import { observable, action, observe, computed } from 'mobx';
 
 @singleton
@@ -22,11 +23,14 @@ export default class RatingTableModel  {
     };
 
     constructor(
-        repository: DelegatesRatingRepository,
+        repository: DelegatesRepository,
     ) {
         
         this.dataProvider = new DataProvider({
-            repository: repository
+            repository: repository,
+            paginator: {
+                rowsPerPage: 10,
+            }
         });
 
         observe(this.params, () => this.loadData());

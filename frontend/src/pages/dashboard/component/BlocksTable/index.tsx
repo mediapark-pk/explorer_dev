@@ -1,13 +1,12 @@
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/BlocksTable/style';
 import InfoTable from 'src/pages/dashboard/component/InfoTable';
-import BlocksTableModel from 'src/pages/dashboard/component/BlocksTable/model';
+import { BlocksTableModel } from 'src/pages/dashboard/component/BlocksTable/model';
 import { useModel } from '@app/core';
-import { BlockIcon } from 'src/app/component/Icons';
-import { VMBlock } from 'src/pages/dashboard/model/VMBlock';
+import { BlockIcon } from 'src/common/component/Icons';
+import { VMBlock } from 'src/common/model/VMBlock';
 import { TableRow, TableCell, Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
-import clsx from 'clsx';
 
 interface IBlocksTableProps {}
 

@@ -1,9 +1,10 @@
+// tslint:disable: no-magic-numbers
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/CurencyConvertor/style';
-import { ConvertorIcon } from 'src/app/component/Icons';
+import { ConvertorIcon } from 'src/common/component/Icons';
 import { Grid, TextField, Select, MenuItem } from '@material-ui/core';
-import Skeleton from 'src/app/component/Skeleton';
-import CurencyConvertorModel, { BaseCode } from 'src/pages/dashboard/component/CurencyConvertor/model';
+import Skeleton from 'src/common/component/Skeleton';
+import { CurencyConvertorModel, BaseCode } from 'src/pages/dashboard/component/CurencyConvertor/model';
 import { useModel } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import clsx from 'clsx';
@@ -109,8 +110,8 @@ const CurencyConvertor: React.FC<ICurencyConvertorProps> = ({ }) => {
                                 {!model.isLoading ?
                                     data && data.sell
                                         ? model
-                                            .formatter(code)
-                                            .format(data.sell.converted_last[BaseCode.Usd])
+                                            .formatter(BaseCode.Usd)
+                                            .format(data.sell.lastInCurrency[BaseCode.Usd])
                                         : '-'
                                     : (<Skeleton width={100} />)
                                 }
@@ -124,8 +125,8 @@ const CurencyConvertor: React.FC<ICurencyConvertorProps> = ({ }) => {
                                 {!model.isLoading ?
                                     data && data.sell
                                         ? model
-                                            .formatter(code)
-                                            .format(data.buy.converted_last[BaseCode.Usd])
+                                            .formatter(BaseCode.Usd)
+                                            .format(data.buy.lastInCurrency[BaseCode.Usd])
                                         : '-'
                                     : (<Skeleton width={100} />)
                                 }

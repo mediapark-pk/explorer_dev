@@ -3,7 +3,7 @@ import { OnInit, OnDestroy } from '@app/core';
 import { observable, action } from 'mobx';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import DelegateService from 'src/pages/delegate/service/DelegateService';
+import { DelegateService } from 'src/common/service/DelegateService';
 import { useModel } from '@app/core';
 import MainPageModel from 'src/pages/delegate/component/MainPage/model';
 
@@ -35,12 +35,16 @@ export default class NotesModel implements OnInit, OnDestroy {
 
     @action.bound
     async saveNote(noteText: string) {
-        this.isNoteSaving = true;
-        this.isNoteSaved = false;
-        // MOCK logic
-        await this.service.saveNote(this.mainPageModel.delegateId, noteText);
-        this.isNoteSaving = false;
-        this.isNoteSaved = true;
+        try {
+            this.isNoteSaving = true;
+            this.isNoteSaved = false;
+            await this.service.saveNoteById(this.mainPageModel.delegateId, noteText);
+            this.isNoteSaved = true;
+        } catch {
+            this.isNoteSaved = false;
+        } finally {
+            this.isNoteSaving = false;
+        }
     }
 
     onDestroy() {

@@ -1,7 +1,6 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
 import { action, observable } from 'mobx';
-import { TransactionId } from 'src/core/model/Transaction';
 import { TransactionsService } from 'src/common/service/TransactionsService';
 import { RouterStore } from 'mobx-react-router';
 import { VMTransaction } from 'src/common/model/VMTransaction';
@@ -20,7 +19,7 @@ export default class TransactionPageModel {
     }
 
     @action
-    async loadTransaction(id: TransactionId) {
+    async loadTransaction(id: string) {
         this.isLoading = true;
         try {
             let rawTransaction = await this.transactionService.getTransaction(id);

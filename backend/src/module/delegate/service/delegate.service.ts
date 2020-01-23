@@ -6,8 +6,8 @@ import {
     RawDelegate,
     RawBlock,
     RawVote,
-    RawDelegateSummary,
-    RawDelegatesSummary,
+    RawDelegateStatistic,
+    RawDelegatesBlockchainInfo,
 } from '@app/common';
 
 import {
@@ -26,12 +26,10 @@ export class DelegateService {
     ) { }
 
     async findAll(request: Request): Promise<ResponseListEntity<RawDelegate>> {
-        console.log('[DelegateService] findAll', request);
-
         try {
             return new ResponseEntity({ data: {
-              data: getDelegatesMock((request as any).pagination.limit),
-              totalCount: (request as any).pagination.limit * 15 },
+              data: getDelegatesMock(request.paginator.limit),
+              totalCount: request.paginator.limit * 15 },
             });
         } catch (e) {
             return new ResponseEntity({ errors: [e.messge] });
@@ -39,8 +37,6 @@ export class DelegateService {
     }
 
     async findTop(request: Request): Promise<ResponseListEntity<RawDelegate>> {
-        console.log('[DelegateService] findTop', request);
-
         try {
             return new ResponseEntity({ data: {
               data: getDelegatesMock(10),
@@ -51,9 +47,7 @@ export class DelegateService {
         }
     }
 
-    async getAllSummary(): Promise<ResponseEntity<RawDelegatesSummary>> {
-        console.log('[DelegateService] getAllSummary');
-
+    async getAllSummary(): Promise<ResponseEntity<RawDelegatesBlockchainInfo>> {
         try {
             return new ResponseEntity({ data: getDelegatesSummaryMock() });
         } catch (e) {
@@ -61,9 +55,7 @@ export class DelegateService {
         }
     }
 
-    async getSummaryByDelegateId(id: string, location: string): Promise<ResponseEntity<RawDelegateSummary>> {
-        console.log('[DelegateService] getSummaryByDelegateId', id);
-
+    async getSummaryByDelegateId(id: string, location: string): Promise<ResponseEntity<RawDelegateStatistic>> {
         try {
             return new ResponseEntity({ data: getDelegateSummaryMock(id, location) });
         } catch (e) {
@@ -72,8 +64,6 @@ export class DelegateService {
     }
 
     async getBalanceVolumeByDelegateId(id: string): Promise<ResponseListEntity<RawBalanceVolume>> {
-        console.log('[DelegateService] getBalanceVolumeByDelegateId', id);
-
         try {
             return new ResponseEntity({ data: {
                 data: getBalanceVolumeMock(500),
@@ -85,12 +75,10 @@ export class DelegateService {
     }
 
     async getForgedBlocksByDelegateId(request: Request): Promise<ResponseListEntity<RawBlock>> {
-        console.log('[DelegateService] getForgedBlocksByDelegateId', request);
-
         try {
             return new ResponseEntity({ data: {
-              data: getBlocksMock((request as any).pagination.limit),
-              totalCount: (request as any).pagination.limit * 15 },
+              data: getBlocksMock(request.paginator.limit),
+              totalCount: request.paginator.limit * 15 },
             });
         } catch (e) {
             return new ResponseEntity({ errors: [e.message] });
@@ -98,12 +86,10 @@ export class DelegateService {
     }
 
     async getVotesByDelegateId(request: Request): Promise<ResponseListEntity<RawVote>> {
-        console.log('[DelegateService] getVotesByDelegateId', request);
-
         try {
             return new ResponseEntity({ data: {
-              data: getVotesMock((request as any).pagination.limit, request.params.id),
-              totalCount: (request as any).pagination.limit * 15 },
+              data: getVotesMock(request.paginator.limit, request.params.id),
+              totalCount: request.paginator.limit * 15 },
             });
         } catch (e) {
             return new ResponseEntity({ errors: [e.message] });
@@ -111,8 +97,6 @@ export class DelegateService {
     }
 
     async addDelegateToFavorites(id: string): Promise<ResponseEntity<any>> {
-        console.log('[DelegateService] addDelegateToFavorites', id);
-
         try {
             return new ResponseEntity();
         } catch (e) {

@@ -38,7 +38,8 @@ const config = {
             // 'mobx-react-router': path.resolve(DIR, './node_modules/mobx-react-router'),
             // classnames: path.resolve(DIR, './node_modules/classnames'),
             '@material-ui': path.resolve(DIR, './node_modules/@material-ui'),
-            packages: path.resolve(ROOT_DIR, 'packages')
+            packages: path.resolve(ROOT_DIR, 'packages'),
+            'notistack': path.resolve(DIR, './node_modules/notistack'),
         },
     },
     devServer: {
