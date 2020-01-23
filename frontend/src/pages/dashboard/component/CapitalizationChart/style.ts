@@ -33,5 +33,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
         fontWeight: 300,
         letterSpacing: '0.15px',
         color: theme.palette.text.secondary,
+    },
+    chart: {
+        height: '460px',
     }
 }));

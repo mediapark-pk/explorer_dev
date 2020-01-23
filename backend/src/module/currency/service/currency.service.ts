@@ -86,9 +86,9 @@ export class CoingeckoCurrencyService implements ICurrencyService {
 
     async getDDKMarketChart(): Promise<ResponseListEntity<RawChartData[]>> {
         try {
-            const dataUSD = getChartDataMocks(50);
-            const dataBTC = getChartDataMocks(50);
-            const dataETH = getChartDataMocks(50);
+            const dataUSD = getChartDataMocks(200);
+            const dataBTC = getChartDataMocks(200);
+            const dataETH = getChartDataMocks(200);
 
             return new ResponseEntity({ data: {
                 data: [dataETH, dataBTC, dataUSD],
