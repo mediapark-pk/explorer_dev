@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStyles } from 'src/app/component/SearchBox/style';
-import { InputBase, ButtonBase, Button } from '@material-ui/core';
+import InputBase from '@material-ui/core/InputBase';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import Button from '@material-ui/core/Button';
 import HeaderModel from 'src/app/component/Header/model';
 import { useDI } from '@app/core';
 

@@ -2,7 +2,10 @@
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/CurencyConvertor/style';
 import { ConvertorIcon } from 'src/common/component/Icons';
-import { Grid, TextField, Select, MenuItem } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import Skeleton from 'src/common/component/Skeleton';
 import { CurencyConvertorModel, BaseCode } from 'src/pages/dashboard/component/CurencyConvertor/model';
 import { useModel } from '@app/core';

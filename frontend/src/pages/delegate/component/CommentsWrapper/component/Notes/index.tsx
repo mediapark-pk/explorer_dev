@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStyles } from 'src/pages/delegate/component/CommentsWrapper/component/Notes/style';
 import NotesModel from 'src/pages/delegate/component/CommentsWrapper/component/Notes/model';
-import { TextField } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 import { useModel } from '@app/core';
 import { observer } from 'mobx-react-lite';
 

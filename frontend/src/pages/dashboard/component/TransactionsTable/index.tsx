@@ -6,7 +6,9 @@ import { TransactionsTableModel } from 'src/pages/dashboard/component/Transactio
 import { useModel } from '@app/core';
 import { TransactionIcon } from 'src/common/component/Icons';
 import { VMTransaction } from 'src/common/model/VMTransaction';
-import { TableRow, TableCell, Typography } from '@material-ui/core';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
 import { NavLink } from 'react-router-dom';
 
 interface ITransactionsTableProps {}

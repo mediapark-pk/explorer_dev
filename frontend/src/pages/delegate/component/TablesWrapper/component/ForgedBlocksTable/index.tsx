@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
 import { AppTableBody } from '@app/ui-kit';
 import { VMBlock } from 'src/common/model/VMBlock';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/ForgedBlocksTable/style';

@@ -1,7 +1,9 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegate/component/PageTitle/style';
-import { Typography, Badge, Button } from '@material-ui/core';
-import * as Icons from '@material-ui/icons';
+import Typography from '@material-ui/core/Typography';
+import Badge from '@material-ui/core/Badge';
+import Button from '@material-ui/core/Button';
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import { withRouter, useHistory } from 'react-router';
 import MainPageModel from 'src/pages/delegate/component/MainPage/model';
 import { AddToFavorites } from 'src/pages/delegate/component/AddToFavorites';
@@ -19,7 +21,7 @@ const PageTitle: React.FC<IPageTitleProps> = ({ }) => {
         <div className={classes.root} >
             <div>
                 <Button onClick={history.goBack}>
-                    <Icons.KeyboardArrowLeft className={classes.button_icon} />
+                    <KeyboardArrowLeftIcon className={classes.button_icon} />
                     <Typography className={classes.button_text} >
                         Back
                     </Typography>

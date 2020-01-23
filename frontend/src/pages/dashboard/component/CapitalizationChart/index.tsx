@@ -3,7 +3,7 @@ import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/CapitalizationChart/style';
 import { AppRichMultiTimeChart } from 'src/app/component/chart/MultiTimeChart';
 import { BlockCapitalizationModel } from 'src/pages/dashboard/component/CapitalizationChart/model';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { CHART_COLORS } from 'src/app/component/chart/colors';
 import { useModel } from '@app/core';
 import { CapitalizationIcon } from 'src/common/component/Icons/index';

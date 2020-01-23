@@ -5,6 +5,11 @@ export enum ForgeStatus {
     MISSED = 'MISSED',
 }
 
+export type Location = {
+    lat: number;
+    long: number;
+};
+
 export type RawDelegate = {
     approval: number;
     forgedBlocks: number;
@@ -14,8 +19,5 @@ export type RawDelegate = {
     votes: number;
     status: ForgeStatus;
     confirmedVoteCount: number;
-    location?: {
-        lat: number;
-        long: number;
-    };
+    location?: Location;
 };

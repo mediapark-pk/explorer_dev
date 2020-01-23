@@ -1,7 +1,9 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegate/component/CommonInfo/style';
-import { Typography, Button, Grid } from '@material-ui/core';
-import { FilterNone as FilterNoneIcon } from '@material-ui/icons';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import { useDI } from '@app/core';
 import MainPageModel from 'src/pages/delegate/component/MainPage/model';
 import { observer } from 'mobx-react-lite';

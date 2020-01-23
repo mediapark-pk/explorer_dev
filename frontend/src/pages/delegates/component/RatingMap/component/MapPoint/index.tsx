@@ -1,5 +1,8 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/RatingMap/component/MapPoint/style';
+import { MapPointModel } from 'src/pages/delegates/component/RatingMap/component/MapPoint/model';
+import { Location } from '@app/common';
+import { useModel } from '@app/core';
 
 interface IMapPointsProps {
     location: Location;
@@ -7,34 +10,16 @@ interface IMapPointsProps {
 
 const MapPoints: React.FC<IMapPointsProps> = ({ location }) => {
     const classes = useStyles({});
+    const model = useModel(MapPointModel);
 
-    let coords = locationToCoords(location);
+    let coords = model.locationToCoords(location);
 
     return (
         <div 
             className={classes.root}
-            style={{ top: coords.y, left: `${coords.x}%` }}
+            style={{ top: coords.y, left: coords.x }}
         ></div>
     );
 };
 
 export default MapPoints;
-
-interface Location {
-    lat: number;
-    long: number;
-}
-
-function locationToCoords(location: Location) {
-    let mapWidth    = 666;
-    let mapHeight   = 403;
-
-    let x = ((location.long + 180) / 360) * 90;
-    let latRad = location.lat * 0.9 * Math.PI / 180;
-
-    // get y value
-    let mercN = Math.log(Math.tan((Math.PI / 4) + (latRad / 2)));
-    let y = (mapHeight / 2) - ((mapWidth) * mercN / (2 * Math.PI));
-
-    return { x, y: y - 30 };
-}

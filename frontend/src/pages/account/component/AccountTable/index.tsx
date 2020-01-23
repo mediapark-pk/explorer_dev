@@ -12,7 +12,7 @@ import { AppTableBody } from '@app/ui-kit';
 import { VMTransaction } from 'src/common/model/VMTransaction';
 import { useDI } from '@app/core';
 import AccountPageModel from 'src/pages/account/component/AccountPage/model';
-import { Tabs } from '@material-ui/core';
+import Tabs from '@material-ui/core/Tabs';
 import { observer } from 'mobx-react-lite';
 import { AppTablePaginator, AppTableSearchLabel, AppTableSortLabel } from '@app/ui-kit/src';
 import { Link } from 'react-router-dom';

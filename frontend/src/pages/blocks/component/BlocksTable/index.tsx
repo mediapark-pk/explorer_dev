@@ -2,8 +2,19 @@ import React from 'react';
 import { useStyles } from 'src/pages/blocks/component/BlocksTable/style';
 import { observer } from 'mobx-react-lite';
 import { DataProvider } from '@app/core';
-import { Table, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
-import { AppTable, AppTableBody, AppTableTitle, AppTablePaginator, AppTableSortLabel, AppTableSearchLabel } from '@app/ui-kit';
+import Table from '@material-ui/core/Table';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+import {
+    AppTable,
+    AppTableBody,
+    AppTableTitle,
+    AppTablePaginator,
+    AppTableSortLabel,
+    AppTableSearchLabel
+ } from '@app/ui-kit';
 import { Link } from 'react-router-dom';
 import { VMBlock } from 'src/common/model/VMBlock';
 

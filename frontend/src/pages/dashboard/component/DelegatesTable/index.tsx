@@ -5,7 +5,9 @@ import { DelegatesTableModel } from 'src/pages/dashboard/component/DelegatesTabl
 import { useModel } from '@app/core';
 import { DelegateIcon } from 'src/common/component/Icons';
 import { VMDelegate } from 'src/common/model/VMDelegate';
-import { TableRow, TableCell, Typography } from '@material-ui/core';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 

@@ -3,7 +3,7 @@ import { useStyles } from 'src/app/component/ProfileMenu/style';
 import DDKBuyButton from 'src/app/component/DDKBuyButton';
 import HeaderModel from 'src/app/component/Header/model';
 import { useDI } from '@app/core';
-import { ButtonBase } from '@material-ui/core';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 interface IProfileMenuProps {
 }

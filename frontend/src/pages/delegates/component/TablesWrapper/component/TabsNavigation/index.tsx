@@ -3,10 +3,8 @@ import { useDI } from '@app/core';
 import { observer } from 'mobx-react-lite';
 import { useStyles } from 'src/pages/delegates/component/TablesWrapper/component/TabsNavigation/style';
 import TablesWrapperModel, { DelegatesFetchMode } from 'src/pages/delegates/component/TablesWrapper/model';
-import {
-    Tabs,
-    Tab
- } from '@material-ui/core';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
  import { 
     AppTableTitle,
     AppTablePaginator,

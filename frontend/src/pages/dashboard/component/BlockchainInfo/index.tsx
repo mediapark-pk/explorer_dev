@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/BlockchainInfo/style';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import { BlockchainInfoModel } from 'src/pages/dashboard/component/BlockchainInfo/model';
 import { useModel } from '@app/core';
 import Skeleton from 'src/common/component/Skeleton';

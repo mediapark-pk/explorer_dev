@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from 'src/pages/delegates/component/PageTitle/style';
 import { observer } from 'mobx-react-lite';
 

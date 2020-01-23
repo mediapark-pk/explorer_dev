@@ -1,15 +1,13 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/RatingTable/component/RatingTableFilter/style';
 import RatingTableModel from 'src/pages/delegates/component/RatingTable/model';
-import { 
-    TextField,
-    MenuItem,
- } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import { useDI } from '@app/core';
+import { observer } from 'mobx-react-lite';
  import { 
     AppTableTitle,
  } from '@app/ui-kit';
-import { useDI } from '@app/core';
-import { observer } from 'mobx-react-lite';
 
 interface IRatingTableFilterProps {}
 

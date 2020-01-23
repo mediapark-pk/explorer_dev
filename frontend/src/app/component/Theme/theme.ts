@@ -1,5 +1,5 @@
 import { Theme, ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
-import { createMuiTheme, makeStyles } from '@material-ui/core';
+import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 
 export const COLORS = {
     WHITE: '#FFFFFF',

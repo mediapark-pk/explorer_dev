@@ -1,11 +1,9 @@
 import React from 'react';
 import { useStyles } from 'src/pages/delegates/component/RatingTable/component/RatingTableHeader/style';
-import {
-    TableRow,
-    TableCell,
-    Typography,
-    TableHead
- } from '@material-ui/core';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
+import TableHead from '@material-ui/core/TableHead';
 
 interface IRatingTableHeaderProps {
     dataName: string;
