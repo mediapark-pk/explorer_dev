@@ -1,13 +1,13 @@
 import React from 'react';
+import clsx from 'clsx';
 import { useStyles } from 'src/pages/dashboard/component/TransactionsTable/style';
 import InfoTable from 'src/pages/dashboard/component/InfoTable';
-import TransactionsTableModel from 'src/pages/dashboard/component/TransactionsTable/model';
+import { TransactionsTableModel } from 'src/pages/dashboard/component/TransactionsTable/model';
 import { useModel } from '@app/core';
-import { DelegateIcon, TransactionIcon } from 'src/app/component/Icons';
+import { TransactionIcon } from 'src/common/component/Icons';
 import { VMTransaction } from 'src/common/model/VMTransaction';
 import { TableRow, TableCell, Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
-import clsx from 'clsx';
 
 interface ITransactionsTableProps {}
 

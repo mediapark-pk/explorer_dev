@@ -29,6 +29,8 @@ interface IInfoTableProps {
     children: (any, number) => ReactNode;
 }
 
+const convertScrollPercent = (p) => Math.sqrt(p * 100) / 10;
+
 const InfoTable: React.FC<IInfoTableProps> = ({ Icon, label, tip, headers, dataProvider, children, link }) => {
     const classes = useStyles({});
     const scrollWrapper = useRef<HTMLElement>();
@@ -43,8 +45,6 @@ const InfoTable: React.FC<IInfoTableProps> = ({ Icon, label, tip, headers, dataP
         });
         return () => subscriber.unsubscribe();
     }, []);
-
-    const convertScrollPercent = (p) => Math.sqrt(p * 100) / 10;
 
     return (
         <Grid container className={classes.root} direction='column' >

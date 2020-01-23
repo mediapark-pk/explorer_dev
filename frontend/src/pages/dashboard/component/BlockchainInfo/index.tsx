@@ -1,16 +1,16 @@
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/BlockchainInfo/style';
 import { Grid } from '@material-ui/core';
-import BlockchaninInfoModel from 'src/pages/dashboard/component/BlockchainInfo/model';
+import { BlockchainInfoModel } from 'src/pages/dashboard/component/BlockchainInfo/model';
 import { useModel } from '@app/core';
-import Skeleton from 'src/app/component/Skeleton';
+import Skeleton from 'src/common/component/Skeleton';
 import { observer } from 'mobx-react-lite';
 
 interface IBlockchaninInfoProps {}
 
 const BlockchaninInfo: React.FC<IBlockchaninInfoProps> = ({ }) => {
     const classes = useStyles({});
-    const model = useModel(BlockchaninInfoModel);
+    const model = useModel(BlockchainInfoModel);
 
     const data = [
         {

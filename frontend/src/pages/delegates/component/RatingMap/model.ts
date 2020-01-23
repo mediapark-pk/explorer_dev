@@ -1,12 +1,12 @@
 import { singleton } from 'src/container';
-import DelegatesRatingRepository from 'src/pages/delegates/repository/DelegatesRatingRepository';
+import { DelegatesRepository } from 'src/common/repository/DelegatesRepository';
 import { computed } from 'mobx';
 
 @singleton
 export default class RatingMapModel  {
 
     constructor(
-        private readonly repository: DelegatesRatingRepository,
+        private readonly repository: DelegatesRepository,
     ) { }
 
     @computed

@@ -1,22 +1,22 @@
 import { singleton } from 'src/container';
 import { DataProvider, OnInit } from '@app/core';
-import { VMVote } from 'src/pages/delegate/model/VMVote';
-import { VMBlock } from 'src/pages/delegate/model/VMBlock';
-import ForgedBlocksRepository from 'src/pages/delegate/repository/ForgedBlocksRepository';
-import VotesRepository from 'src/pages/delegate/repository/VotesRepository';
+import { VMVote } from 'src/common/model/VMVote';
+import { VMBlock } from 'src/common/model/VMBlock';
+import { BlocksRepository } from 'src/common/repository/BlocksRepository';
+import { VotesRepository } from 'src/common/repository/VotesRepository';
 import MainPageModel from 'src/pages/delegate/component/MainPage/model';
-import { observable, computed, action, reaction } from 'mobx';
+import { observable, computed, action } from 'mobx';
 import { ChangeEvent } from 'react';
 
 export { 
     AllowedFilters as ForgedBlocksAllowedFilters, 
     AllowedSorts as ForgedBlocksAllowedSorts
-} from 'src/pages/delegate/repository/ForgedBlocksRepository';
+} from 'src/common/repository/BlocksRepository';
 
 export { 
     AllowedFilters as VotesAllowedFilters, 
     AllowedSorts as VotesAllowedSorts
-} from 'src/pages/delegate/repository/VotesRepository';
+} from 'src/common/repository/VotesRepository';
 
 export enum Tab {
     Forged,
@@ -26,18 +26,18 @@ export enum Tab {
 @singleton
 export default class TablesWrapperModel implements OnInit {
 
-    @observable forgedBlocksDataProvider: DataProvider<VMBlock>;
+    @observable blocksDataProvider: DataProvider<VMBlock>;
     @observable votesDataProvider: DataProvider<VMVote>;
 
     @observable currentTab: Tab = Tab.Forged;
 
     constructor(
         private readonly mainPageModel: MainPageModel,
-        forgedBlocksRepository: ForgedBlocksRepository,
+        blocksRepository: BlocksRepository,
         votesRepository: VotesRepository,
     ) {
-        this.forgedBlocksDataProvider = new DataProvider({
-            repository: forgedBlocksRepository
+        this.blocksDataProvider = new DataProvider({
+            repository: blocksRepository
         });
 
         this.votesDataProvider = new DataProvider({
@@ -66,7 +66,7 @@ export default class TablesWrapperModel implements OnInit {
     get dataProvider() {        
         switch (this.currentTab) {
             case Tab.Forged:
-                return this.forgedBlocksDataProvider;
+                return this.blocksDataProvider;
             case Tab.Votes:
                 return this.votesDataProvider;
             default:

@@ -14,7 +14,7 @@ import { AppTableBody } from '@app/ui-kit';
 import { AppTablePaginator, AppTableSearchLabel, AppTableSortLabel } from '@app/ui-kit/src';
 import { useModel } from '@app/core/src';
 import TransactionsTableModel from 'src/pages/transactions/component/TransactionsTable/model';
-import { TransactionsMode } from 'src/pages/transactions/repository/TransactionsRepository';
+import { TransactionsMode } from 'src/common/repository/TransactionsRepository';
 import { Link } from 'react-router-dom';
 import { VMTransaction } from 'src/common/model/VMTransaction';
 

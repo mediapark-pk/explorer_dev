@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from '@material-ui/core';
 import { AppTableBody } from '@app/ui-kit';
-import { VMVote } from 'src/pages/delegate/model/VMVote';
+import { VMVote } from 'src/common/model/VMVote';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/VotesTable/style';
 import VotesTableRow from 'src/pages/delegate/component/TablesWrapper/component/VotesTable/component/VotesTableRow';
 import VotesTableHeader from 'src/pages/delegate/component/TablesWrapper/component/VotesTable/component/VotesTableHeader';

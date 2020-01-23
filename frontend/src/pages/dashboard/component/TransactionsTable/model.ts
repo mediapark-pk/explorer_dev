@@ -1,11 +1,11 @@
 import { singleton } from 'src/container';
 import { DataProvider, OnInit } from '@app/core';
 import { VMTransaction } from 'src/common/model/VMTransaction';
-import { TransactionsRepository } from 'src/pages/dashboard/repository/TransactionsRepository';
-import { observable, action } from 'mobx';
+import { TransactionsRepository } from 'src/common/repository/TransactionsRepository';
+import { observable } from 'mobx';
 
 @singleton
-export default class TransactionsTableModel implements OnInit {
+export class TransactionsTableModel implements OnInit {
 
     @observable dataProvider: DataProvider<VMTransaction>;
 
@@ -22,10 +22,6 @@ export default class TransactionsTableModel implements OnInit {
     }
 
     onInit() {
-        this.loadData();
-    }
-
-    @action loadData() {
         this.dataProvider.loadData();
     }
 }

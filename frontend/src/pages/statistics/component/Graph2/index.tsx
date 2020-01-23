@@ -27,7 +27,7 @@ const Graph2: React.FC<IGraph2Props> = ({ }) => {
                 <Meter />
                 <From4 />
                 <To4 />
-                <Zoom className={classes.zoom} >
+                <Zoom>
                     <Typography className={classes.typography} >
                         Zoom
                     </Typography>

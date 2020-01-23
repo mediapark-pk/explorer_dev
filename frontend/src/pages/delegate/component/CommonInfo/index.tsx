@@ -5,7 +5,7 @@ import { FilterNone as FilterNoneIcon } from '@material-ui/icons';
 import { useDI } from '@app/core';
 import MainPageModel from 'src/pages/delegate/component/MainPage/model';
 import { observer } from 'mobx-react-lite';
-import { QRModalIcon } from 'src/app/popups/QRModal';
+import { QRModalIcon } from 'src/popups/QRModal';
 
 interface ICommonInfoProps {}
 

@@ -15,7 +15,7 @@ const voteFactory = Factory.Sync.makeFactory<RawVote>({
   fee: Factory.each(i => getRandomDecimal(0, 1, 3)),
 });
 
-export const getVoteMock = (senderId?: string) => voteFactory.build({ senderId });
+export const getVoteMock = (senderId?: string) => voteFactory.build();
 
 export const getVotesMock = (count: number, senderId?: string) =>
   [...Array.from(Array(count))].map(e => getVoteMock(senderId));

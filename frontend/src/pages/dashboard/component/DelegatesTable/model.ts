@@ -1,11 +1,11 @@
 import { singleton } from 'src/container';
 import { DataProvider, OnInit } from '@app/core';
-import { VMDelegate } from 'src/pages/dashboard/model/VMDelegate';
-import { DelegatesRepository } from 'src/pages/dashboard/repository/DelegatesRepository';
-import { observable, action } from 'mobx';
+import { VMDelegate } from 'src/common/model/VMDelegate';
+import { DelegatesRepository } from 'src/common/repository/DelegatesRepository';
+import { observable } from 'mobx';
 
 @singleton
-export default class DelegatesTableModel implements OnInit {
+export class DelegatesTableModel implements OnInit {
 
     @observable dataProvider: DataProvider<VMDelegate>;
 
@@ -22,10 +22,6 @@ export default class DelegatesTableModel implements OnInit {
     }
 
     onInit() {
-        this.loadData();
-    }
-
-    @action loadData() {
         this.dataProvider.loadData();
     }
 }

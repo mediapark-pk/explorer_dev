@@ -3,10 +3,10 @@ import { observable, action } from 'mobx';
 import { Subscription } from 'rxjs';
 import { VMAccountsBlockchainInfo } from 'src/pages/accounts/model/VMAccountsBlockchainInfo';
 import AccountService from 'src/common/service/AccountService';
-import { OnInit, OnDestroy } from '@app/core';
+import { OnInit, subscriber } from '@app/core';
 
 @singleton
-export default class AccountBlockchainInfoModel implements OnInit, OnDestroy {
+export default class AccountBlockchainInfoModel implements OnInit {
 
     @observable isLoading: boolean = false;
 
@@ -19,6 +19,7 @@ export default class AccountBlockchainInfoModel implements OnInit, OnDestroy {
         addressesQuantity: 0
     });
 
+    @subscriber
     private subscription: Subscription;
 
     constructor(
@@ -34,11 +35,6 @@ export default class AccountBlockchainInfoModel implements OnInit, OnDestroy {
         .subscribe(item => {
             this.data = new VMAccountsBlockchainInfo(item);
         });
-    }
-
-    @action
-    async onDestroy() {
-        this.subscription.unsubscribe();
     }
 
     @action

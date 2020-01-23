@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Router } from 'react-router';
 import Theme from 'src/app/component/Theme';
 import Layout from 'src/app/component/Layout';
 import Routes from 'src/app/component/Routes';
-import { ModalContainer } from '@app/ui-kit';
+import { ModalContainer, NotificationContainer } from '@app/ui-kit';
+import { SnackbarProvider } from 'notistack';
 import HistoryService from 'src/app/services/HistoryService';
 import { useDI } from '@app/core';
 import { Socket } from '@app/socket-client';
@@ -17,10 +18,13 @@ const App: React.FC<IAppProps> = () => {
     return (
         <Router history={historyService.history}>
             <Theme>
-                <Layout>
-                    <Routes/>
-                </Layout>
-                <ModalContainer />
+                <SnackbarProvider maxSnack={3}>
+                    <Layout>
+                        <Routes/>
+                    </Layout>
+                    <ModalContainer />
+                    <NotificationContainer />
+                </SnackbarProvider>
             </Theme>
         </Router>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from '@material-ui/core';
 import { AppTableBody } from '@app/ui-kit';
-import { VMDelegate } from 'src/pages/delegates/model/VMDelegate';
+import { VMDelegate } from 'src/common/model/VMDelegate';
 import { useStyles } from 'src/pages/delegates/component/TablesWrapper/component/AllDelegatesTable/style';
 import AllDelegatesTableRow from 'src/pages/delegates/component/TablesWrapper/component/AllDelegatesTable/component/AllDelegatesTableRow';
 import AllDelegatesTableHeader from 'src/pages/delegates/component/TablesWrapper/component/AllDelegatesTable/component/AllDelegatesTableHeader';

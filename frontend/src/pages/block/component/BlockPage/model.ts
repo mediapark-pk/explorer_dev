@@ -1,9 +1,9 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
 import { action, observable } from 'mobx';
-import BlockService from 'src/common/service/BlockService';
+import { BlockService } from 'src/common/service/BlockService';
 import { RouterStore } from 'mobx-react-router';
-import { VMBlock, BlockId } from 'src/common/model/VMBlock';
+import { VMBlock } from 'src/common/model/VMBlock';
 
 
 @singleton
@@ -20,7 +20,7 @@ export default class BlockPageModel {
     }
 
     @action
-    async loadBlock(id: BlockId) {
+    async loadBlock(id: string) {
         this.isLoading = true;
         try {
             const rawBlock = await this.blockService.getBlock(id);

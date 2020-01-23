@@ -23,7 +23,7 @@ function getMockData (): Array<Array<TransactionAmount>> {
 }
 
 @transient
-export default class TransactionsVolumeRepository implements IDataRepository<Array<TransactionAmount>> {
+export class TransactionsVolumeRepository implements IDataRepository<Array<TransactionAmount>> {
 
     @observable data: Array<Array<TransactionAmount>> = [];
     @observable totalCount: number = 0;

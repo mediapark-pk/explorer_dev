@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import { useStyles } from 'src/app/component/Layout/styles';
 import Header from 'src/app/component/Header';
 import Footer from 'src/app/component/Footer';
+import { useDI } from '@app/core';
+import { LayoutModel } from 'src/app/component/Layout/model';
 import { useHistory } from 'react-router';
 
 
@@ -18,6 +20,7 @@ const onRouterAction = (location, action) => {
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
     const classes = useStyles({});
     const history = useHistory();
+    const model = useDI(LayoutModel);
 
     React.useEffect(() => history.listen(onRouterAction), []);
 

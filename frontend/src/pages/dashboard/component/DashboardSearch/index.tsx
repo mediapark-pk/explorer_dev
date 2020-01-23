@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'src/pages/dashboard/component/DashboardSearch/style';
-import DashboardSearchModel, { FilterProps } from 'src/pages/dashboard/component/DashboardSearch/model';
+import { DashboardSearchModel, FilterProps } from 'src/pages/dashboard/component/DashboardSearch/model';
 import { Button, TextField, Select, IconButton, MenuItem } from '@material-ui/core';
 import { 
     Clear as ClearIcon,

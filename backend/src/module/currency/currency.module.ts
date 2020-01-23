@@ -1,18 +1,21 @@
-import { Module, CacheModule } from '@nestjs/common';
+import { Module, CacheModule, HttpModule } from '@nestjs/common';
 import { CurrencyController } from 'src/module/currency/controller/currency.controller';
 import { EventsController } from 'src/module/currency/controller/events.controller';
-import { CurrencyService } from 'src/module/currency/service/currency.service';
-import { CurrencyAdapterModule } from 'src/module/currency/adapter/currency';
+import { CoingeckoCurrencyService } from 'src/module/currency/service/currency.service';
+import { DICurrencyService } from 'src/module/currency/service';
 
 @Module({
     imports: [
-        CurrencyAdapterModule,
         CacheModule.register(),
+        HttpModule,
     ],
     providers: [
         CurrencyController,
         EventsController,
-        CurrencyService,
+        {
+            provide: DICurrencyService,
+            useClass: CoingeckoCurrencyService,
+        }
     ]
 })
 export class CurrencyModule { }

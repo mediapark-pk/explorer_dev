@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { TableCell, Typography, TableRow, Link } from '@material-ui/core';
 import { useStyles } from 'src/pages/delegate/component/TablesWrapper/component/ForgedBlocksTable/component/ForgedBlocksTableRow/style';
-import { VMBlock } from 'src/pages/delegate/model/VMBlock';
+import { VMBlock } from 'src/common/model/VMBlock';
 import { NavLink } from 'react-router-dom';
 
 interface IForgedBlocksTableRowProps {
@@ -20,7 +20,7 @@ const ForgedBlocksTableRow: React.FC<IForgedBlocksTableRowProps> = ({ value }) =
                 </Typography>
             </TableCell>
             <TableCell className={clsx(classes.tableCell, classes.link)} >
-                <NavLink to={`/blocks/${value.id}`} >
+                <NavLink to={`/block/${value.id}`} >
                     <Typography className={classes.link}>
                         {value.id}
                     </Typography>

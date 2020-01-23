@@ -7,6 +7,7 @@ import { AccountModule } from 'src/module/account';
 import { CommonModule } from 'src/module/common';
 import { CurrencyModule } from 'src/module/currency';
 import { BlockModule } from 'src/module/block';
+import { VoteModule } from 'src/module/vote';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { BlockModule } from 'src/module/block';
     BlockModule,
     CommonModule,
     CurrencyModule,
+    VoteModule,
   ],
   controllers: []
 })

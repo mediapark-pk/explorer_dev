@@ -10,7 +10,7 @@ export enum Type {
 }
 
 @transient
-export default class AccountTransactionsRepository implements IDataRepository<VMTransaction> {
+export class AccountTransactionsRepository implements IDataRepository<VMTransaction> {
 
     @observable data: VMTransaction [] = [];
     @observable totalCount: number = 0;

@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { RPC } from '@app/socket-nest';
+import { RPC, RPCLog } from '@app/socket-nest';
 import { SocketCode } from '@app/common';
 import { CommonService } from 'src/module/common/service/common.service';
 
+@RPCLog
 @Injectable()
 export class CommonController {
 

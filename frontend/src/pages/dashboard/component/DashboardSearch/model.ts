@@ -11,7 +11,7 @@ export enum FilterProps {
 }
 
 @singleton
-export default class DashboardSearchModel {
+export class DashboardSearchModel {
 
     @observable filter: FilterProps = FilterProps.All;
     @observable searchText: string;

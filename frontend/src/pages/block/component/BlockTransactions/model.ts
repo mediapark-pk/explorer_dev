@@ -1,6 +1,6 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
-import BlockTransactionsRepository from 'src/pages/transaction/repository/BlockTransactionsRepository';
+import { BlockTransactionsRepository } from 'src/pages/transaction/repository/BlockTransactionsRepository';
 import { observable } from 'mobx';
 import { VMTransaction } from 'src/common/model/VMTransaction';
 

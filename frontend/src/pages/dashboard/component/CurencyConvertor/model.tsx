@@ -1,6 +1,6 @@
 import { singleton } from 'src/container';
 import { OnInit } from '@app/core';
-import { DashboardService } from 'src/pages/dashboard/service/DashboardService';
+import { CurrencyService } from 'src/pages/dashboard/service/CurrencyService';
 import { observable, action } from 'mobx';
 import { ChangeEvent } from 'react';
 import { ITicker } from '@app/common';
@@ -21,7 +21,7 @@ interface ICurrencyData {
 }
 
 @singleton
-export default class CurencyConvertorModel implements OnInit {
+export class CurencyConvertorModel implements OnInit {
 
     @observable ddkValue: number = 1;
     @observable currencies: string[] = [];
@@ -35,7 +35,7 @@ export default class CurencyConvertorModel implements OnInit {
     marketData: VMMarketData;
 
     constructor(
-        private readonly service: DashboardService,
+        private readonly service: CurrencyService,
     ) {
     }
 
@@ -70,9 +70,9 @@ export default class CurencyConvertorModel implements OnInit {
     onValueUpdate(event: ChangeEvent) {
         const value = (event.target as any).value as number;
         const code = (event.target as any).name as string;
-        this.ddkValue = this.marketData.getPrice(code) / value;
+        this.ddkValue = (1 / this.marketData.getPrice(code)) * value;
         for (const [ currency, currencyData ] of this.currenciesData) {
-            currencyData.value = this.marketData.getPrice(currency) * value;
+            currencyData.value = this.marketData.getPrice(currency) * this.ddkValue;
         }
     }
 

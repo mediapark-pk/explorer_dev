@@ -1,7 +1,10 @@
 import { singleton } from 'src/container';
 import { DataProvider } from '@app/core';
-import BlocksRepository from 'src/pages/blocks/repository/BlocksRepository';
-import TransactionsVolumeRepository, {TransactionAmount} from 'src/pages/blocks/repository/TransactionsVolumeRepository';
+import { BlocksRepository } from 'src/common/repository/BlocksRepository';
+import {
+    TransactionsVolumeRepository,
+    TransactionAmount,
+ } from 'src/pages/blocks/repository/TransactionsVolumeRepository';
 import { observable } from 'mobx';
 import { VMBlock } from 'src/common/model/VMBlock';
 

@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
 import { AppTableBody } from '@app/ui-kit';
-import { Transaction } from 'src/core/model/Transaction';
+import { VMTransaction } from 'src/common/model/VMTransaction';
 import { useDI } from '@app/core';
 import AccountPageModel from 'src/pages/account/component/AccountPage/model';
 import { Tabs } from '@material-ui/core';
@@ -93,7 +93,7 @@ const AccountTable: React.FC<IAccountTableProps> = ({}) => {
                     <AppTableBody
                         className={classes.appTableBody}
                     >
-                        {(item: Transaction, index: number) => (
+                        {(item: VMTransaction, index: number) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <Link className={classes.link} to={`/block/${item.blockId}`}>
